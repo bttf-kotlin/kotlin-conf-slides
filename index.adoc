@@ -1,0 +1,61 @@
+= Kotlin : Le back du futur
+:revealjs_theme: night
+:revealjs_slideNumber: true
+:revealjsdir: https://cdnjs.cloudflare.com/ajax/libs/reveal.js/3.3.0
+:imagesdir: images
+:title-slide-background-image: kotlin-island.jpg
+:title-slide-transition: zoom
+:title-slide-transition-speed: fast
+
+
+== Adrien Pessu
+
+image::adrien.png[size=contain]
+* Freelance
+* @adrien_pe
+
+
+== Gautier de Saint Martin Lacaze
+
+image::gautier.png[size=contain]
+* Freelance
+* @darkjabberwock
+
+== Previously on BreizhCamp
+
+* Doc était partie dans le passé pour comprendre comment on développait dans le passé
+
+== Doc is back
+
+* Doc revient du passé
+* Il raconte à Marty qu'il y a de gros bugs avec le cfp du BreizhCamp
+* Il vient chercher Marty pour l'aider à corriger le bug
+
+== Doc And Marty are in the past
+
+* Doc et Marty vont dans le passé : `git log`
+* Ils découvrent que le cfp est fait en Java et donc est très verbeux
+* Ils proposent d'utiliser Kotlin
+
+== Début de présentation de Kotlin
+
+== Présentation de la syntaxe
+
+== Doc et Marty continue à regarder le code
+
+* ah, ils utilisent Spring
+
+== Kotlin et framework
+
+* spring-boot
+* jackson-kotlin
+* Kotlin arrow
+* ...
+
+== Doc et Marty regarde la partie front
+
+== Kotlin Multiplateform (JVM, JS, Native)
+
+`On peut aussi héberger les applications kotlin sur le nuage intelligent parce qu'on est sur un JVM`
+
+== Thanks
