@@ -348,13 +348,12 @@ html {
 .reveal .slide-number {
   background-color: black;
   right: 0px;
-  bottom: 10px; }
-  .reveal .slide-number .slide-number-a {
-    font-family: 'DS-Digital';
-    font-weight: bold;
-    font-style: italic;
-    font-size: 20px;
-    color: chartreuse; }
+  bottom: 10px;
+  font-family: 'DS-Digital';
+  font-weight: bold;
+  font-style: italic;
+  font-size: 20px;
+  color: chartreuse; }
 
 /********************
  * CONTROLS
