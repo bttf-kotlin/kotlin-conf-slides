@@ -1,21 +1,37 @@
-<!DOCTYPE html><html lang="en"><head><meta charset="utf-8"><title>Kotlin : Le back du futur</title><meta content="yes" name="apple-mobile-web-app-capable"><meta content="black-translucent" name="apple-mobile-web-app-status-bar-style"><meta content="width=device-width, initial-scale=1.0, maximum-scale=1.0, user-scalable=no, minimal-ui" name="viewport"><link href="https://cdnjs.cloudflare.com/ajax/libs/reveal.js/3.3.0/css/reveal.css" rel="stylesheet"><link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/reveal.js/3.3.0/css/theme/night.css" id="theme"><link href="https://cdnjs.cloudflare.com/ajax/libs/reveal.js/3.3.0/lib/css/zenburn.css" rel="stylesheet"><script>var link = document.createElement( 'link' );
+<!DOCTYPE html><html lang="en"><head><meta charset="utf-8"><title>KOTLIN &lt; : &gt; le back du futur</title><meta content="yes" name="apple-mobile-web-app-capable"><meta content="black-translucent" name="apple-mobile-web-app-status-bar-style"><meta content="width=device-width, initial-scale=1.0, maximum-scale=1.0, user-scalable=no, minimal-ui" name="viewport"><link href="node_modules/reveal.js/css/reveal.css" rel="stylesheet"><link rel="stylesheet" href="css/theme/bttf.css" id="theme"><link href="node_modules/reveal.js/lib/css/zenburn.css" rel="stylesheet"><script>var link = document.createElement( 'link' );
 link.rel = 'stylesheet';
 link.type = 'text/css';
-link.href = window.location.search.match( /print-pdf/gi ) ? "https://cdnjs.cloudflare.com/ajax/libs/reveal.js/3.3.0/css/print/pdf.css" : "https://cdnjs.cloudflare.com/ajax/libs/reveal.js/3.3.0/css/print/paper.css";
-document.getElementsByTagName( 'head' )[0].appendChild( link );</script><!--[if lt IE 9]><script src="https://cdnjs.cloudflare.com/ajax/libs/reveal.js/3.3.0/lib/js/html5shiv.js"></script><![endif]--></head><body><div class="reveal"><div class="slides"><section class="title" data-state="title" data-transition="zoom" data-transition-speed="fast" data-background-image="images/kotlin-island.jpg"><h1>Kotlin </h1><h2>Le back du futur</h2></section><section id="adrien_pessu"><h2>Adrien Pessu</h2><div class="imageblock" style=""><img src="images/adrien.png" alt="adrien"></div>
-<div class="ulist"><ul><li><p>Freelance</p></li><li><p>@adrien_pe</p></li></ul></div></section>
-<section id="gautier_de_saint_martin_lacaze"><h2>Gautier de Saint Martin Lacaze</h2><div class="imageblock" style=""><img src="images/gautier.png" alt="gautier"></div>
-<div class="ulist"><ul><li><p>Freelance</p></li><li><p>@darkjabberwock</p></li></ul></div></section>
-<section id="previously_on_breizhcamp"><h2>Previously on BreizhCamp</h2><div class="ulist"><ul><li><p>Doc était partie dans le passé pour comprendre comment on développait dans le passé</p></li></ul></div></section>
-<section id="doc_is_back"><h2>Doc is back</h2><div class="ulist"><ul><li><p>Doc revient du passé</p></li><li><p>Il raconte à Marty qu&#8217;il y a de gros bugs avec le cfp du BreizhCamp</p></li><li><p>Il vient chercher Marty pour l&#8217;aider à corriger le bug</p></li></ul></div></section>
-<section id="doc_and_marty_are_in_the_past"><h2>Doc And Marty are in the past</h2><div class="ulist"><ul><li><p>Doc et Marty vont dans le passé : <code>git log</code></p></li><li><p>Ils découvrent que le cfp est fait en Java et donc est très verbeux</p></li><li><p>Ils proposent d&#8217;utiliser Kotlin</p></li></ul></div></section>
-<section id="dbut_de_prsentation_de_kotlin"><h2>Début de présentation de Kotlin</h2></section>
-<section id="prsentation_de_la_syntaxe"><h2>Présentation de la syntaxe</h2></section>
-<section id="doc_et_marty_continue__regarder_le_code"><h2>Doc et Marty continue à regarder le code</h2><div class="ulist"><ul><li><p>ah, ils utilisent Spring</p></li></ul></div></section>
-<section id="kotlin_et_framework"><h2>Kotlin et framework</h2><div class="ulist"><ul><li><p>spring-boot</p></li><li><p>jackson-kotlin</p></li><li><p>Kotlin arrow</p></li><li><p>&#8230;&#8203;</p></li></ul></div></section>
+link.href = window.location.search.match( /print-pdf/gi ) ? "node_modules/reveal.js/css/print/pdf.css" : "node_modules/reveal.js/css/print/paper.css";
+document.getElementsByTagName( 'head' )[0].appendChild( link );</script><!--[if lt IE 9]><script src="node_modules/reveal.js/lib/js/html5shiv.js"></script><![endif]--></head><body><div class="reveal"><div class="slides"><section class="title" data-state="title" data-transition="zoom" data-transition-speed="fast"><h1>KOTLIN &lt; </h1><h2>&gt; le back du futur</h2><div class="preamble"><aside class="notes"><div class="paragraph"><p>M: Doc ? Doc ? Vous êtes où ?</p></div>
+<div class="paragraph"><p><em>Marty recherche Doc et avance au slide suivant</em> :D</p></div></aside></div></section>
+<section id="previously_on_breizhcamp"><h2>PREVIOUSLY ON BREIZHCAMP</h2><div class="paragraph"><p><span class="actor-role">Doc</span> est parti quelques années dans le passé pour comprendre comment on développait des applications <code>Java</code>.</p></div>
+<aside class="notes"><div class="paragraph"><p>D: Martyyy, tu tombes bien! Je reviens du passé et j&#8217;ai découvert quelquechose d&#8217;horrible.
+Malgré les efforts de nombreuses personnes, la plateforme cfp.io est vouée à disparaître.</p></div>
+<div class="paragraph"><p>M: Mais Doc c&#8217;est pas justement là que l&#8217;on a posté notre conférence pour le BreizhCamp.</p></div>
+<div class="paragraph"><p>D: Si Marty, mais des gens bien intentionné ont préféré l&#8217;abandonner car il manque des fonctionnalités et il y a des bugs.</p></div>
+<div class="paragraph"><p>M: Mais pourquoi n&#8217;ont elle pas été ajoutées ? La plateforme est open source, non ?</p></div>
+<div class="paragraph"><p>D: Vient Marty, je te montre.</p></div></aside></section>
+<section id="in_the_past_of_cfp_io"><h2>IN THE PAST OF CFP.IO</h2><div class="ulist"><ul><li><p>Doc et Marty vont dans le passé : <code>git log</code></p></li><li><p>Ils découvrent que le cfp est fait en Java et donc est très verbeux</p></li><li><p>Ils proposent d&#8217;utiliser Kotlin</p></li></ul></div>
+<aside class="notes"><div class="paragraph"><p>M: Heu&#8230;&#8203; Doc ? C&#8217;est moi où c&#8217;est du Java.</p></div>
+<div class="paragraph"><p>D: Tu sais Marty, à l&#8217;époque il n&#8217;y avait pas trop de choix.</p></div>
+<div class="paragraph"><p>M: On pourrait pas utiliser Kotlin pour rajouter du code ?</p></div>
+<div class="paragraph"><p>D: Nom de Zeus, tu as raison Marty. Kotlin, c&#8217;est le back du futur.</p></div></aside></section>
+<section id="kotlin_le_back_du_futur"><h2>KOTLIN LE BACK DU FUTUR &lt;</h2></section>
+<section id="starring"><h2>STARRING</h2><div class="imageblock actor" style=""><img src="images/adrien.png" alt="adrien"></div>
+<div class="paragraph"><p>Adrien Pessu as <span class="actor-role">Marty</span></p></div>
+<div class="paragraph"><p>Freelance</p></div>
+<div class="paragraph"><p>🐦 @adrien_pe</p></div></section>
+<section id="and"><h2>AND</h2><div class="imageblock actor" style=""><img src="images/gautier.png" alt="gautier"></div>
+<div class="paragraph"><p>Gautier de Saint Martin Lacaze as <span class="actor-role">Doc</span></p></div>
+<div class="paragraph"><p>Freelance &amp; Nantes JUG Leader</p></div>
+<div class="paragraph"><p>🐦 @darkjabberwock</p></div></section>
+<section><section id="les_bases_de_la_syntaxe"><h2>LES BASES DE LA SYNTAXE</h2></section><section id="val_vs_var"><h2>VAL VS VAR</h2></section><section id="class_et_data_class"><h2>CLASS ET DATA CLASS</h2></section><section id="todo"><h2>TODO</h2></section></section>
+<section id="un_peu_de_flow_control"><h2>UN PEU DE FLOW CONTROL</h2></section>
+<section><section id="kotlin_in_the_real_world"><h2>KOTLIN IN THE REAL WORLD</h2></section><section id="java_et_kotlin"><h2>JAVA ET KOTLIN</h2></section><section id="kotlin_et_les_frameworks"><h2>KOTLIN ET LES FRAMEWORKS</h2><div class="ulist"><ul><li><p>spring-boot</p></li><li><p>jackson-kotlin</p></li><li><p>Kotlin arrow</p></li><li><p>&#8230;&#8203;</p></li></ul></div></section></section>
 <section id="doc_et_marty_regarde_la_partie_front"><h2>Doc et Marty regarde la partie front</h2></section>
-<section id="kotlin_multiplateform_jvm_js_native"><h2>Kotlin Multiplateform (JVM, JS, Native)</h2><div class="paragraph"><p><code>On peut aussi héberger les applications kotlin sur le nuage intelligent parce qu&#8217;on est sur un JVM</code></p></div></section>
-<section id="thanks"><h2>Thanks</h2></section></div></div><script src="https://cdnjs.cloudflare.com/ajax/libs/reveal.js/3.3.0/lib/js/head.min.js"></script><script src="https://cdnjs.cloudflare.com/ajax/libs/reveal.js/3.3.0/js/reveal.js"></script><script>// See https://github.com/hakimel/reveal.js#configuration for a full list of configuration options
+<section id="kotlin_multiplateforme"><h2>KOTLIN MULTIPLATEFORME</h2><div class="ulist"><ul><li><p>JVM</p></li><li><p>JS</p></li><li><p>Natif</p></li></ul></div></section>
+<section id="hebergement_facile"><h2>HEBERGEMENT FACILE</h2></section>
+<section id="thanks"><h2>THANKS</h2><div class="paragraph"><p>Any Question ?</p></div></section></div></div><script src="node_modules/reveal.js/lib/js/head.min.js"></script><script src="node_modules/reveal.js/js/reveal.js"></script><script>// See https://github.com/hakimel/reveal.js#configuration for a full list of configuration options
 Reveal.initialize({
   // Display controls in the bottom right corner
   controls: true,
@@ -70,7 +86,7 @@ Reveal.initialize({
   previewLinks: false,
   // Theme (e.g., beige, black, league, night, serif, simple, sky, solarized, white)
   // NOTE setting the theme in the config no longer works in reveal.js 3.x
-  //theme: Reveal.getQueryHash().theme || 'night',
+  //theme: Reveal.getQueryHash().theme || 'black',
   // Transition style (e.g., none, fade, slide, convex, concave, zoom)
   transition: Reveal.getQueryHash().transition || 'slide',
   // Transition speed (e.g., default, fast, slow)
@@ -99,11 +115,11 @@ Reveal.initialize({
 
   // Optional libraries used to extend on reveal.js
   dependencies: [
-      { src: 'https://cdnjs.cloudflare.com/ajax/libs/reveal.js/3.3.0/lib/js/classList.js', condition: function() { return !document.body.classList; } },
-      { src: 'https://cdnjs.cloudflare.com/ajax/libs/reveal.js/3.3.0/plugin/markdown/marked.js', condition: function() { return !!document.querySelector( '[data-markdown]' ); } },
-      { src: 'https://cdnjs.cloudflare.com/ajax/libs/reveal.js/3.3.0/plugin/markdown/markdown.js', condition: function() { return !!document.querySelector( '[data-markdown]' ); } },
+      { src: 'node_modules/reveal.js/lib/js/classList.js', condition: function() { return !document.body.classList; } },
+      { src: 'node_modules/reveal.js/plugin/markdown/marked.js', condition: function() { return !!document.querySelector( '[data-markdown]' ); } },
+      { src: 'node_modules/reveal.js/plugin/markdown/markdown.js', condition: function() { return !!document.querySelector( '[data-markdown]' ); } },
       
-      { src: 'https://cdnjs.cloudflare.com/ajax/libs/reveal.js/3.3.0/plugin/zoom-js/zoom.js', async: true },
-      { src: 'https://cdnjs.cloudflare.com/ajax/libs/reveal.js/3.3.0/plugin/notes/notes.js', async: true }
+      { src: 'node_modules/reveal.js/plugin/zoom-js/zoom.js', async: true },
+      { src: 'node_modules/reveal.js/plugin/notes/notes.js', async: true }
   ]
 });</script></body></html>
