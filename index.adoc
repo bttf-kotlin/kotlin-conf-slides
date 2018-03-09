@@ -1,51 +1,95 @@
-= Kotlin : Le back du futur
-:revealjs_theme: night
+// Theme
+:revealjs_customtheme: css/theme/bttf.css
+
 :revealjs_slideNumber: true
-:revealjsdir: https://cdnjs.cloudflare.com/ajax/libs/reveal.js/3.3.0
+//:revealjsdir: https://cdnjs.cloudflare.com/ajax/libs/reveal.js/3.6.0
 :imagesdir: images
-:title-slide-background-image: kotlin-island.jpg
 :title-slide-transition: zoom
 :title-slide-transition-speed: fast
 
 
-== Adrien Pessu
+= KOTLIN < : > le back du futur
 
-image::adrien.png[size=contain]
-* Freelance
-* @adrien_pe
+[NOTE.speaker]
+--
+M: Doc ? Doc ? Vous êtes où ?
 
+_Marty recherche Doc et avance au slide suivant_ :D
+--
 
-== Gautier de Saint Martin Lacaze
+== PREVIOUSLY ON BREIZHCAMP
 
-image::gautier.png[size=contain]
-* Freelance
-* @darkjabberwock
+[actor-role]#Doc# est parti quelques années dans le passé pour comprendre comment on développait des applications `Java`.
 
-== Previously on BreizhCamp
+[NOTE.speaker]
+--
+D: Martyyy, tu tombes bien! Je reviens du passé et j'ai découvert quelquechose d'horrible. 
+Malgré les efforts de nombreuses personnes, la plateforme cfp.io est vouée à disparaître. 
 
-* Doc était partie dans le passé pour comprendre comment on développait dans le passé
+M: Mais Doc c'est pas justement là que l'on a posté notre conférence pour le BreizhCamp. 
 
-== Doc is back
+D: Si Marty, mais des gens bien intentionné ont préféré l'abandonner car il manque des fonctionnalités et il y a des bugs. 
 
-* Doc revient du passé
-* Il raconte à Marty qu'il y a de gros bugs avec le cfp du BreizhCamp
-* Il vient chercher Marty pour l'aider à corriger le bug
+M: Mais pourquoi n'ont elle pas été ajoutées ? La plateforme est open source, non ?
 
-== Doc And Marty are in the past
+D: Vient Marty, je te montre.
+--
+
+== IN THE PAST OF CFP.IO
 
 * Doc et Marty vont dans le passé : `git log`
 * Ils découvrent que le cfp est fait en Java et donc est très verbeux
 * Ils proposent d'utiliser Kotlin
 
-== Début de présentation de Kotlin
+[NOTE.speaker]
+--
+M: Heu... Doc ? C'est moi où c'est du Java. 
 
-== Présentation de la syntaxe
+D: Tu sais Marty, à l'époque il n'y avait pas trop de choix. 
 
-== Doc et Marty continue à regarder le code
+M: On pourrait pas utiliser Kotlin pour rajouter du code ?
 
-* ah, ils utilisent Spring
+D: Nom de Zeus, tu as raison Marty. Kotlin, c'est le back du futur.
+--
 
-== Kotlin et framework
+== KOTLIN LE BACK DU FUTUR <
+
+== STARRING
+
+image::adrien.png[size=contain, role="actor"]
+
+Adrien Pessu as [.actor-role]#Marty#
+
+
+Freelance
+
+🐦 @adrien_pe
+
+== AND
+
+image::gautier.png[size=contain, role="actor"]
+
+Gautier de Saint Martin Lacaze as [actor-role]#Doc#
+
+Freelance & Nantes JUG Leader
+
+🐦 @darkjabberwock
+
+== LES BASES DE LA SYNTAXE
+
+=== VAL VS VAR
+
+=== CLASS ET DATA CLASS
+
+=== TODO
+
+== UN PEU DE FLOW CONTROL
+
+== KOTLIN IN THE REAL WORLD
+
+=== JAVA ET KOTLIN
+
+=== KOTLIN ET LES FRAMEWORKS
 
 * spring-boot
 * jackson-kotlin
@@ -54,8 +98,14 @@ image::gautier.png[size=contain]
 
 == Doc et Marty regarde la partie front
 
-== Kotlin Multiplateform (JVM, JS, Native)
+== KOTLIN MULTIPLATEFORME
 
-`On peut aussi héberger les applications kotlin sur le nuage intelligent parce qu'on est sur un JVM`
+* JVM
+* JS
+* Natif
 
-== Thanks
+== HEBERGEMENT FACILE
+
+== THANKS
+
+Any Question ?

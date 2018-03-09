@@ -1,0 +1,17 @@
+= README
+
+== Comment générer les slides ?
+
+`node injex.js`
+
+== Comment générer le thème ?
+
+Le thème bttf.css est généré à partir du fichier `css/theme/source/bttf.css`
+
+Pour le générer, il faut utiliser la commande suivante : `grunt css-themes`
+
+== Comment générer le thème automatiquement ?
+
+Il suffit de lancer la commande suivante : `grunt`
+
+Chaque changement du fichier scss regénèrera automatiquement le fichier bttf.css. 
