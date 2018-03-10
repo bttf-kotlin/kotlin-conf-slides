@@ -25,12 +25,105 @@ Malgré les efforts de nombreuses personnes, la plateforme cfp.io est vouée à 
 <div class="paragraph"><p>Gautier de Saint Martin Lacaze as <span class="actor-role">Doc</span></p></div>
 <div class="paragraph"><p>Freelance &amp; Nantes JUG Leader</p></div>
 <div class="paragraph"><p>🐦 @darkjabberwock</p></div></section>
-<section><section id="les_bases_de_la_syntaxe"><h2>LES BASES DE LA SYNTAXE</h2></section><section id="val_vs_var"><h2>VAL VS VAR</h2></section><section id="class_et_data_class"><h2>CLASS ET DATA CLASS</h2></section><section id="todo"><h2>TODO</h2></section></section>
-<section id="un_peu_de_flow_control"><h2>UN PEU DE FLOW CONTROL</h2></section>
-<section><section id="kotlin_in_the_real_world"><h2>KOTLIN IN THE REAL WORLD</h2></section><section id="java_et_kotlin"><h2>JAVA ET KOTLIN</h2></section><section id="kotlin_et_les_frameworks"><h2>KOTLIN ET LES FRAMEWORKS</h2><div class="ulist"><ul><li><p>spring-boot</p></li><li><p>jackson-kotlin</p></li><li><p>Kotlin arrow</p></li><li><p>&#8230;&#8203;</p></li></ul></div></section></section>
-<section id="doc_et_marty_regarde_la_partie_front"><h2>Doc et Marty regarde la partie front</h2></section>
+<section><section id="les_bases_de_la_syntaxe"><h2>LES BASES DE LA SYNTAXE</h2></section><section id="val_vs_var"><h2>VAL VS VAR</h2><div class="listingblock"><div class="content"><pre class="highlight"><code class="kotlin language-kotlin">val name: String = "adrien"
+
+var comment: String = """ Ceci
+|est
+|un commentaire écrit par  ${name}"""</code></pre></div></div></section><section id="dclaration_fonctions"><h2>Déclaration fonctions</h2><div class="listingblock"><div class="content"><pre class="highlight"><code class="kotlin language-kotlin">fun myName(nom: String, prenom: String) : String =
+  "${nom} ${prenom}"</code></pre></div></div></section><section id="lambda_it"><h2>lambda / It</h2><div class="listingblock"><div class="content"><pre class="highlight"><code class="kotlin language-kotlin">strings
+  .filter { it.length == 5 }
+  .sortedBy { it }
+  .map { it.toUpperCase() }</code></pre></div></div></section><section id="class"><h2>class</h2><div class="listingblock"><div class="content"><pre class="highlight"><code class="kotlin language-kotlin">class UserServices(val name: String, val age: Int) {
+  var credentials: Credentials;
+  fun getUsers()...
+}</code></pre></div></div></section><section id="object_class"><h2>Object class</h2><div class="listingblock"><div class="content"><pre class="highlight"><code class="kotlin language-kotlin">object class MySingleton</code></pre></div></div>
+<aside class="notes"><div class="paragraph"><p>Pas de constructeur</p></div></aside></section><section id="data_class"><h2>Data class</h2><div class="listingblock"><div class="content"><pre class="highlight"><code class="kotlin language-kotlin">data class User(val name: String, val age: Int)</code></pre></div></div></section></section>
+<section><section id="flow_control"><h2>FLOW CONTROL</h2><div class="listingblock"><div class="content"><pre class="highlight"><code class="kotlin language-kotlin">val city = user?.adress?
+  .city ?: throw IllegalArgumentException("Invalid User")</code></pre></div></div><div class="listingblock"><div class="content"><pre class="highlight"><code class="kotlin language-kotlin">findOrder()?.let { dun(it.customer) }</code></pre></div></div></section><section id="paramtre_facultatif"><h2>Paramètre facultatif</h2><div class="listingblock"><div class="content"><pre class="highlight"><code class="kotlin language-kotlin">fun printHello(name: String?): Unit {
+  if (name != null)
+    println("Hello ${name}")
+  else
+   println("Hi there!")
+}</code></pre></div></div></section><section id="valeur_par_defaut"><h2>Valeur par defaut</h2><div class="listingblock"><div class="content"><pre class="highlight"><code class="kotlin language-kotlin">fun read(b: Array<Byte>, off: Int = 0, len: Int = b.size) {
+...
+}</code></pre></div></div></section><section id="break_label"><h2>Break label</h2><div class="listingblock"><div class="content"><pre class="highlight"><code class="kotlin language-kotlin">loop@ for (i in 1..100) {
+    for (j in 1..100) {
+        if (...) break@loop
+    }
+}</code></pre></div></div></section><section id="return_label"><h2>return label</h2><div class="listingblock"><div class="content"><pre class="highlight"><code class="kotlin language-kotlin">fun foo() {
+    listOf(1, 2, 3, 4, 5).forEach {
+        if (it == 3) return // non-local return directly to the caller of foo()
+        print(it)
+    }
+    println("this point is unreachable")
+}
+
+fun foo() {
+    listOf(1, 2, 3, 4, 5).forEach lit@{
+        if (it == 3) return@lit
+        print(it)
+    }
+    print(" done with explicit label")
+}</code></pre></div></div></section><section id="return_as_label"><h2>return as Label</h2><div class="listingblock"><div class="content"><pre class="highlight"><code class="kotlin language-kotlin">people.copy(age = 32)</code></pre></div></div></section><section id="if"><h2>If</h2><div class="listingblock"><div class="content"><pre class="highlight"><code class="kotlin language-kotlin">val max = if (a > b) {
+  print("Choose a")
+  a
+} else {
+  print("Choose b")
+  b
+}</code></pre></div></div></section><section id="when"><h2>when</h2><div class="listingblock"><div class="content"><pre class="highlight"><code class="kotlin language-kotlin">when (x) {
+  1 -> print("x == 1")
+  2 -> print("x == 2")
+  3, 4 -> print("x == 3 or 4")
+  else -> { // Note the block
+    print("x is neither 1 nor 2")
+  }
+}</code></pre></div></div></section><section id="try_catch"><h2>try catch</h2><div class="listingblock"><div class="content"><pre class="highlight"><code class="kotlin language-kotlin">val a: Int = try {
+  parseInt(input)
+}
+catch (e: NumberFormatException) {
+  42
+}</code></pre></div></div></section><section id="programmation_fonctionnelle"><h2>Programmation fonctionnelle</h2><div class="listingblock"><div class="content"><pre class="highlight"><code class="kotlin language-kotlin">fun <T> lock(lock: Lock, body: () -> T): T {
+  lock.lock()
+  try {
+      return body()
+  }
+  finally {
+      lock.unlock()
+  }
+}</code></pre></div></div>
+<aside class="notes"><div class="paragraph"><p>Pas de Either par default / mais il existe Arrow</p></div></aside></section><section id="coroutine"><h2>Coroutine</h2><div class="listingblock"><div class="content"><pre class="highlight"><code class="kotlin language-kotlin">val c = AtomicInteger()
+
+for (i in 1..1_000_000)
+  thread(start = true) {
+    c.addAndGet(i)
+  }
+
+println(c.get())</code></pre></div></div>
+<aside class="notes"><div class="paragraph"><p>Thread / Async / Il existe aussi RxKotlin</p></div></aside></section><section id="extensions"><h2>extensions</h2><div class="listingblock"><div class="content"><pre class="highlight"><code class="kotlin language-kotlin">class Hero {
+  fun useSuperpowers() {
+    println("Applied super powers")
+  }
+}
+
+fun Hero.savePlanet() {
+  useSuperpowers()
+}
+
+val superman = Hero()
+superman.savePlanet()</code></pre></div></div>
+<aside class="notes"><div class="paragraph"><p>C#</p></div></aside></section><section id="kotlin_standard_library"><h2>Kotlin Standard Library</h2><div class="listingblock"><div class="content"><pre class="highlight"><code class="kotlin language-kotlin">"test".isNotBlank()</code></pre></div></div></section><section id="companion"><h2>Companion</h2><div class="listingblock"><div class="content"><pre class="highlight"><code class="kotlin language-kotlin">class User private constructor(val login: String) {
+    companion object UserFactory {
+        fun create(login: String): User {
+            return User(login)
+        }
+    }
+}</code></pre></div></div></section></section>
+<section><section id="kotlin_in_the_real_world"><h2>KOTLIN IN THE REAL WORLD</h2></section><section id="java_et_kotlin"><h2>JAVA ET KOTLIN</h2><aside class="notes"><div class="paragraph"><p>On peut aussi utiliser l&#8217;héritage, les implémentations, &#8230;&#8203; tout ce qu&#8217;il y a dans Java</p></div>
+<div class="paragraph"><p>Hebergement facile</p></div>
+<div class="paragraph"><p>Ce qui vient de Java est nullable</p></div>
+<div class="paragraph"><p>Les types primitifs sont des objets</p></div></aside></section></section>
+<section id="kotlin_et_les_frameworks"><h2>KOTLIN ET LES FRAMEWORKS</h2><div class="ulist"><ul><li><p>Spring Boot + JUnit 5</p></li><li><p>jackson-kotlin</p></li><li><p>kTor</p></li><li><p>Javalin</p></li><li><p>Kotlin arrow</p></li><li><p>Jhipster-kotlin</p></li></ul></div></section>
 <section id="kotlin_multiplateforme"><h2>KOTLIN MULTIPLATEFORME</h2><div class="ulist"><ul><li><p>JVM</p></li><li><p>JS</p></li><li><p>Natif</p></li></ul></div></section>
-<section id="hebergement_facile"><h2>HEBERGEMENT FACILE</h2></section>
 <section id="thanks"><h2>THANKS</h2><div class="paragraph"><p>Any Question ?</p></div></section></div></div><script src="node_modules/reveal.js/lib/js/head.min.js"></script><script src="node_modules/reveal.js/js/reveal.js"></script><script>// See https://github.com/hakimel/reveal.js#configuration for a full list of configuration options
 Reveal.initialize({
   // Display controls in the bottom right corner
