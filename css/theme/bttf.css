@@ -327,6 +327,12 @@ html {
   -webkit-text-fill-color: transparent; }
 
 /********************
+ * CODE
+ ********************/
+.reveal .pre {
+  font-size: 0.8em; }
+
+/********************
  * PROGRESS BAR
  ********************/
 .reveal .progress {

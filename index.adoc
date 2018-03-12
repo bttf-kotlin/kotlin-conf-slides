@@ -1,8 +1,19 @@
-// Theme
+// Reveal.js properties
 :revealjs_customtheme: css/theme/bttf.css
-
 :revealjs_slideNumber: true
 //:revealjsdir: https://cdnjs.cloudflare.com/ajax/libs/reveal.js/3.6.0
+
+:revealjs_width: "100%"
+:revealjs_height: "100%"
+:revealjs_margin: 0
+:revealjs_minScale: 1
+:revealjs_maxScale: 1
+
+
+:source-highlighter: highlightjs
+:highlightjsdir: highlightjs
+// :highlightjs-theme: "tomorrow-night-blue"
+
 :imagesdir: images
 :title-slide-transition: zoom
 :title-slide-transition-speed: fast
