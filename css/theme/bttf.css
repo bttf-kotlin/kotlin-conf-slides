@@ -308,11 +308,13 @@ html {
   font-family: 'Back to the future 2002';
   background: linear-gradient(#EE4221, #EA932E, yellow, yellow);
   background-clip: text;
+  -webkit-background-clip: text;
   -webkit-text-fill-color: transparent; }
 
 .reveal .slides section .actor-role {
   background: linear-gradient(#EE4221, #EA932E, yellow, yellow);
   background-clip: text;
+  -webkit-background-clip: text;
   -webkit-text-fill-color: transparent; }
 
 .reveal .slides section .actor img {
@@ -324,6 +326,7 @@ html {
 .reveal .slides section.title h2 {
   background: linear-gradient(yellow, #EA932E, #EE4221);
   background-clip: text;
+  -webkit-background-clip: text;
   -webkit-text-fill-color: transparent; }
 
 /********************
