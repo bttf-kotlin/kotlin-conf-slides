@@ -2,7 +2,7 @@
 
 == Comment générer les slides ?
 
-`node injex.js`
+`node index.js`
 
 == Comment générer le thème ?
 
