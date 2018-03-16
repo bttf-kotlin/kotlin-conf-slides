@@ -3,6 +3,18 @@
 
 :revealjs_slideNumber: true
 //:revealjsdir: https://cdnjs.cloudflare.com/ajax/libs/reveal.js/3.6.0
+
+//:revealjs_width: "100%"
+//:revealjs_height: "100%"
+//:revealjs_margin: 0
+//:revealjs_minScale: 1
+//:revealjs_maxScale: 1
+
+:source-highlighter: highlightjs
+// :highlightjsdir: highlightjs
+// :highlightjs-theme: "tomorrow-night-blue"
+
+
 :imagesdir: images
 :title-slide-transition: zoom
 :title-slide-transition-speed: fast
@@ -17,18 +29,18 @@ M: Doc ? Doc ? Vous êtes où ?
 _Marty recherche Doc et avance au slide suivant_ :D
 --
 
-== PREVIOUSLY ON BREIZHCAMP
+== PREVIOUSLY&nbsp;ON&nbsp;BREIZHCAMP
 
 [actor-role]#Doc# est parti quelques années dans le passé pour comprendre comment on développait des applications `Java`.
 
 [NOTE.speaker]
 --
-D: Martyyy, tu tombes bien! Je reviens du passé et j'ai découvert quelquechose d'horrible. 
-Malgré les efforts de nombreuses personnes, la plateforme cfp.io est vouée à disparaître. 
+D: Martyyy, tu tombes bien! Je reviens du passé et j'ai découvert quelquechose d'horrible.
+Malgré les efforts de nombreuses personnes, la plateforme cfp.io est vouée à disparaître.
 
-M: Mais Doc c'est pas justement là que l'on a posté notre conférence pour le BreizhCamp. 
+M: Mais Doc c'est pas justement là que l'on a posté notre conférence pour le BreizhCamp.
 
-D: Si Marty, mais des gens bien intentionné ont préféré l'abandonner car il manque des fonctionnalités et il y a des bugs. 
+D: Si Marty, mais des gens bien intentionné ont préféré l'abandonner car il manque des fonctionnalités et il y a des bugs.
 
 M: Mais pourquoi n'ont elle pas été ajoutées ? La plateforme est open source, non ?
 
@@ -37,19 +49,57 @@ D: Vient Marty, je te montre.
 
 == IN THE PAST OF CFP.IO
 
-* Doc et Marty vont dans le passé : `git log`
-* Ils découvrent que le cfp est fait en Java et donc est très verbeux
-* Ils proposent d'utiliser Kotlin
+
+[source,bash]
+----
+commit cfc41bb48e4fc66dd2bf04588e24f590147cef45
+Author: Nicolas De Loof <nicolas.deloof@gmail.com>
+Date:   Tue Apr 25 16:24:44 2017 +0200
+
+    ah le code legacy,
+    même pas foutu de respected la norme javabean :-\
+
+commit 771136b238f375edf44c092c8c37b6014919e6cf
+Author: Nicolas De Loof <nicolas.deloof@gmail.com>
+Date:   Wed Mar 8 19:15:11 2017 +0100
+
+    java Date API sucks
+
+commit 2b67097a80dc5e970b12665924ebc73b751adc10
+Merge: f9fcc1b9 5b11b30d
+Author: Marc <marc.audefroy@ovh.fr>
+Date:   Tue Dec 8 18:27:06 2015 +0100
+
+    Merge branch 'cospeakers'   Note du dev : GRRRRRRR
+
+    Conflicts:
+            src/main/java/fr/sii/controller/restricted/session/SessionController.java
+            src/main/java/fr/sii/dto/TalkUser.java
+            src/main/java/fr/sii/dto/mapping/TalkMapping.java
+            src/main/java/fr/sii/service/TalkUserService.java
+            src/main/resources/changelog/changelog-1.0.xml
+            src/main/static/app/scripts/controllers/restricted/talks/edit.js
+
+commit dc41801e45d6c1c23b17325eafe712824808e9be
+Author: Nicolas De Loof <nicolas.deloof@gmail.com>
+Date:   Sat Nov 7 14:33:42 2015 +0100
+
+    can’t run with java 8
+
+----
+
+
 
 [NOTE.speaker]
 --
-M: Heu... Doc ? C'est moi où c'est du Java. 
+M: Heu... Doc ? C'est moi où c'est du Java.
 
-D: Tu sais Marty, à l'époque il n'y avait pas trop de choix. 
+D: Tu sais Marty, à l'époque il n'y avait pas trop de choix.
 
 M: On pourrait pas utiliser Kotlin pour rajouter du code ?
 
 D: Nom de Zeus, tu as raison Marty. Kotlin, c'est le back du futur.
+On peut faire la même chose que Java et bien plus encore.
 --
 
 == KOTLIN LE BACK DU FUTUR <
@@ -59,7 +109,6 @@ D: Nom de Zeus, tu as raison Marty. Kotlin, c'est le back du futur.
 image::adrien.png[size=contain, role="actor"]
 
 Adrien Pessu as [.actor-role]#Marty#
-
 
 Freelance
 
@@ -77,34 +126,442 @@ Freelance & Nantes JUG Leader
 
 == LES BASES DE LA SYNTAXE
 
+[transition=fade]
 === VAL VS VAR
 
-=== CLASS ET DATA CLASS
+// Adrien
 
-=== TODO
+[source,kotlin,subs="quotes"]
+----
+val name: String = "adrien"
 
-== UN PEU DE FLOW CONTROL
 
-== KOTLIN IN THE REAL WORLD
 
-=== JAVA ET KOTLIN
 
-=== KOTLIN ET LES FRAMEWORKS
 
-* spring-boot
+//
+----
+
+[transition=fade]
+=== VAL VS VAR
+
+// Adrien
+
+[source,kotlin,subs="quotes"]
+----
+val name: String = "adrien"
+
+var comment: String
+
+comment = """ Ceci
+|est
+|un commentaire écrit par  ${name}"""
+----
+
+[NOTE.speaker]
+--
+val correspond à une valeur non modifiable.
+Doit être initialisée lors de la déclaration.
+
+var peut varier.
+Peut être initialisé plus tard.
+--
+
+=== TYPE BASIQUE
+
+// Gautier
+
+[%step]
+* Pas de type primitif
+* Double, Float, Int...
+* Char, String
+* Boolean
+
+=== ARRAY
+
+// Gautier
+
+
+* Array
+
+[source,kotlin]
+----
+val x: IntArray = intArrayOf(1, 2, 3)
+x[0] = x[1] + x[2]
+----
+
+[NOTE.speaker]
+--
+Pas de types primitif.
+
+--
+
+
+=== RANGE
+
+// Adrien
+
+1..10
+
+=== SMART CAST
+
+// Adrien
+
+=== DÉCLARATION FONCTIONS
+
+// Gautier
+
+[source,kotlin,subs="quotes"]
+----
+fun myName(nom: String, prenom: String) : String =
+  "${nom} ${prenom}"
+----
+
+[NOTE.speaker]
+--
+Les fonctions peuvent être globale, ou encapsulé dans des classes.
+
+--
+
+=== PARAMETRE FACULTATIF
+
+// Gautier
+
+[source,kotlin,subs="quotes"]
+----
+fun printHello(name: String?): Unit {
+  if (name != null)
+    println("Hello ${name}")
+  else
+   println("Hi there!")
+}
+----
+
+=== VALEUR PAR DÉFAUT
+
+// Gautier
+
+[source,kotlin,subs="quotes"]
+----
+fun read(b: Array<Byte>, off: Int = 0, len: Int = b.size) {
+...
+}
+----
+
+=== PARAMETRE NOMMÉ
+
+// Gautier
+
+exemple de code
+
+=== LAMBDA / IT
+
+// Gautier
+
+[source,kotlin,subs="quotes"]
+----
+strings
+  .filter { it.length == 5 }
+  .sortedBy { it }
+  .map { it.toUpperCase() }
+----
+
+[NOTE.speaker]
+--
+it correspond à l'élement courant
+
+lambda sans utilisation des `arrows`
+--
+
+=== CLASS
+
+// Adrien
+
+[source,kotlin,subs="quotes"]
+----
+class UserServices(val name: String, val age: Int) {
+  var credentials: Credentials;
+  fun getUsers()...
+}
+----
+
+=== OBJECT CLASS
+
+// Adrien
+
+[source,kotlin,subs="quotes"]
+----
+object class MySingleton
+----
+
+[NOTE.speaker]
+--
+Pas de constructeur
+--
+
+=== DATA CLASS
+
+// Adrien
+
+[source,kotlin,subs="quotes"]
+----
+data class User(val name: String, val age: Int)
+----
+
+explique interet
+
+pas besoin de lombock
+
+[source,kotlin,subs="quotes"]
+----
+people.copy(age = 32)
+----
+
+=== OVERLOADING
+
+// Adrien
+
+exemple de code (cf. bout de code callForPapers)
+
+== FLOW CONTROL
+
+=== IF
+
+// Gautier
+
+[source,kotlin,subs="quotes"]
+----
+val max = if (a > b) {
+  print("Choose a")
+  a
+} else {
+  print("Choose b")
+  b
+}
+----
+
+=== ELVIS OPERATOR
+
+// Gautier
+
+[source,kotlin,subs="quotes"]
+----
+val city = user?.adress?
+  .city ?: throw IllegalArgumentException("Invalid User")
+----
+
+[source,kotlin,subs="quotes"]
+----
+findOrder()?.let { dun(it.customer) }
+----
+
+=== WHEN
+
+// Adrien
+
+[source,kotlin,subs="quotes"]
+----
+when (x) {
+  1 -> print("x == 1")
+  2 -> print("x == 2")
+  3, 4 -> print("x == 3 or 4")
+  else -> { // Note the block
+    print("x is neither 1 nor 2")
+  }
+}
+----
+
+Mettre plus d'exemples
+
+fonction
+
+remplacement du if else if else
+
+utilisation de range (in)
+
+Smart cast...
+
+
+=== TRY CATCH
+
+// Gautier
+
+[source,kotlin,subs="quotes"]
+----
+val a: Int = try {
+  parseInt(input)
+}
+catch (e: NumberFormatException) {
+  42
+}
+----
+
+=== BREAK LABEL
+
+//  Adrien
+
+[source,kotlin,subs="quotes"]
+----
+loop@ for (i in 1..100) {
+    for (j in 1..100) {
+        if (...) break@loop
+    }
+}
+----
+
+=== RETURN LABEL
+
+// Adrien
+
+// Si trop long, on vire
+
+[source,kotlin,subs="quotes"]
+----
+fun foo() {
+    listOf(1, 2, 3, 4, 5).forEach {
+        if (it == 3) return // non-local return directly to the caller of foo()
+        print(it)
+    }
+    println("this point is unreachable")
+}
+
+fun foo() {
+    listOf(1, 2, 3, 4, 5).forEach lit@{
+        if (it == 3) return@lit
+        print(it)
+    }
+    print(" done with explicit label")
+}
+----
+
+== KOTLIN STANDARD LIBRARY
+
+// Adrien
+
+[source,kotlin,subs="quotes"]
+----
+"test".isNotBlank()
+----
+
+== PROGRAMMATION FONCTIONNELLE
+
+// Gautier
+
+2-4 slides
+
+DSICLAIMER : pas un langage fonctionnel
+
+Possibilité de faire du fonctionnel
+
+Parler de Pair
+
+Parler de triple
+
+Destructuring fonction
+
+[source,kotlin,subs="quotes"]
+----
+fun <T> lock(lock: Lock, body: () -> T): T {
+  lock.lock()
+  try {
+      return body()
+  }
+  finally {
+      lock.unlock()
+  }
+}
+----
+
+[NOTE.speaker]
+--
+Pas de Either par default / mais il existe Arrow
+--
+
+== COROUTINE
+
+// Adrien
+
+2-3 slides
+
+[source,kotlin,subs="quotes"]
+----
+val c = AtomicInteger()
+
+for (i in 1..1_000_000)
+  thread(start = true) {
+    c.addAndGet(i)
+  }
+
+println(c.get())
+----
+
+[NOTE.speaker]
+--
+Thread / Async / Il existe aussi RxKotlin
+--
+
+== EXTENSIONS
+
+// Gautier
+
+Le polyfill du Java dans Kotlin
+
+[source,kotlin,subs="quotes"]
+----
+class Hero {
+  fun useSuperpowers() {
+    println("Applied super powers")
+  }
+}
+
+fun Hero.savePlanet() {
+  useSuperpowers()
+}
+
+val superman = Hero()
+superman.savePlanet()
+----
+
+[NOTE.speaker]
+--
+
+provient de C#
+
+--
+
+== COMPANION
+
+// Gautier
+
+[source, kotlin]
+----
+class User private constructor(val login: String) {
+    companion object UserFactory {
+        fun create(login: String): User {
+            return User(login)
+        }
+    }
+}
+----
+
+== KOTLIN ET LES FRAMEWORKS
+
+// Adrien
+
+* Spring Boot + JUnit 5
 * jackson-kotlin
+* kTor
+* Javalin
 * Kotlin arrow
-* ...
-
-== Doc et Marty regarde la partie front
+* Jhipster-kotlin
 
 == KOTLIN MULTIPLATEFORME
+
+// Gautier
 
 * JVM
 * JS
 * Natif
-
-== HEBERGEMENT FACILE
 
 == THANKS
 
