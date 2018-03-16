@@ -3,6 +3,18 @@
 
 :revealjs_slideNumber: true
 //:revealjsdir: https://cdnjs.cloudflare.com/ajax/libs/reveal.js/3.6.0
+
+//:revealjs_width: "100%"
+//:revealjs_height: "100%"
+//:revealjs_margin: 0
+//:revealjs_minScale: 1
+//:revealjs_maxScale: 1
+
+:source-highlighter: highlightjs
+// :highlightjsdir: highlightjs
+// :highlightjs-theme: "tomorrow-night-blue"
+
+
 :imagesdir: images
 :title-slide-transition: zoom
 :title-slide-transition-speed: fast
@@ -17,7 +29,7 @@ M: Doc ? Doc ? Vous êtes où ?
 _Marty recherche Doc et avance au slide suivant_ :D
 --
 
-== PREVIOUSLY ON BREIZHCAMP
+== PREVIOUSLY&nbsp;ON&nbsp;BREIZHCAMP
 
 [actor-role]#Doc# est parti quelques années dans le passé pour comprendre comment on développait des applications `Java`.
 
@@ -37,9 +49,46 @@ D: Vient Marty, je te montre.
 
 == IN THE PAST OF CFP.IO
 
-* Doc et Marty vont dans le passé : `git log`
-* Ils découvrent que le cfp est fait en Java et donc est très verbeux
-* Ils proposent d'utiliser Kotlin
+
+[source,bash]
+----
+commit cfc41bb48e4fc66dd2bf04588e24f590147cef45
+Author: Nicolas De Loof <nicolas.deloof@gmail.com>
+Date:   Tue Apr 25 16:24:44 2017 +0200
+
+    ah le code legacy,
+    même pas foutu de respected la norme javabean :-\
+
+commit 771136b238f375edf44c092c8c37b6014919e6cf
+Author: Nicolas De Loof <nicolas.deloof@gmail.com>
+Date:   Wed Mar 8 19:15:11 2017 +0100
+
+    java Date API sucks
+
+commit 2b67097a80dc5e970b12665924ebc73b751adc10
+Merge: f9fcc1b9 5b11b30d
+Author: Marc <marc.audefroy@ovh.fr>
+Date:   Tue Dec 8 18:27:06 2015 +0100
+
+    Merge branch 'cospeakers'   Note du dev : GRRRRRRR
+
+    Conflicts:
+            src/main/java/fr/sii/controller/restricted/session/SessionController.java
+            src/main/java/fr/sii/dto/TalkUser.java
+            src/main/java/fr/sii/dto/mapping/TalkMapping.java
+            src/main/java/fr/sii/service/TalkUserService.java
+            src/main/resources/changelog/changelog-1.0.xml
+            src/main/static/app/scripts/controllers/restricted/talks/edit.js
+
+commit dc41801e45d6c1c23b17325eafe712824808e9be
+Author: Nicolas De Loof <nicolas.deloof@gmail.com>
+Date:   Sat Nov 7 14:33:42 2015 +0100
+
+    can’t run with java 8
+
+----
+
+
 
 [NOTE.speaker]
 --
@@ -77,6 +126,18 @@ Freelance & Nantes JUG Leader
 
 == LES BASES DE LA SYNTAXE
 
+[transition=fade]
+=== VAL VS VAR
+[source,kotlin,subs="quotes"]
+----
+val name: String = "adrien"
+
+
+
+//
+----
+
+[transition=fade]
 === VAL VS VAR
 [source,kotlin,subs="quotes"]
 ----
@@ -86,7 +147,8 @@ var comment: String = """ Ceci
 |est
 |un commentaire écrit par  ${name}"""
 ----
-=== Déclaration fonctions
+
+=== DÉCLARATION FONCTIONS
 
 [source,kotlin,subs="quotes"]
 ----
@@ -94,7 +156,7 @@ fun myName(nom: String, prenom: String) : String =
   "${nom} ${prenom}"
 ----
 
-=== lambda / It
+=== LAMBDA / IT
 [source,kotlin,subs="quotes"]
 ----
 strings
@@ -103,7 +165,7 @@ strings
   .map { it.toUpperCase() }
 ----
 
-=== class
+=== CLASS
 [source,kotlin,subs="quotes"]
 ----
 class UserServices(val name: String, val age: Int) {
@@ -112,7 +174,7 @@ class UserServices(val name: String, val age: Int) {
 }
 ----
 
-=== Object class
+=== OBJECT CLASS
 [source,kotlin,subs="quotes"]
 ----
 object class MySingleton
@@ -123,7 +185,7 @@ object class MySingleton
 Pas de constructeur
 --
 
-=== Data class
+=== DATA CLASS
 [source,kotlin,subs="quotes"]
 ----
 data class User(val name: String, val age: Int)
@@ -142,7 +204,7 @@ val city = user?.adress?
 findOrder()?.let { dun(it.customer) }
 ----
 
-=== Paramètre facultatif
+=== PARAMETRE FACULTATIF
 [source,kotlin,subs="quotes"]
 ----
 fun printHello(name: String?): Unit {
@@ -152,7 +214,8 @@ fun printHello(name: String?): Unit {
    println("Hi there!")
 }
 ----
-=== Valeur par defaut
+
+=== VALEUR PAR DÉFAUT
 [source,kotlin,subs="quotes"]
 ----
 fun read(b: Array<Byte>, off: Int = 0, len: Int = b.size) {
@@ -160,7 +223,7 @@ fun read(b: Array<Byte>, off: Int = 0, len: Int = b.size) {
 }
 ----
 
-=== Break label
+=== BREAK LABEL
 [source,kotlin,subs="quotes"]
 ----
 loop@ for (i in 1..100) {
@@ -170,7 +233,7 @@ loop@ for (i in 1..100) {
 }
 ----
 
-=== return label
+=== RETURN LABEL
 [source,kotlin,subs="quotes"]
 ----
 fun foo() {
@@ -190,14 +253,14 @@ fun foo() {
 }
 ----
 
-=== return as Label
+=== RETURN AS LABEL
 [source,kotlin,subs="quotes"]
 ----
 people.copy(age = 32)
 ----
 
 
-=== If
+=== IF
 
 [source,kotlin,subs="quotes"]
 ----
@@ -210,7 +273,7 @@ val max = if (a > b) {
 }
 ----
 
-=== when
+=== WHEN
 [source,kotlin,subs="quotes"]
 ----
 when (x) {
@@ -223,7 +286,7 @@ when (x) {
 }
 ----
 
-=== try catch
+=== TRY CATCH
 [source,kotlin,subs="quotes"]
 ----
 val a: Int = try {
@@ -234,7 +297,7 @@ catch (e: NumberFormatException) {
 }
 ----
 
-=== Programmation fonctionnelle
+=== PROGRAMMATION FONCTIONNELLE
 
 [source,kotlin,subs="quotes"]
 ----
@@ -254,7 +317,7 @@ fun <T> lock(lock: Lock, body: () -> T): T {
 Pas de Either par default / mais il existe Arrow
 --
 
-=== Coroutine
+=== COROUTINE
 
 [source,kotlin,subs="quotes"]
 ----
@@ -273,7 +336,7 @@ println(c.get())
 Thread / Async / Il existe aussi RxKotlin
 --
 
-=== extensions
+=== EXTENSIONS
 [source,kotlin,subs="quotes"]
 ----
 class Hero {
@@ -297,14 +360,14 @@ C#
 
 --
 
-=== Kotlin Standard Library
+=== KOTLIN STANDARD LIBRARY
 
 [source,kotlin,subs="quotes"]
 ----
 "test".isNotBlank()
 ----
 
-=== Companion
+=== COMPANION
 
 [source, kotlin]
 ----
