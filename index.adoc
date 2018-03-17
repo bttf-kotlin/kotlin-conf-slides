@@ -203,7 +203,31 @@ Pas de types primitif.
 
 // Adrien
 
-1..10
+[source,kotlin]
+----
+if (i in 1..10) {
+    println("""Retour vers le futur ${i}""")
+}
+
+for (i in 1..10) {
+    println("""Retour vers le futur ${i}""")
+}
+----
+
+=== RANGE
+
+// Adrien
+
+[source,kotlin]
+----
+for (i in 1..4 step 2) {
+    println("""Retour vers le futur ${i}""")
+}
+
+for (i in 4 downTo 1 step 2) {
+    println("""Retour vers le futur ${i}""")
+}
+----
 
 === SMART CAST
 
