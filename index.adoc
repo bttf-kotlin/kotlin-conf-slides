@@ -133,7 +133,7 @@ Freelance & Nantes JUG Leader
 
 [source,kotlin,subs="quotes"]
 ----
-val name: String = "adrien"
+val name: String = "Allô ? Allô ?"
 
 
 
@@ -149,13 +149,15 @@ val name: String = "adrien"
 
 [source,kotlin,subs="quotes"]
 ----
-val name: String = "adrien"
+val name: String = "McFly"
 
 var comment: String
 
-comment = """ Ceci
-|est
-|un commentaire écrit par  ${name}"""
+comment = """ Allô ? Allô ?
+| Y'a personne au bout du fil ?
+| Faut réfléchir ${name} !
+| Faut réfléchir
+"""
 ----
 
 [NOTE.speaker]
