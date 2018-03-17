@@ -79,7 +79,22 @@ Doit être initialisée lors de la déclaration.</p></div>
 Peut être initialisé plus tard.</p></div></aside></section><section id="type_basique"><h2>TYPE BASIQUE</h2><div class="ulist"><ul><li class="fragment"><p>Pas de type primitif</p></li><li class="fragment"><p>Double, Float, Int&#8230;&#8203;</p></li><li class="fragment"><p>Char, String</p></li><li class="fragment"><p>Boolean</p></li></ul></div></section><section id="array"><h2>ARRAY</h2><div class="ulist"><ul><li><p>Array</p></li></ul></div>
 <div class="listingblock"><div class="content"><pre class="highlight"><code data-noescape class="kotlin language-kotlin">val x: IntArray = intArrayOf(1, 2, 3)
 x[0] = x[1] + x[2]</code></pre></div></div>
-<aside class="notes"><div class="paragraph"><p>Pas de types primitif.</p></div></aside></section><section id="range"><h2>RANGE</h2><div class="paragraph"><p>1..10</p></div></section><section id="smart_cast"><h2>SMART CAST</h2></section><section id="dclaration_fonctions"><h2>DÉCLARATION FONCTIONS</h2><div class="listingblock"><div class="content"><pre class="highlight"><code data-noescape class="kotlin language-kotlin">fun myName(nom: String, prenom: String) : String =
+<aside class="notes"><div class="paragraph"><p>Pas de types primitif.</p></div></aside></section><section id="range"><h2>RANGE</h2><div class="listingblock"><div class="content"><pre class="highlight"><code data-noescape class="kotlin language-kotlin">if (i in 1..10) {
+  println("""Retour vers le futur ${i}""")
+}
+
+for (i in 1..10) {
+  println("""Retour vers le futur ${i}""")
+}</code></pre></div></div></section><section id="range_2"><h2>RANGE</h2><div class="listingblock"><div class="content"><pre class="highlight"><code data-noescape class="kotlin language-kotlin">for (i in 1..4 step 2) {
+  println("""Retour vers le futur ${i}""")
+}
+
+for (i in 4 downTo 1 step 2) {
+  println("""Retour vers le futur ${i}""")
+}</code></pre></div></div></section><section id="smart_cast"><h2>SMART CAST</h2><div class="listingblock"><div class="content"><pre class="highlight"><code data-noescape class="kotlin language-kotlin">if (talk !is String) return
+print(talk.length)</code></pre></div></div></section><section id="smart_cast_2"><h2>SMART CAST</h2><div class="listingblock"><div class="content"><pre class="highlight"><code data-noescape class="kotlin language-kotlin">val talk: String? = y as String?
+val talk: String? = y as? String</code></pre></div></div>
+<aside class="notes"><div class="paragraph"><p>unsafe throw exception / safe return null</p></div></aside></section><section id="dclaration_fonctions"><h2>DÉCLARATION FONCTIONS</h2><div class="listingblock"><div class="content"><pre class="highlight"><code data-noescape class="kotlin language-kotlin">fun myName(nom: String, prenom: String) : String =
   "${nom} ${prenom}"</code></pre></div></div>
 <aside class="notes"><div class="paragraph"><p>Les fonctions peuvent être globale, ou encapsulé dans des classes.</p></div></aside></section><section id="parametre_facultatif"><h2>PARAMETRE FACULTATIF</h2><div class="listingblock"><div class="content"><pre class="highlight"><code data-noescape class="kotlin language-kotlin">fun printHello(name: String?): Unit {
   if (name != null)
