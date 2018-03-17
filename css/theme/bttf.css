@@ -327,6 +327,33 @@ html {
   background: linear-gradient(yellow, #EA932E, #EE4221);
   background-clip: text;
   -webkit-background-clip: text;
+  -webkit-text-fill-color: transparent;
+  font-size: 4.5em; }
+
+.reveal .slides section.title .title-left-part {
+  font-size: .45em;
+  display: inline-block;
+  width: 3em;
+  text-align: left; }
+
+.reveal .slides section .header {
+  display: block;
+  font-size: 4.5em;
+  font-weight: bold;
+  font-family: 'Back to the future 2002';
+  background: linear-gradient(#EE4221, #EA932E, yellow, yellow);
+  background-clip: text;
+  -webkit-background-clip: text;
+  -webkit-text-fill-color: transparent; }
+
+.reveal .slides section .hearder-line {
+  display: block;
+  font-size: 2.0em;
+  font-weight: bold;
+  font-family: 'Back to the future 2002';
+  background: linear-gradient(yellow, #EA932E, #EE4221);
+  background-clip: text;
+  -webkit-background-clip: text;
   -webkit-text-fill-color: transparent; }
 
 /********************
