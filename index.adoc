@@ -20,7 +20,7 @@
 :title-slide-transition-speed: fast
 
 
-= KOTLIN < : > le back du futur
+= BREIZH < : [title-left-part]#to the# camp
 
 [NOTE.speaker]
 --
@@ -102,7 +102,10 @@ D: Nom de Zeus, tu as raison Marty. Kotlin, c'est le back du futur.
 On peut faire la même chose que Java et bien plus encore.
 --
 
-== KOTLIN LE BACK DU FUTUR <
+[transition=zoom]
+== !
+
+[header]#KOTLIN <# [hearder-line]#> LE BACK DU FUTUR#
 
 == STARRING
 
