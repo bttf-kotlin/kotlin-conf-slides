@@ -705,14 +705,14 @@ Pas de Either par default / mais il existe Arrow
 
 [source,kotlin,subs="quotes"]
 ----
-val c = AtomicInteger()
+fun journeyInThePast() = async() {
+    messUpParentProm()
+    findPower(1.21, "gigawatt")
+}
 
-for (i in 1..1_000_000)
-  thread(start = true) {
-    c.addAndGet(i)
-  }
-
-println(c.get())
+launch(delorean) {
+    journeyInThePast().await()
+}
 ----
 
 [NOTE.speaker]
