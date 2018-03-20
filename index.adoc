@@ -528,8 +528,30 @@ fun foo() {
 
 [source,kotlin,subs="quotes"]
 ----
-"test".isNotBlank()
+val speaker = "McFly"
+val year = 1985
+if(speaker.isNotBlank()){
+  print("""BTTF with ${speaker.capitalize()}""")
+  print(year.plus(33))
+}
 ----
+
+[transition=fade]
+== KOTLIN STANDARD LIBRARY
+
+// Adrien
+
+[source,kotlin,subs="quotes"]
+----
+val years = arrayOf(1985, 1992, 2018)
+print(years.average())
+Talk.apply{remainingTime = 20}
+----
+
+[NOTE.speaker]
+--
+Shape of the code
+--
 
 == PROGRAMMATION FONCTIONNELLE
 
