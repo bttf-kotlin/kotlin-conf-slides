@@ -705,6 +705,13 @@ Pas de Either par default / mais il existe Arrow
 
 &nbsp;
 
+[NOTE.speaker]
+--
+* coroutine => thread léger collaboratif. transition vers une autre coroutine à sa demande.
+
+* thread => scheduleur pré-emptif.horloges synchronisent les changements de contextes.
+--
+
 [transition=fade]
 === COROUTINE
 
@@ -712,19 +719,28 @@ Pas de Either par default / mais il existe Arrow
 
 [source,kotlin,subs="quotes"]
 ----
-fun journeyInThePast() = async() {
-    messUpParentProm()
-    findPower(1.21, "gigawatt")
+val messUpParentProm = async(1955Context){...}
+
+val findPower = async(1955Context){...}
+
+suspend fun journeyInThePast(): String {
+    messUpParentProm().await()
+    findPower().await()
+    return "Marty"
 }
 
-launch(delorean) {
-    journeyInThePast().await()
+launch() {
+    print("fight Lebaneses")
+    print(journeyInThePast().await())
+    print("go away from Lebaneses")
 }
 ----
 
 [NOTE.speaker]
 --
-Thread / Async / Il existe aussi RxKotlin
+* Thead block
+* Async no blocking but work with context
+* suspend no blocking and return value 
 --
 
 == EXTENSIONS
