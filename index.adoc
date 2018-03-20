@@ -699,9 +699,16 @@ Pas de Either par default / mais il existe Arrow
 
 == COROUTINE
 
-// Adrien
+&nbsp;
 
-2-3 slides
+&nbsp;
+
+&nbsp;
+
+[transition=fade]
+=== COROUTINE
+
+// Adrien
 
 [source,kotlin,subs="quotes"]
 ----
