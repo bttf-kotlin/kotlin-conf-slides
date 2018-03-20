@@ -20,7 +20,7 @@
 :title-slide-transition-speed: fast
 
 
-= KOTLIN < : > le back du futur
+= BREIZH < : [title-left-part]#to the# camp
 
 [NOTE.speaker]
 --
@@ -102,7 +102,10 @@ D: Nom de Zeus, tu as raison Marty. Kotlin, c'est le back du futur.
 On peut faire la même chose que Java et bien plus encore.
 --
 
-== KOTLIN LE BACK DU FUTUR <
+[transition=zoom]
+== !
+
+[header]#KOTLIN <# [hearder-line]#> LE BACK DU FUTUR#
 
 == STARRING
 
@@ -133,7 +136,7 @@ Freelance & Nantes JUG Leader
 
 [source,kotlin,subs="quotes"]
 ----
-val name: String = "adrien"
+val quote: String = "Allô ? Allô ?"
 
 
 
@@ -149,13 +152,15 @@ val name: String = "adrien"
 
 [source,kotlin,subs="quotes"]
 ----
-val name: String = "adrien"
+val name = "McFly"
 
-var comment: String
+var quote: String
 
-comment = """ Ceci
-|est
-|un commentaire écrit par  ${name}"""
+quote = """ Allô ? Allô ?
+| Y'a personne au bout du fil ?
+| Faut réfléchir ${name} !
+| Faut réfléchir
+"""
 ----
 
 [NOTE.speaker]
@@ -238,13 +243,55 @@ val anyVersions: Array<Any> = versions // won't compile
 
 // Adrien
 
-1..10
+[source,kotlin]
+----
+if (i in 1..3) {
+  println("""Retour vers le futur ${i}""")
+}
 
-=== SMART CAST
+for (i in IntRange(1, 3)) {
+  println("""Retour vers le futur ${i}""")
+}
+----
+
+[transition=fade]
+=== RANGE
 
 // Adrien
 
+[source,kotlin]
+----
+for (i in 1..4 step 2) {
+  println("""Retour vers le futur ${i}""")
+}
+
+for (i in 4 downTo 1 step 2) {
+  println("""Retour vers le futur ${i}""")
+}
+----
+
+=== SMART CAST
+
+[source,kotlin]
+----
+if (talk !is String) return
+print(talk.length)
+----
+
 [transition=fade]
+=== SMART CAST
+
+[source,kotlin]
+----
+val talk: String? = y as String?
+val talk: String? = y as? String
+----
+
+[NOTE.speaker]
+--
+unsafe throw exception / safe return null
+--
+
 === DÉCLARATION FONCTIONS
 
 // Gautier
@@ -399,20 +446,68 @@ Pas de constructeur
 data class User(val name: String, val age: Int)
 ----
 
-explique interet
-
+[NOTE.speaker]
+--
 pas besoin de lombock
+--
+
+=== DATA CLASS
+
+// adrien
 
 [source,kotlin,subs="quotes"]
 ----
 people.copy(age = 32)
 ----
 
-=== OVERLOADING
+=== OVERLOADING JAVA
 
-// Adrien
+//adrien
 
-exemple de code (cf. bout de code callForPapers)
+[source,java,subs="quotes"]
+----
+class RegisterService{
+  public RegisterService(String speaker){
+    this.speaker = speaker;
+    this.isFromBzh = true;
+  }
+  public RegisterService(String speaker, String coSpeaker){
+    this.speaker = speaker;
+    this.coSpeaker = coSpeaker;
+    this.isFromBzh = true;
+  }
+  public RegisterService(String speaker, String coSpeaker, Boolean isFromBzh){
+    this.speaker = speaker;
+    this.coSpeaker = coSpeaker;
+    this.isFromBzh = isFromBzh;
+  }
+}
+----
+
+[transition=fade]
+=== OVERLOADING KOTLIN
+
+//adrien
+
+[source,kotlin,subs="quotes"]
+----
+class RegisterService(val speaker: String, val coSpeaker: String?, val isFromBzh = true)
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+// BZH
+----
 
 == FLOW CONTROL
 
@@ -542,8 +637,29 @@ fun foo() {
 
 [source,kotlin,subs="quotes"]
 ----
-"test".isNotBlank()
+val speaker = "McFly"
+val year = 1985
+if(speaker.isNotBlank()){
+  print("""BTTF with ${speaker.capitalize()}""")
+  print(year.plus(33))
+}
 ----
+
+[transition=fade]
+== KOTLIN STANDARD LIBRARY
+
+// Adrien
+
+[source,kotlin,subs="quotes"]
+----
+val years = arrayOf(1985, 1992, 2018)
+print(years.average())
+Talk.apply{remainingTime = 20}
+----
+[NOTE.speaker]
+--
+Shape of the code
+--
 
 == FUNCTIONAL PROGRAMMING
 
