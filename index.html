@@ -76,6 +76,7 @@ comment = """ Allô ? Allô ?
 <aside class="notes"><div class="paragraph"><p>val correspond à une valeur non modifiable.
 Doit être initialisée lors de la déclaration.</p></div>
 <div class="paragraph"><p>var peut varier.
+=======
 Peut être initialisé plus tard.</p></div></aside></section><section id="type_basique"><h2>TYPE BASIQUE</h2><div class="ulist"><ul><li class="fragment"><p>Pas de type primitif</p></li><li class="fragment"><p>Double, Float, Int&#8230;&#8203;</p></li><li class="fragment"><p>Char, String</p></li><li class="fragment"><p>Boolean</p></li></ul></div></section><section id="array"><h2>ARRAY</h2><div class="ulist"><ul><li><p>Array</p></li></ul></div>
 <div class="listingblock"><div class="content"><pre class="highlight"><code data-noescape class="kotlin language-kotlin">val x: IntArray = intArrayOf(1, 2, 3)
 x[0] = x[1] + x[2]</code></pre></div></div>
@@ -96,14 +97,27 @@ print(talk.length)</code></pre></div></div></section><section id="smart_cast_2">
 val talk: String? = y as? String</code></pre></div></div>
 <aside class="notes"><div class="paragraph"><p>unsafe throw exception / safe return null</p></div></aside></section><section id="dclaration_fonctions"><h2>DÉCLARATION FONCTIONS</h2><div class="listingblock"><div class="content"><pre class="highlight"><code data-noescape class="kotlin language-kotlin">fun myName(nom: String, prenom: String) : String =
   "${nom} ${prenom}"</code></pre></div></div>
-<aside class="notes"><div class="paragraph"><p>Les fonctions peuvent être globale, ou encapsulé dans des classes.</p></div></aside></section><section id="parametre_facultatif"><h2>PARAMETRE FACULTATIF</h2><div class="listingblock"><div class="content"><pre class="highlight"><code data-noescape class="kotlin language-kotlin">fun printHello(name: String?): Unit {
+<aside class="notes"><div class="paragraph"><p>Les fonctions peuvent être globale, ou encapsulé dans des classes.</p></div></aside></section><section id="parametre_facultatif"><h2>PARAMETRE FACULTATIF</h2><div class="listingblock"><div class="content"><pre class="highlight"><code data-noescape class="kotlin language-kotlin">fun printHello(name: String?): Uni>> master
   if (name != null)
     println("Hello ${name}")
   else
    println("Hi there!")
-}</code></pre></div></div></section><section id="valeur_par_dfaut"><h2>VALEUR PAR DÉFAUT</h2><div class="listingblock"><div class="content"><pre class="highlight"><code data-noescape class="kotlin language-kotlin">fun read(b: Array<Byte>, off: Int = 0, len: Int = b.size) {
-...
-}</code></pre></div></div></section><section id="parametre_nomm"><h2>PARAMETRE NOMMÉ</h2><div class="paragraph"><p>exemple de code</p></div></section><section id="lambda_it"><h2>LAMBDA / IT</h2><div class="listingblock"><div class="content"><pre class="highlight"><code data-noescape class="kotlin language-kotlin">strings
+}</code></pre></div></div></section><section id="valeur_par_dfaut"><h2>VALEUR PAR DÉFAUT</h2><div class="listingblock"><div class="content"><pre class="highlight"><code data-noescape class="kotlin language-kotlin">fun printMessage(name: String = "gallette-saucisses"): Unit {
+    println("Au BreizhCamp on aime les ${name} !")
+}
+
+fun main(args: Array<String>) {
+    printMessage()                  // Au BreizhCamp on aime les gallette-saucisses !
+    printMessage("chapeaux ronds")  // Au BreizhCamp on aime les chapeaux ronds !
+}</code></pre></div></div></section><section id="parametre_nomm"><h2>PARAMETRE NOMMÉ</h2><div class="listingblock"><div class="content"><pre class="highlight"><code data-noescape class="kotlin language-kotlin">fun buildMessage(
+        name: String,
+        upper: Boolean,
+        withEmoji: Boolean
+): String {
+
+ // ...
+
+}</code></pre></div></div></section><section id="parametre_nomm_2" data-transition="fade"><h2>PARAMETRE NOMMÉ</h2><div class="listingblock"><div class="content"><pre class="highlight"><code data-noescape class="kotlin language-kotlin">val message = buildMessage("Christopher Lloyd", true, false)</code></pre></div></div></section><section id="parametre_nomm_3" data-transition="fade"><h2>PARAMETRE NOMMÉ</h2><div class="listingblock"><div class="content"><pre class="highlight"><code data-noescape class="kotlin language-kotlin">val messageWithNamedArguments = buildMessage("Christopher Lloyd", withEmoji = false, upper = true)</code></pre></div></div></section><section id="lambda_it"><h2>LAMBDA / IT</h2><div class="listingblock"><div class="content"><pre class="highlight"><code data-noescape class="kotlin language-kotlin">strings
   .filter { it.length == 5 }
   .sortedBy { it }
   .map { it.toUpperCase() }</code></pre></div></div>
@@ -136,26 +150,27 @@ val talk: String? = y as? String</code></pre></div></div>
 } else {
   print("Choose b")
   b
-}</code></pre></div></div></section><section id="elvis_operator"><h2>ELVIS OPERATOR</h2><div class="listingblock"><div class="content"><pre class="highlight"><code data-noescape class="kotlin language-kotlin">val city = user?.adress?
-  .city ?: throw IllegalArgumentException("Invalid User")</code></pre></div></div>
-<div class="listingblock"><div class="content"><pre class="highlight"><code data-noescape class="kotlin language-kotlin">findOrder()?.let { dun(it.customer) }</code></pre></div></div></section><section id="when"><h2>WHEN</h2><div class="listingblock"><div class="content"><pre class="highlight"><code data-noescape class="kotlin language-kotlin">when (x) {
-  1 -> print("x == 1")
-  2 -> print("x == 2")
-  3, 4 -> print("x == 3 or 4")
-  else -> { // Note the block
-    print("x is neither 1 nor 2")
-  }
 }</code></pre></div></div>
-<div class="paragraph"><p>Mettre plus d&#8217;exemples</p></div>
-<div class="paragraph"><p>fonction</p></div>
-<div class="paragraph"><p>remplacement du if else if else</p></div>
-<div class="paragraph"><p>utilisation de range (in)</p></div>
-<div class="paragraph"><p>Smart cast&#8230;&#8203;</p></div></section><section id="try_catch"><h2>TRY CATCH</h2><div class="listingblock"><div class="content"><pre class="highlight"><code data-noescape class="kotlin language-kotlin">val a: Int = try {
+<aside class="notes"><div class="ulist"><ul><li><p>expression &#8658; renvoit une valeur</p></li><li><p>remplace l&#8217;opérateur ternaire</p></li><li><p>derniere expression = valeur renvoyée</p></li></ul></div></aside></section><section id="elvis_operator"><h2>ELVIS OPERATOR</h2><div class="listingblock"><div class="content"><pre class="highlight"><code data-noescape class="kotlin language-kotlin">val city = user?.adress?
+  .city ?: throw IllegalArgumentException("Invalid User")</code></pre></div></div>
+<div class="listingblock"><div class="content"><pre class="highlight"><code data-noescape class="kotlin language-kotlin">findOrder()?.let { dun(it.customer) }</code></pre></div></div>
+<aside class="notes"><div class="ulist"><ul><li><p>simplification du null check</p></li><li><p>invocation du reste du code que si pas null</p></li></ul></div></aside></section><section id="when"><h2>WHEN</h2><div class="listingblock"><div class="content"><pre class="highlight"><code data-noescape class="kotlin language-kotlin">when (year) {
+  1985 -> print("Go in the past")
+  1955 -> findDoc()
+  2015, 2016 -> wearCoolShoes()
+  in 2018..2030 -> useKotlin()
+  nomDeZeus() -> print("Personne ne me dit que j'ai les foies")
+  is String -> print(year)
+  else -> {
+    print("Qui t'appelles « banane », banane ?")
+  }
+}</code></pre></div></div></section><section id="try_catch"><h2>TRY CATCH</h2><div class="listingblock"><div class="content"><pre class="highlight"><code data-noescape class="kotlin language-kotlin">val answer: Int = try {
   parseInt(input)
 }
 catch (e: NumberFormatException) {
   42
-}</code></pre></div></div></section><section id="break_label"><h2>BREAK LABEL</h2><div class="listingblock"><div class="content"><pre class="highlight"><code data-noescape class="kotlin language-kotlin">loop@ for (i in 1..100) {
+}</code></pre></div></div>
+<aside class="notes"><div class="ulist"><ul><li><p>expression &#8658; renvoit valeur</p></li><li><p>au moins un catch ou un finally</p></li></ul></div></aside></section><section id="break_label"><h2>BREAK LABEL</h2><div class="listingblock"><div class="content"><pre class="highlight"><code data-noescape class="kotlin language-kotlin">loop@ for (i in 1..100) {
     for (j in 1..100) {
         if (...) break@loop
     }
@@ -175,12 +190,7 @@ fun foo() {
     print(" done with explicit label")
 }</code></pre></div></div></section></section>
 <section id="kotlin_standard_library"><h2>KOTLIN STANDARD LIBRARY</h2><div class="listingblock"><div class="content"><pre class="highlight"><code data-noescape class="kotlin language-kotlin">"test".isNotBlank()</code></pre></div></div></section>
-<section id="programmation_fonctionnelle"><h2>PROGRAMMATION FONCTIONNELLE</h2><div class="paragraph"><p>2-4 slides</p></div>
-<div class="paragraph"><p>DSICLAIMER : pas un langage fonctionnel</p></div>
-<div class="paragraph"><p>Possibilité de faire du fonctionnel</p></div>
-<div class="paragraph"><p>Parler de Pair</p></div>
-<div class="paragraph"><p>Parler de triple</p></div>
-<div class="paragraph"><p>Destructuring fonction</p></div>
+<section id="functional_programming"><h2>FUNCTIONAL PROGRAMMING</h2><div class="paragraph"><p>Kotlin n&#8217;est pas un langage fonctionnel.</p></div>
 <div class="listingblock"><div class="content"><pre class="highlight"><code data-noescape class="kotlin language-kotlin">fun <T> lock(lock: Lock, body: () -> T): T {
   lock.lock()
   try {
@@ -190,7 +200,11 @@ fun foo() {
       lock.unlock()
   }
 }</code></pre></div></div>
-<aside class="notes"><div class="paragraph"><p>Pas de Either par default / mais il existe Arrow</p></div></aside></section>
+<aside class="notes"><div class="paragraph"><p>Possibilité de faire du fonctionnel</p></div>
+<div class="paragraph"><p>Parler de Pair</p></div>
+<div class="paragraph"><p>Parler de triple</p></div>
+<div class="paragraph"><p>Destructuring fonction</p></div>
+<div class="paragraph"><p>Pas de Either par default / mais il existe Arrow</p></div></aside></section>
 <section id="coroutine"><h2>COROUTINE</h2><div class="paragraph"><p>2-3 slides</p></div>
 <div class="listingblock"><div class="content"><pre class="highlight"><code data-noescape class="kotlin language-kotlin">val c = AtomicInteger()
 

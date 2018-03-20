@@ -178,27 +178,64 @@ Peut être initialisé plus tard.
 
 [%step]
 * Pas de type primitif
+* Any
 * Double, Float, Int...
 * Char, String
 * Boolean
 
+[transition=fade]
 === ARRAY
 
 // Gautier
 
 
-* Array
-
 [source,kotlin]
 ----
-val x: IntArray = intArrayOf(1, 2, 3)
-x[0] = x[1] + x[2]
+val versions: Array<Int> = arrayOf(1, 2, 4)
+versions[2] = 3
+
+val sentence = "Il y a ${versions.size} films. Le dernier est le ${versions[versions.size - 1]}."
+print(sentence)
 ----
 
 [NOTE.speaker]
 --
-Pas de types primitif.
+* Génériques
+* get/set => []
+--
 
+[transition=fade]
+=== ARRAY
+
+// Gautier
+
+[source,kotlin]
+----
+val versions: IntArray = intArrayOf(1, 2, 4)
+versions[2] = 3
+
+val sentence = "Il y a ${versions.size} films. Le dernier est le ${versions[versions.size - 1]}."
+print(sentence)
+----
+
+[NOTE.speaker]
+--
+* specialized classes : IntArray, ShortArray...
+--
+
+=== ARRAY
+
+// Gautier
+
+[source,kotlin]
+----
+val versions: Array<Int> = arrayOf(1, 2, 3)
+val anyVersions: Array<Any> = versions // won't compile
+----
+
+[NOTE.speaker]
+--
+* invariant =>  assign an Array<String> to an Array<Any> impossible
 --
 
 
@@ -261,14 +298,36 @@ unsafe throw exception / safe return null
 
 [source,kotlin,subs="quotes"]
 ----
-fun myName(nom: String, prenom: String) : String =
-  "${nom} ${prenom}"
+fun speakerName(name: String, firstname: String) : String {
+    return "${name} ${firstname}"
+}
 ----
 
 [NOTE.speaker]
 --
-Les fonctions peuvent être globale, ou encapsulé dans des classes.
+* fun
+* globale / locale
+* déclaration paramètre
+* type retour
+** Unit si pas de retour
+--
 
+[transition=fade]
+=== DÉCLARATION FONCTIONS
+
+// Gautier
+
+[source,kotlin,subs="quotes"]
+----
+fun speakerNameInline(name: String, firstname: String) = "${name} ${firstname}"
+
+// - 2.21 Gigowatts !! 2.21 Gigowatts !! Mon dieu !
+----
+
+[NOTE.speaker]
+--
+* inline
+* type retour optionnel
 --
 
 === PARAMETRE FACULTATIF
@@ -291,16 +350,47 @@ fun printHello(name: String?): Unit {
 
 [source,kotlin,subs="quotes"]
 ----
-fun read(b: Array<Byte>, off: Int = 0, len: Int = b.size) {
-...
+fun printMessage(name: String = "gallette-saucisses"): Unit {
+    println("Au BreizhCamp on aime les ${name} !")
+}
+
+fun main(args: Array<String>) {
+    printMessage()                  // Au BreizhCamp on aime les gallette-saucisses !
+    printMessage("chapeaux ronds")  // Au BreizhCamp on aime les chapeaux ronds !
 }
 ----
 
 === PARAMETRE NOMMÉ
 
-// Gautier
 
-exemple de code
+[source,kotlin]
+----
+fun buildMessage(
+        name: String,
+        upper: Boolean,
+        withEmoji: Boolean
+): String {
+
+ // ...
+
+}
+----
+
+[transition=fade]
+=== PARAMETRE NOMMÉ
+
+[source,kotlin]
+----
+val message = buildMessage("Christopher Lloyd", true, false)
+----
+ 
+[transition=fade]
+=== PARAMETRE NOMMÉ
+
+[source,kotlin]
+----
+val messageWithNamedArguments = buildMessage("Christopher Lloyd", withEmoji = false, upper = true)
+----
 
 === LAMBDA / IT
 
@@ -436,6 +526,13 @@ val max = if (a > b) {
 }
 ----
 
+[NOTE.speaker]
+--
+* expression => renvoit une valeur
+* remplace l'opérateur ternaire
+* derniere expression = valeur renvoyée
+--
+
 === ELVIS OPERATOR
 
 // Gautier
@@ -450,6 +547,12 @@ val city = user?.adress?
 ----
 findOrder()?.let { dun(it.customer) }
 ----
+
+[NOTE.speaker]
+--
+* simplification du null check
+* invocation du reste du code que si pas null
+--
 
 === WHEN
 
@@ -476,13 +579,19 @@ when (year) {
 
 [source,kotlin,subs="quotes"]
 ----
-val a: Int = try {
+val answer: Int = try {
   parseInt(input)
 }
 catch (e: NumberFormatException) {
   42
 }
 ----
+
+[NOTE.speaker]
+--
+* expression => renvoit valeur
+* au moins un catch ou un finally
+--
 
 === BREAK LABEL
 
@@ -547,27 +656,16 @@ val years = arrayOf(1985, 1992, 2018)
 print(years.average())
 Talk.apply{remainingTime = 20}
 ----
-
 [NOTE.speaker]
 --
 Shape of the code
 --
 
-== PROGRAMMATION FONCTIONNELLE
+== FUNCTIONAL PROGRAMMING
 
 // Gautier
 
-2-4 slides
-
-DSICLAIMER : pas un langage fonctionnel
-
-Possibilité de faire du fonctionnel
-
-Parler de Pair
-
-Parler de triple
-
-Destructuring fonction
+Kotlin n'est pas un langage fonctionnel.
 
 [source,kotlin,subs="quotes"]
 ----
@@ -584,6 +682,14 @@ fun <T> lock(lock: Lock, body: () -> T): T {
 
 [NOTE.speaker]
 --
+Possibilité de faire du fonctionnel
+
+Parler de Pair
+
+Parler de triple
+
+Destructuring fonction
+
 Pas de Either par default / mais il existe Arrow
 --
 
