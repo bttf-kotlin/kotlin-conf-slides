@@ -58,26 +58,43 @@ On peut faire la même chose que Java et bien plus encore.</p></div></aside></se
 <div class="paragraph"><p>Gautier de Saint Martin Lacaze as <span class="actor-role">Doc</span></p></div>
 <div class="paragraph"><p>Freelance &amp; Nantes JUG Leader</p></div>
 <div class="paragraph"><p>🐦 @darkjabberwock</p></div></section>
-<section><section id="les_bases_de_la_syntaxe"><h2>LES BASES DE LA SYNTAXE</h2></section><section id="val_vs_var" data-transition="fade"><h2>VAL VS VAR</h2><div class="listingblock"><div class="content"><pre class="highlight"><code data-noescape class="kotlin language-kotlin">val name: String = "adrien"
+<section><section id="les_bases_de_la_syntaxe"><h2>LES BASES DE LA SYNTAXE</h2></section><section id="val_vs_var" data-transition="fade"><h2>VAL VS VAR</h2><div class="listingblock"><div class="content"><pre class="highlight"><code data-noescape class="kotlin language-kotlin">val name: String = "Allô ? Allô ?"
 
 
 
 
 
-//</code></pre></div></div></section><section id="val_vs_var_2" data-transition="fade"><h2>VAL VS VAR</h2><div class="listingblock"><div class="content"><pre class="highlight"><code data-noescape class="kotlin language-kotlin">val name: String = "adrien"
+//</code></pre></div></div></section><section id="val_vs_var_2" data-transition="fade"><h2>VAL VS VAR</h2><div class="listingblock"><div class="content"><pre class="highlight"><code data-noescape class="kotlin language-kotlin">val name: String = "McFly"
 
 var comment: String
 
-comment = """ Ceci
-|est
-|un commentaire écrit par  ${name}"""</code></pre></div></div>
+comment = """ Allô ? Allô ?
+| Y'a personne au bout du fil ?
+| Faut réfléchir ${name} !
+| Faut réfléchir
+"""</code></pre></div></div>
 <aside class="notes"><div class="paragraph"><p>val correspond à une valeur non modifiable.
 Doit être initialisée lors de la déclaration.</p></div>
 <div class="paragraph"><p>var peut varier.
 Peut être initialisé plus tard.</p></div></aside></section><section id="type_basique"><h2>TYPE BASIQUE</h2><div class="ulist"><ul><li class="fragment"><p>Pas de type primitif</p></li><li class="fragment"><p>Double, Float, Int&#8230;&#8203;</p></li><li class="fragment"><p>Char, String</p></li><li class="fragment"><p>Boolean</p></li></ul></div></section><section id="array"><h2>ARRAY</h2><div class="ulist"><ul><li><p>Array</p></li></ul></div>
 <div class="listingblock"><div class="content"><pre class="highlight"><code data-noescape class="kotlin language-kotlin">val x: IntArray = intArrayOf(1, 2, 3)
 x[0] = x[1] + x[2]</code></pre></div></div>
-<aside class="notes"><div class="paragraph"><p>Pas de types primitif.</p></div></aside></section><section id="range"><h2>RANGE</h2><div class="paragraph"><p>1..10</p></div></section><section id="smart_cast"><h2>SMART CAST</h2></section><section id="dclaration_fonctions"><h2>DÉCLARATION FONCTIONS</h2><div class="listingblock"><div class="content"><pre class="highlight"><code data-noescape class="kotlin language-kotlin">fun myName(nom: String, prenom: String) : String =
+<aside class="notes"><div class="paragraph"><p>Pas de types primitif.</p></div></aside></section><section id="range"><h2>RANGE</h2><div class="listingblock"><div class="content"><pre class="highlight"><code data-noescape class="kotlin language-kotlin">if (i in 1..10) {
+  println("""Retour vers le futur ${i}""")
+}
+
+for (i in 1..10) {
+  println("""Retour vers le futur ${i}""")
+}</code></pre></div></div></section><section id="range_2"><h2>RANGE</h2><div class="listingblock"><div class="content"><pre class="highlight"><code data-noescape class="kotlin language-kotlin">for (i in 1..4 step 2) {
+  println("""Retour vers le futur ${i}""")
+}
+
+for (i in 4 downTo 1 step 2) {
+  println("""Retour vers le futur ${i}""")
+}</code></pre></div></div></section><section id="smart_cast"><h2>SMART CAST</h2><div class="listingblock"><div class="content"><pre class="highlight"><code data-noescape class="kotlin language-kotlin">if (talk !is String) return
+print(talk.length)</code></pre></div></div></section><section id="smart_cast_2"><h2>SMART CAST</h2><div class="listingblock"><div class="content"><pre class="highlight"><code data-noescape class="kotlin language-kotlin">val talk: String? = y as String?
+val talk: String? = y as? String</code></pre></div></div>
+<aside class="notes"><div class="paragraph"><p>unsafe throw exception / safe return null</p></div></aside></section><section id="dclaration_fonctions"><h2>DÉCLARATION FONCTIONS</h2><div class="listingblock"><div class="content"><pre class="highlight"><code data-noescape class="kotlin language-kotlin">fun myName(nom: String, prenom: String) : String =
   "${nom} ${prenom}"</code></pre></div></div>
 <aside class="notes"><div class="paragraph"><p>Les fonctions peuvent être globale, ou encapsulé dans des classes.</p></div></aside></section><section id="parametre_facultatif"><h2>PARAMETRE FACULTATIF</h2><div class="listingblock"><div class="content"><pre class="highlight"><code data-noescape class="kotlin language-kotlin">fun printHello(name: String?): Unit {
   if (name != null)
@@ -96,9 +113,23 @@ x[0] = x[1] + x[2]</code></pre></div></div>
   fun getUsers()...
 }</code></pre></div></div></section><section id="object_class"><h2>OBJECT CLASS</h2><div class="listingblock"><div class="content"><pre class="highlight"><code data-noescape class="kotlin language-kotlin">object class MySingleton</code></pre></div></div>
 <aside class="notes"><div class="paragraph"><p>Pas de constructeur</p></div></aside></section><section id="data_class"><h2>DATA CLASS</h2><div class="listingblock"><div class="content"><pre class="highlight"><code data-noescape class="kotlin language-kotlin">data class User(val name: String, val age: Int)</code></pre></div></div>
-<div class="paragraph"><p>explique interet</p></div>
-<div class="paragraph"><p>pas besoin de lombock</p></div>
-<div class="listingblock"><div class="content"><pre class="highlight"><code data-noescape class="kotlin language-kotlin">people.copy(age = 32)</code></pre></div></div></section><section id="overloading"><h2>OVERLOADING</h2><div class="paragraph"><p>exemple de code (cf. bout de code callForPapers)</p></div></section></section>
+<aside class="notes"><div class="paragraph"><p>pas besoin de lombock</p></div></aside></section><section id="data_class_2"><h2>DATA CLASS</h2><div class="listingblock"><div class="content"><pre class="highlight"><code data-noescape class="kotlin language-kotlin">people.copy(age = 32)</code></pre></div></div></section><section id="overloading_java"><h2>OVERLOADING Java</h2><div class="listingblock"><div class="content"><pre class="highlight"><code data-noescape class="java language-java">class RegisterService{
+  public RegisterService(String speaker){
+    this.speaker = speaker;
+    this.isFromBzh = true;
+  }
+  public RegisterService(String speaker, String coSpeaker){
+    this.speaker = speaker;
+    this.coSpeaker = coSpeaker;
+    this.isFromBzh = true;
+  }
+  public RegisterService(String speaker, String coSpeaker, Boolean isFromBzh){
+    this.speaker = speaker;
+    this.coSpeaker = coSpeaker;
+    this.isFromBzh = isFromBzh;
+  }
+}</code></pre></div></div></section><section id="overloading_kotlin"><h2>OVERLOADING Kotlin</h2><div class="listingblock"><div class="content"><pre class="highlight"><code data-noescape class="kotlin language-kotlin">class RegisterService(val speaker: String, val coSpeaker: String?, val isFromBzh = true)</code></pre></div></div>
+<div class="paragraph"><p>exemple de code (cf. bout de code callForPapers)</p></div></section></section>
 <section><section id="flow_control"><h2>FLOW CONTROL</h2></section><section id="if"><h2>IF</h2><div class="listingblock"><div class="content"><pre class="highlight"><code data-noescape class="kotlin language-kotlin">val max = if (a > b) {
   print("Choose a")
   a
