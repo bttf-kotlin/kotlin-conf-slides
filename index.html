@@ -215,16 +215,18 @@ fun foo() {
     }
     print(" done with explicit label")
 }</code></pre></div></div></section></section>
-<section id="kotlin_standard_library"><h2>KOTLIN STANDARD LIBRARY</h2><div class="listingblock"><div class="content"><pre class="highlight"><code data-noescape class="kotlin language-kotlin">val speaker = "McFly"
+<section><section id="kotlin_standard_library" data-transition="fade"><h2>KOTLIN STANDARD LIBRARY</h2><div class="listingblock"><div class="content"><pre class="highlight"><code data-noescape class="kotlin language-kotlin">val speaker = "McFly"
 val year = 1985
 if(speaker.isNotBlank()){
   print("""BTTF with ${speaker.capitalize()}""")
   print(year.plus(33))
-}</code></pre></div></div></section>
-<section id="kotlin_standard_library_2" data-transition="fade"><h2>KOTLIN STANDARD LIBRARY</h2><div class="listingblock"><div class="content"><pre class="highlight"><code data-noescape class="kotlin language-kotlin">val years = arrayOf(1985, 1992, 2018)
+}</code></pre></div></div></section><section id="kotlin_standard_library_2" data-transition="fade"><h2>KOTLIN STANDARD LIBRARY</h2><div class="listingblock"><div class="content"><pre class="highlight"><code data-noescape class="kotlin language-kotlin">val years = arrayOf(1985, 1992, 2018)
 print(years.average())
-Talk.apply{remainingTime = 20}</code></pre></div></div>
-<aside class="notes"><div class="paragraph"><p>Shape of the code</p></div></aside></section>
+Talk.apply{remainingTime = 20}
+
+
+//</code></pre></div></div>
+<aside class="notes"><div class="paragraph"><p>Shape of the code</p></div></aside></section></section>
 <section id="functional_programming"><h2>FUNCTIONAL PROGRAMMING</h2><div class="paragraph"><p>Kotlin n&#8217;est pas un langage fonctionnel.</p></div>
 <div class="listingblock"><div class="content"><pre class="highlight"><code data-noescape class="kotlin language-kotlin">fun <T> lock(lock: Lock, body: () -> T): T {
   lock.lock()

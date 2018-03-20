@@ -383,7 +383,7 @@ fun buildMessage(
 ----
 val message = buildMessage("Christopher Lloyd", true, false)
 ----
- 
+
 [transition=fade]
 === PARAMETRE NOMMÉ
 
@@ -631,6 +631,7 @@ fun foo() {
 }
 ----
 
+[transition=fade]
 == KOTLIN STANDARD LIBRARY
 
 // Adrien
@@ -646,7 +647,7 @@ if(speaker.isNotBlank()){
 ----
 
 [transition=fade]
-== KOTLIN STANDARD LIBRARY
+=== KOTLIN STANDARD LIBRARY
 
 // Adrien
 
@@ -655,6 +656,9 @@ if(speaker.isNotBlank()){
 val years = arrayOf(1985, 1992, 2018)
 print(years.average())
 Talk.apply{remainingTime = 20}
+
+
+//
 ----
 [NOTE.speaker]
 --
