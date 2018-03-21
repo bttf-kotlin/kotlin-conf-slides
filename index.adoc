@@ -665,37 +665,172 @@ Talk.apply{remainingTime = 20}
 Shape of the code
 --
 
-== FUNCTIONAL PROGRAMMING
+== EXTENSIONS
 
 // Gautier
 
-Kotlin n'est pas un langage fonctionnel.
+Le polyfill du Java dans Kotlin
+
+[NOTE.speaker]
+--
+* provient de C#
+* permet d'étendre un type sans modifier la classe de départ
+--
+
+[transition=fade]
+=== EXTENSIONS
 
 [source,kotlin,subs="quotes"]
 ----
-fun <T> lock(lock: Lock, body: () -> T): T {
-  lock.lock()
-  try {
-      return body()
-  }
-  finally {
-      lock.unlock()
-  }
+open class Humain {
+    fun voyager(destination: String) {
+        print("Voyager ${destination}")
+    }
 }
+
+class Doc : Humain() {
+    fun voyagerDansLeTemps(destination: String, annee: Int) {
+        // ...
+    }
+}
+
+val humain: Humain = Humain()
+humain.voyager("en Bretagne")
+humain.voyagerDansLeTemps("en Bretagne", 1985) // does not compile
+
+val doc: Doc = Doc()
+doc.voyagerDansLeTemps("en Bretagne", 1985)
+
+//Back to the Breizh
+----
+
+[transition=fade]
+=== EXTENSIONS
+
+[source,kotlin,subs="quotes"]
+----
+open class Humain {
+    fun voyager(destination: String) {
+        print("Voyager ${destination}")
+    }
+}
+
+fun Humain.voyagerDansLeTemps(destination: String, annee: Int) {
+
+
+
+}
+
+val humain: Humain = Humain()
+humain.voyager("en Bretagne")
+humain.voyagerDansLeTemps("en Bretagne", 1985)
+
+
+
+
+//Back to the Breizh
+----
+
+== FUNCTIONAL PROGRAMMING
+
+Kotlin n'est pas un langage fonctionnel
+
+[transition=fade]
+=== IMMUTABILITÉ
+
+// Gautier
+
+[source,kotlin]
+----
+data class Speaker (val name: String, val location: String)
+
+val marty = Speaker("Marty", "Hill Valley")
+
+// Marty doit aller au BreizhCamp
+----
+
+[transition=fade]
+=== IMMUTABILITÉ
+
+// Gautier
+
+[source,kotlin]
+----
+data class Speaker (val name: String, val location: String)
+
+val marty = Speaker("Marty", "Hill Valley")
+
+marty.location = "BreizhCamp" // does not compile
+----
+
+[transition=fade]
+=== IMMUTABILITÉ
+
+// Gautier
+
+[source,kotlin]
+----
+data class Speaker (val name: String, val location: String)
+
+val marty = Speaker("Marty", "Hill Valley")
+
+val martyAuBreizhCamp = marty.copy(location = "BreizhCamp")
+----
+
+[transition=fade]
+=== FONCTION&nbsp;D'ORDRE SUPÉRIEUR
+
+[source,kotlin]
+----
+fun doSomething(speaker: String, fn: (String) -> String): Unit {
+    val result = fn(speaker)
+    println(result)
+}
+
+doSomething("Marty", {s -> "${s} va à la plage de Treac’h er Goured"})
 ----
 
 [NOTE.speaker]
 --
-Possibilité de faire du fonctionnel
-
-Parler de Pair
-
-Parler de triple
-
-Destructuring fonction
-
-Pas de Either par default / mais il existe Arrow
+* higher function : prend une fonction en parametre ou renvoi une fonction ou les deux
 --
+
+
+[transition=fade]
+=== FONCTION&nbsp;D'ORDRE SUPÉRIEUR
+
+[source,kotlin]
+----
+fun goTo(destination: String): (String) -> Unit = { speaker -> println("${speaker} va à la ${destination}") }
+
+
+
+
+// Marty doit aller à la plage
+----
+
+[transition=fade]
+=== FONCTION&nbsp;D'ORDRE SUPÉRIEUR
+
+[source,kotlin]
+----
+fun goTo(destination: String): (String) -> Unit = { speaker -> println("${speaker} va à la ${destination}") }
+
+val goToPlage = goTo("plage de Treac’h er Goured")
+
+
+goToPlage("Marty")
+----
+
+=== POUR ALLER PLUS LOIN
+
+[%step]
+* Lazy evaluation
+* Memoization
+* Pair, Triple
+* ...
+* ARROW : http://arrow-kt.io/
+
 
 == COROUTINE
 
@@ -766,48 +901,22 @@ launch() {
 * suspend no blocking and return value
 --
 
-== EXTENSIONS
-
-// Gautier
-
-Le polyfill du Java dans Kotlin
-
-[source,kotlin,subs="quotes"]
-----
-class Hero {
-  fun useSuperpowers() {
-    println("Applied super powers")
-  }
-}
-
-fun Hero.savePlanet() {
-  useSuperpowers()
-}
-
-val superman = Hero()
-superman.savePlanet()
-----
-
-[NOTE.speaker]
---
-
-provient de C#
-
---
-
 == COMPANION
 
 // Gautier
 
 [source, kotlin]
 ----
-class User private constructor(val login: String) {
-    companion object UserFactory {
-        fun create(login: String): User {
-            return User(login)
+class Speaker private constructor(val name: String) {
+    companion object SpeakerFactory {
+        fun create(name: String): Speaker {
+            return Speaker(name)
         }
     }
 }
+
+val marty = Speaker.SpeakerFactory.create("Marty")
+val doc = Speaker.create("Doc")
 ----
 
 == KOTLIN ET LES FRAMEWORKS

@@ -227,21 +227,74 @@ Talk.apply{remainingTime = 20}
 
 //</code></pre></div></div>
 <aside class="notes"><div class="paragraph"><p>Shape of the code</p></div></aside></section></section>
-<section id="functional_programming"><h2>FUNCTIONAL PROGRAMMING</h2><div class="paragraph"><p>Kotlin n&#8217;est pas un langage fonctionnel.</p></div>
-<div class="listingblock"><div class="content"><pre class="highlight"><code data-noescape class="kotlin language-kotlin">fun <T> lock(lock: Lock, body: () -> T): T {
-  lock.lock()
-  try {
-      return body()
-  }
-  finally {
-      lock.unlock()
-  }
-}</code></pre></div></div>
-<aside class="notes"><div class="paragraph"><p>Possibilité de faire du fonctionnel</p></div>
-<div class="paragraph"><p>Parler de Pair</p></div>
-<div class="paragraph"><p>Parler de triple</p></div>
-<div class="paragraph"><p>Destructuring fonction</p></div>
-<div class="paragraph"><p>Pas de Either par default / mais il existe Arrow</p></div></aside></section>
+<section><section id="extensions"><h2>EXTENSIONS</h2><div class="paragraph"><p>Le polyfill du Java dans Kotlin</p></div><aside class="notes"><div class="ulist"><ul><li><p>provient de C#</p></li><li><p>permet d&#8217;étendre un type sans modifier la classe de départ</p></li></ul></div></aside></section><section id="extensions_2" data-transition="fade"><h2>EXTENSIONS</h2><div class="listingblock"><div class="content"><pre class="highlight"><code data-noescape class="kotlin language-kotlin">open class Humain {
+    fun voyager(destination: String) {
+        print("Voyager ${destination}")
+    }
+}
+
+class Doc : Humain() {
+    fun voyagerDansLeTemps(destination: String, annee: Int) {
+        // ...
+    }
+}
+
+val humain: Humain = Humain()
+humain.voyager("en Bretagne")
+humain.voyagerDansLeTemps("en Bretagne", 1985) // does not compile
+
+val doc: Doc = Doc()
+doc.voyagerDansLeTemps("en Bretagne", 1985)
+
+//Back to the Breizh</code></pre></div></div></section><section id="extensions_3" data-transition="fade"><h2>EXTENSIONS</h2><div class="listingblock"><div class="content"><pre class="highlight"><code data-noescape class="kotlin language-kotlin">open class Humain {
+    fun voyager(destination: String) {
+        print("Voyager ${destination}")
+    }
+}
+
+fun Humain.voyagerDansLeTemps(destination: String, annee: Int) {
+
+
+
+}
+
+val humain: Humain = Humain()
+humain.voyager("en Bretagne")
+humain.voyagerDansLeTemps("en Bretagne", 1985)
+
+
+
+
+//Back to the Breizh</code></pre></div></div></section></section>
+<section><section id="functional_programming"><h2>FUNCTIONAL PROGRAMMING</h2><div class="paragraph"><p>Kotlin n&#8217;est pas un langage fonctionnel</p></div></section><section id="immutabilit" data-transition="fade"><h2>IMMUTABILITÉ</h2><div class="listingblock"><div class="content"><pre class="highlight"><code data-noescape class="kotlin language-kotlin">data class Speaker (val name: String, val location: String)
+
+val marty = Speaker("Marty", "Hill Valley")
+
+// Marty doit aller au BreizhCamp</code></pre></div></div></section><section id="immutabilit_2" data-transition="fade"><h2>IMMUTABILITÉ</h2><div class="listingblock"><div class="content"><pre class="highlight"><code data-noescape class="kotlin language-kotlin">data class Speaker (val name: String, val location: String)
+
+val marty = Speaker("Marty", "Hill Valley")
+
+marty.location = "BreizhCamp" // does not compile</code></pre></div></div></section><section id="immutabilit_3" data-transition="fade"><h2>IMMUTABILITÉ</h2><div class="listingblock"><div class="content"><pre class="highlight"><code data-noescape class="kotlin language-kotlin">data class Speaker (val name: String, val location: String)
+
+val marty = Speaker("Marty", "Hill Valley")
+
+val martyAuBreizhCamp = marty.copy(location = "BreizhCamp")</code></pre></div></div></section><section id="fonction_d_ordre_suprieur" data-transition="fade"><h2>FONCTION&nbsp;D&#8217;ORDRE SUPÉRIEUR</h2><div class="listingblock"><div class="content"><pre class="highlight"><code data-noescape class="kotlin language-kotlin">fun doSomething(speaker: String, fn: (String) -&gt; String): Unit {
+    val result = fn(speaker)
+    println(result)
+}
+
+doSomething("Marty", {s -&gt; "${s} va à la plage de Treac’h er Goured"})</code></pre></div></div>
+<aside class="notes"><div class="ulist"><ul><li><p>higher function : prend une fonction en parametre ou renvoi une fonction ou les deux</p></li></ul></div></aside></section><section id="fonction_d_ordre_suprieur_2" data-transition="fade"><h2>FONCTION&nbsp;D&#8217;ORDRE SUPÉRIEUR</h2><div class="listingblock"><div class="content"><pre class="highlight"><code data-noescape class="kotlin language-kotlin">fun goTo(destination: String): (String) -&gt; Unit = { speaker -&gt; println("${speaker} va à la ${destination}") }
+
+
+
+
+// Marty doit aller à la plage</code></pre></div></div></section><section id="fonction_d_ordre_suprieur_3" data-transition="fade"><h2>FONCTION&nbsp;D&#8217;ORDRE SUPÉRIEUR</h2><div class="listingblock"><div class="content"><pre class="highlight"><code data-noescape class="kotlin language-kotlin">fun goTo(destination: String): (String) -&gt; Unit = { speaker -&gt; println("${speaker} va à la ${destination}") }
+
+val goToPlage = goTo("plage de Treac’h er Goured")
+
+
+goToPlage("Marty")</code></pre></div></div></section><section id="pour_aller_plus_loin"><h2>POUR ALLER PLUS LOIN</h2><div class="ulist"><ul><li class="fragment"><p>Lazy evaluation</p></li><li class="fragment"><p>Memoization</p></li><li class="fragment"><p>Pair, Triple</p></li><li class="fragment"><p>&#8230;&#8203;</p></li><li class="fragment"><p>ARROW : <a href="http://arrow-kt.io/" class="bare">http://arrow-kt.io/</a></p></li></ul></div></section></section>
 <section><section id="coroutine"><h2>COROUTINE</h2><div class="paragraph"><p>&nbsp;</p></div><div class="paragraph"><p>&nbsp;</p></div><div class="paragraph"><p>&nbsp;</p></div><aside class="notes"><div class="ulist"><ul><li><p>coroutine &#8658; thread léger collaboratif. transition vers une autre coroutine à sa demande.</p></li><li><p>thread &#8658; scheduleur pré-emptif.horloges synchronisent les changements de contextes.</p></li></ul></div></aside></section><section id="coroutine_2" data-transition="fade"><h2>COROUTINE</h2><div class="listingblock"><div class="content"><pre class="highlight"><code data-noescape class="kotlin language-kotlin">fun journeyInThePast() = async() {
     messUpParentProm().await()
     findPower().await()
@@ -268,27 +321,16 @@ launch() {
     print("go away from Lebaneses")
 }</code></pre></div></div>
 <aside class="notes"><div class="ulist"><ul><li><p>Thead block</p></li><li><p>Async no blocking but work with context</p></li><li><p>suspend no blocking and return value</p></li></ul></div></aside></section></section>
-<section id="extensions"><h2>EXTENSIONS</h2><div class="paragraph"><p>Le polyfill du Java dans Kotlin</p></div>
-<div class="listingblock"><div class="content"><pre class="highlight"><code data-noescape class="kotlin language-kotlin">class Hero {
-  fun useSuperpowers() {
-    println("Applied super powers")
-  }
-}
-
-fun Hero.savePlanet() {
-  useSuperpowers()
-}
-
-val superman = Hero()
-superman.savePlanet()</code></pre></div></div>
-<aside class="notes"><div class="paragraph"><p>provient de C#</p></div></aside></section>
-<section id="companion"><h2>COMPANION</h2><div class="listingblock"><div class="content"><pre class="highlight"><code data-noescape class="kotlin language-kotlin">class User private constructor(val login: String) {
-    companion object UserFactory {
-        fun create(login: String): User {
-            return User(login)
+<section id="companion"><h2>COMPANION</h2><div class="listingblock"><div class="content"><pre class="highlight"><code data-noescape class="kotlin language-kotlin">class Speaker private constructor(val name: String) {
+    companion object SpeakerFactory {
+        fun create(name: String): Speaker {
+            return Speaker(name)
         }
     }
-}</code></pre></div></div></section>
+}
+
+val marty = Speaker.SpeakerFactory.create("Marty")
+val doc = Speaker.create("Doc")</code></pre></div></div></section>
 <section id="kotlin_et_les_frameworks"><h2>KOTLIN ET LES FRAMEWORKS</h2><div class="ulist"><ul><li><p>Spring Boot + JUnit 5</p></li><li><p>jackson-kotlin</p></li><li><p>kTor</p></li><li><p>Javalin</p></li><li><p>Kotlin arrow</p></li><li><p>Jhipster-kotlin</p></li></ul></div></section>
 <section id="kotlin_multiplateforme"><h2>KOTLIN MULTIPLATEFORME</h2><div class="ulist"><ul><li><p>JVM</p></li><li><p>JS</p></li><li><p>Natif</p></li></ul></div></section>
 <section id="thanks"><h2>THANKS</h2><div class="paragraph"><p>Any Question ?</p></div></section></div></div><script src="node_modules/reveal.js/lib/js/head.min.js"></script><script src="node_modules/reveal.js/js/reveal.js"></script><script>// See https://github.com/hakimel/reveal.js#configuration for a full list of configuration options
