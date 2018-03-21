@@ -699,25 +699,71 @@ Pas de Either par default / mais il existe Arrow
 
 == COROUTINE
 
-// Adrien
+&nbsp;
 
-2-3 slides
+&nbsp;
+
+&nbsp;
+
+[NOTE.speaker]
+--
+* coroutine => thread léger collaboratif. transition vers une autre coroutine à sa demande.
+
+* thread => scheduleur pré-emptif.horloges synchronisent les changements de contextes.
+--
+
+[transition=fade]
+=== COROUTINE
+
+// Adrien
 
 [source,kotlin,subs="quotes"]
 ----
-val c = AtomicInteger()
 
-for (i in 1..1_000_000)
-  thread(start = true) {
-    c.addAndGet(i)
-  }
+fun journeyInThePast() = async() {
+    messUpParentProm().await()
+    findPower().await()
+    print "Marty"
+}
 
-println(c.get())
+launch() {
+    print("fight Lebaneses")
+    journeyInThePast().await()
+    print("go away from Lebaneses")
+}
+
+
+----
+
+[transition=fade]
+=== COROUTINE
+
+// Adrien
+
+[source,kotlin,subs="quotes"]
+----
+val messUpParentProm = async(1955Context){...}
+
+val findPower = async(1955Context){...}
+
+suspend fun journeyInThePast(): String {
+    messUpParentProm().await()
+    findPower().await()
+    return "Marty"
+}
+
+launch() {
+    print("fight Lebaneses")
+    print(journeyInThePast().await())
+    print("go away from Lebaneses")
+}
 ----
 
 [NOTE.speaker]
 --
-Thread / Async / Il existe aussi RxKotlin
+* Thead block
+* Async no blocking but work with context
+* suspend no blocking and return value
 --
 
 == EXTENSIONS

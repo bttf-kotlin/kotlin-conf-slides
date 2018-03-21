@@ -242,16 +242,32 @@ Talk.apply{remainingTime = 20}
 <div class="paragraph"><p>Parler de triple</p></div>
 <div class="paragraph"><p>Destructuring fonction</p></div>
 <div class="paragraph"><p>Pas de Either par default / mais il existe Arrow</p></div></aside></section>
-<section id="coroutine"><h2>COROUTINE</h2><div class="paragraph"><p>2-3 slides</p></div>
-<div class="listingblock"><div class="content"><pre class="highlight"><code data-noescape class="kotlin language-kotlin">val c = AtomicInteger()
+<section><section id="coroutine"><h2>COROUTINE</h2><div class="paragraph"><p>&nbsp;</p></div><div class="paragraph"><p>&nbsp;</p></div><div class="paragraph"><p>&nbsp;</p></div><aside class="notes"><div class="ulist"><ul><li><p>coroutine &#8658; thread léger collaboratif. transition vers une autre coroutine à sa demande.</p></li><li><p>thread &#8658; scheduleur pré-emptif.horloges synchronisent les changements de contextes.</p></li></ul></div></aside></section><section id="coroutine_2" data-transition="fade"><h2>COROUTINE</h2><div class="listingblock"><div class="content"><pre class="highlight"><code data-noescape class="kotlin language-kotlin">fun journeyInThePast() = async() {
+    messUpParentProm().await()
+    findPower().await()
+    print "Marty"
+}
 
-for (i in 1..1_000_000)
-  thread(start = true) {
-    c.addAndGet(i)
-  }
+launch() {
+    print("fight Lebaneses")
+    journeyInThePast().await()
+    print("go away from Lebaneses")
+}</code></pre></div></div></section><section id="coroutine_3" data-transition="fade"><h2>COROUTINE</h2><div class="listingblock"><div class="content"><pre class="highlight"><code data-noescape class="kotlin language-kotlin">val messUpParentProm = async(1955Context){...}
 
-println(c.get())</code></pre></div></div>
-<aside class="notes"><div class="paragraph"><p>Thread / Async / Il existe aussi RxKotlin</p></div></aside></section>
+val findPower = async(1955Context){...}
+
+suspend fun journeyInThePast(): String {
+    messUpParentProm().await()
+    findPower().await()
+    return "Marty"
+}
+
+launch() {
+    print("fight Lebaneses")
+    print(journeyInThePast().await())
+    print("go away from Lebaneses")
+}</code></pre></div></div>
+<aside class="notes"><div class="ulist"><ul><li><p>Thead block</p></li><li><p>Async no blocking but work with context</p></li><li><p>suspend no blocking and return value</p></li></ul></div></aside></section></section>
 <section id="extensions"><h2>EXTENSIONS</h2><div class="paragraph"><p>Le polyfill du Java dans Kotlin</p></div>
 <div class="listingblock"><div class="content"><pre class="highlight"><code data-noescape class="kotlin language-kotlin">class Hero {
   fun useSuperpowers() {
