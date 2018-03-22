@@ -42,7 +42,7 @@ M: Mais Doc c'est pas justement là que l'on a posté notre conférence pour le 
 
 D: Si Marty, mais des gens bien intentionné ont préféré l'abandonner car il manque des fonctionnalités et il y a des bugs.
 
-M: Mais pourquoi n'ont elle pas été ajoutées ? La plateforme est open source, non ?
+M: Mais pourquoi ça n'a pas été corrigé ? La plateforme est open source, non ?
 
 D: Vient Marty, je te montre.
 --
@@ -89,7 +89,6 @@ Date:   Sat Nov 7 14:33:42 2015 +0100
 ----
 
 
-
 [NOTE.speaker]
 --
 M: Heu... Doc ? C'est moi où c'est du Java.
@@ -98,7 +97,7 @@ D: Tu sais Marty, à l'époque il n'y avait pas trop de choix.
 
 M: On pourrait pas utiliser Kotlin pour rajouter du code ?
 
-D: Nom de Zeus, tu as raison Marty. Kotlin, c'est le back du futur.
+D: Nom de Zeus, tu as raison Marty. Kotlin, c'est le back du futur !
 On peut faire la même chose que Java et bien plus encore.
 --
 
@@ -127,6 +126,10 @@ Freelance & Nantes JUG Leader
 
 🐦 @darkjabberwock
 
+== SLIDE INTRO
+
+TODO
+
 == LES BASES DE LA SYNTAXE
 
 [transition=fade]
@@ -137,6 +140,7 @@ Freelance & Nantes JUG Leader
 [source,kotlin,subs="quotes"]
 ----
 val quote: String = "Allô ? Allô ?"
+
 
 
 
@@ -154,7 +158,7 @@ val quote: String = "Allô ? Allô ?"
 ----
 val name = "McFly"
 
-var quote: String
+var quote: String = ""
 
 quote = """ Allô ? Allô ?
 | Y'a personne au bout du fil ?
@@ -223,6 +227,7 @@ print(sentence)
 * specialized classes : IntArray, ShortArray...
 --
 
+[transition=fade]
 === ARRAY
 
 // Gautier
@@ -238,7 +243,7 @@ val anyVersions: Array<Any> = versions // won't compile
 * invariant =>  assign an Array<String> to an Array<Any> impossible
 --
 
-
+[transition=fade]
 === RANGE
 
 // Adrien
@@ -280,6 +285,8 @@ print(talk.length)
 
 [transition=fade]
 === SMART CAST
+
+TODO revoir le slide
 
 [source,kotlin]
 ----
@@ -394,6 +401,8 @@ val messageWithNamedArguments = buildMessage("Christopher Lloyd", withEmoji = fa
 
 === LAMBDA / IT
 
+TODO revoir le slide
+
 // Gautier
 
 [source,kotlin,subs="quotes"]
@@ -443,7 +452,7 @@ Pas de constructeur
 
 [source,kotlin,subs="quotes"]
 ----
-data class User(val name: String, val age: Int)
+data class User(var name: String, var age: Int)
 ----
 
 [NOTE.speaker]
@@ -514,6 +523,8 @@ class RegisterService(val speaker: String, val coSpeaker: String?, val isFromBzh
 === IF
 
 // Gautier
+
+TODO revoir le slide
 
 [source,kotlin,subs="quotes"]
 ----
@@ -592,44 +603,6 @@ catch (e: NumberFormatException) {
 * expression => renvoit valeur
 * au moins un catch ou un finally
 --
-
-=== BREAK LABEL
-
-//  Adrien
-
-[source,kotlin,subs="quotes"]
-----
-loop@ for (i in 1..100) {
-    for (j in 1..100) {
-        if (...) break@loop
-    }
-}
-----
-
-=== RETURN LABEL
-
-// Adrien
-
-// Si trop long, on vire
-
-[source,kotlin,subs="quotes"]
-----
-fun foo() {
-    listOf(1, 2, 3, 4, 5).forEach {
-        if (it == 3) return // non-local return directly to the caller of foo()
-        print(it)
-    }
-    println("this point is unreachable")
-}
-
-fun foo() {
-    listOf(1, 2, 3, 4, 5).forEach lit@{
-        if (it == 3) return@lit
-        print(it)
-    }
-    print(" done with explicit label")
-}
-----
 
 [transition=fade]
 == KOTLIN STANDARD LIBRARY
@@ -900,24 +873,6 @@ launch() {
 * Async no blocking but work with context
 * suspend no blocking and return value
 --
-
-== COMPANION
-
-// Gautier
-
-[source, kotlin]
-----
-class Speaker private constructor(val name: String) {
-    companion object SpeakerFactory {
-        fun create(name: String): Speaker {
-            return Speaker(name)
-        }
-    }
-}
-
-val marty = Speaker.SpeakerFactory.create("Marty")
-val doc = Speaker.create("Doc")
-----
 
 == KOTLIN ET LES FRAMEWORKS
 
