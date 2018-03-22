@@ -67,7 +67,7 @@ $linkColor: chartreuse;
 $linkColorHover: lighten( $linkColor, 15% );
 $selectionBackgroundColor: lighten( $linkColor, 25% );
 
-$heading1Size: 4.5em;
+$heading1Size: 4.0em;
 $heading2Size: 2.0em;
 $heading3Size: 1.3em;
 $heading4Size: 1.0em;
@@ -84,7 +84,7 @@ section.has-light-background {
 
 
 html {
-	font-size: 2.25vmin;
+	font-size: 5vmin;
 }
 
 .reveal .slides {
