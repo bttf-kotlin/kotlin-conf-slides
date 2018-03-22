@@ -112,6 +112,10 @@ body {
   max-width: 95%;
   max-height: 95%; }
 
+.reveal section.present img {
+  border: none;
+}
+
 .reveal strong,
 .reveal b {
   font-weight: bold; }

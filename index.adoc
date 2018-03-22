@@ -126,9 +126,20 @@ Freelance & Nantes JUG Leader
 
 🐦 @darkjabberwock
 
-== SLIDE INTRO
+== INTRODUCTION
 
-TODO
+image::kotlin-text.svg[size=contain]
+
+[NOTE.speaker]
+--
+* JetBrain
+* Iles
+* 2011
+* Apache2
+* Google -> Mai 2017
+* syntaxe concise, simple sur JVM
+* Pas exhaustif dans notre présentation
+--
 
 == LES BASES DE LA SYNTAXE
 
@@ -286,12 +297,10 @@ print(talk.length)
 [transition=fade]
 === SMART CAST
 
-TODO revoir le slide
-
 [source,kotlin]
 ----
-val talk: String? = y as String?
-val talk: String? = y as? String
+val conf: String = bzhCmp as String?
+val speaker: String? = mcFly as? String
 ----
 
 [NOTE.speaker]
@@ -430,6 +439,8 @@ class UserServices(val name: String, val age: Int) {
   var credentials: Credentials;
   fun getUsers()...
 }
+
+val userServices = UserServices('Marty', 33)
 ----
 
 === OBJECT CLASS
@@ -628,7 +639,7 @@ if(speaker.isNotBlank()){
 ----
 val years = arrayOf(1985, 1992, 2018)
 print(years.average())
-Talk.apply{remainingTime = 20}
+
 
 
 //
@@ -820,6 +831,13 @@ goToPlage("Marty")
 * thread => scheduleur pré-emptif.horloges synchronisent les changements de contextes.
 --
 
+=== COROUTINE
+
+image::frise.png[size=contain]
+
+
+
+
 [transition=fade]
 === COROUTINE
 
@@ -828,7 +846,7 @@ goToPlage("Marty")
 [source,kotlin,subs="quotes"]
 ----
 
-fun journeyInThePast() = async() {
+fun journeyInThePast() = async(1955Context) {
     messUpParentProm().await()
     findPower().await()
     print "Marty"
@@ -850,9 +868,9 @@ launch() {
 
 [source,kotlin,subs="quotes"]
 ----
-val messUpParentProm = async(1955Context){...}
+val messUpParentProm = async(){...}
 
-val findPower = async(1955Context){...}
+val findPower = async(){...}
 
 suspend fun journeyInThePast(): String {
     messUpParentProm().await()
@@ -884,6 +902,7 @@ launch() {
 * Javalin
 * Kotlin arrow
 * Jhipster-kotlin
+* Gradle - Kotlin DSL
 
 == KOTLIN MULTIPLATEFORME
 
