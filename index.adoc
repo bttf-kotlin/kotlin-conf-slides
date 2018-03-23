@@ -357,12 +357,12 @@ fun printHello(name: String?): Unit {
 
 [source,kotlin,subs="quotes"]
 ----
-fun printMessage(name: String = "gallette-saucisses"): Unit {
+fun printMessage(name: String = "galettes-saucisses"): Unit {
     println("Au BreizhCamp on aime les ${name} !")
 }
 
 fun main(args: Array<String>) {
-    printMessage()                  // Au BreizhCamp on aime les gallette-saucisses !
+    printMessage()                  // Au BreizhCamp on aime les galettes-saucisses !
     printMessage("chapeaux ronds")  // Au BreizhCamp on aime les chapeaux ronds !
 }
 ----
