@@ -4,15 +4,16 @@
 :revealjs_slideNumber: true
 //:revealjsdir: https://cdnjs.cloudflare.com/ajax/libs/reveal.js/3.6.0
 
-//:revealjs_width: "100%"
-//:revealjs_height: "100%"
-//:revealjs_margin: 0
-//:revealjs_minScale: 1
-//:revealjs_maxScale: 1
+:revealjs_width: "100%"
+:revealjs_height: "100%"
+:revealjs_margin: 0
+:revealjs_minScale: 1
+:revealjs_maxScale: 1
+
+:revealjs_transition: fade
 
 :source-highlighter: highlightjs
-// :highlightjsdir: highlightjs
-// :highlightjs-theme: "tomorrow-night-blue"
+:highlightjs-theme: ./css/highlight-styles/atelier-cave-dark.css
 
 
 :imagesdir: images
@@ -143,7 +144,7 @@ image::kotlin-text.svg[size=contain]
 
 == LES BASES DE LA SYNTAXE
 
-[transition=fade]
+
 === VAL VS VAR
 
 // Adrien
@@ -160,7 +161,7 @@ val quote: String = "Allô ? Allô ?"
 //
 ----
 
-[transition=fade]
+
 === VAL VS VAR
 
 // Adrien
@@ -198,7 +199,7 @@ Peut être initialisé plus tard.
 * Char, String
 * Boolean
 
-[transition=fade]
+
 === ARRAY
 
 // Gautier
@@ -219,7 +220,7 @@ print(sentence)
 * get/set => []
 --
 
-[transition=fade]
+
 === ARRAY
 
 // Gautier
@@ -238,7 +239,7 @@ print(sentence)
 * specialized classes : IntArray, ShortArray...
 --
 
-[transition=fade]
+
 === ARRAY
 
 // Gautier
@@ -254,7 +255,7 @@ val anyVersions: Array<Any> = versions // won't compile
 * invariant =>  assign an Array<String> to an Array<Any> impossible
 --
 
-[transition=fade]
+
 === RANGE
 
 // Adrien
@@ -270,7 +271,7 @@ for (i in IntRange(1, 3)) {
 }
 ----
 
-[transition=fade]
+
 === RANGE
 
 // Adrien
@@ -294,7 +295,7 @@ if (talk !is String) return
 print(talk.length)
 ----
 
-[transition=fade]
+
 === SMART CAST
 
 [source,kotlin]
@@ -328,7 +329,7 @@ fun speakerName(name: String, firstname: String) : String {
 ** Unit si pas de retour
 --
 
-[transition=fade]
+
 === DÉCLARATION FONCTIONS
 
 // Gautier
@@ -392,7 +393,7 @@ fun buildMessage(
 }
 ----
 
-[transition=fade]
+
 === PARAMETRE NOMMÉ
 
 [source,kotlin]
@@ -400,7 +401,7 @@ fun buildMessage(
 val message = buildMessage("Christopher Lloyd", true, false)
 ----
 
-[transition=fade]
+
 === PARAMETRE NOMMÉ
 
 [source,kotlin]
@@ -504,7 +505,7 @@ class RegisterService{
 }
 ----
 
-[transition=fade]
+
 === OVERLOADING KOTLIN
 
 //adrien
@@ -615,7 +616,7 @@ catch (e: NumberFormatException) {
 * au moins un catch ou un finally
 --
 
-[transition=fade]
+
 == KOTLIN STANDARD LIBRARY
 
 // Adrien
@@ -630,7 +631,7 @@ if(speaker.isNotBlank()){
 }
 ----
 
-[transition=fade]
+
 === KOTLIN STANDARD LIBRARY
 
 // Adrien
@@ -661,7 +662,7 @@ Le polyfill du Java dans Kotlin
 * permet d'étendre un type sans modifier la classe de départ
 --
 
-[transition=fade]
+
 === EXTENSIONS
 
 [source,kotlin,subs="quotes"]
@@ -688,7 +689,7 @@ doc.voyagerDansLeTemps("en Bretagne", 1985)
 //Back to the Breizh
 ----
 
-[transition=fade]
+
 === EXTENSIONS
 
 [source,kotlin,subs="quotes"]
@@ -719,7 +720,7 @@ humain.voyagerDansLeTemps("en Bretagne", 1985)
 
 Kotlin n'est pas un langage fonctionnel
 
-[transition=fade]
+
 === IMMUTABILITÉ
 
 // Gautier
@@ -733,7 +734,7 @@ val marty = Speaker("Marty", "Hill Valley")
 // Marty doit aller au BreizhCamp
 ----
 
-[transition=fade]
+
 === IMMUTABILITÉ
 
 // Gautier
@@ -747,7 +748,7 @@ val marty = Speaker("Marty", "Hill Valley")
 marty.location = "BreizhCamp" // does not compile
 ----
 
-[transition=fade]
+
 === IMMUTABILITÉ
 
 // Gautier
@@ -761,7 +762,7 @@ val marty = Speaker("Marty", "Hill Valley")
 val martyAuBreizhCamp = marty.copy(location = "BreizhCamp")
 ----
 
-[transition=fade]
+
 === FONCTION&nbsp;D'ORDRE SUPÉRIEUR
 
 [source,kotlin]
@@ -780,7 +781,7 @@ doSomething("Marty", {s -> "${s} va à la plage de Treac’h er Goured"})
 --
 
 
-[transition=fade]
+
 === FONCTION&nbsp;D'ORDRE SUPÉRIEUR
 
 [source,kotlin]
@@ -793,7 +794,7 @@ fun goTo(destination: String): (String) -> Unit = { speaker -> println("${speake
 // Marty doit aller à la plage
 ----
 
-[transition=fade]
+
 === FONCTION&nbsp;D'ORDRE SUPÉRIEUR
 
 [source,kotlin]
@@ -837,8 +838,6 @@ image::frise.png[size=contain]
 
 
 
-
-[transition=fade]
 === COROUTINE
 
 // Adrien
@@ -861,7 +860,7 @@ launch() {
 
 ----
 
-[transition=fade]
+
 === COROUTINE
 
 // Adrien
