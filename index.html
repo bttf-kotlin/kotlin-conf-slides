@@ -60,9 +60,10 @@ On peut faire la même chose que Java et bien plus encore.</p></div></aside></se
 <div class="paragraph"><p>🐦 @darkjabberwock</p></div></section>
 <section id="introduction"><h2>INTRODUCTION</h2><div class="imageblock" style=""><img src="images/kotlin-text.svg" alt="kotlin text"></div>
 <aside class="notes"><div class="ulist"><ul><li><p>JetBrain</p></li><li><p>Iles</p></li><li><p>2011</p></li><li><p>Apache2</p></li><li><p>Google &#8594; Mai 2017</p></li><li><p>syntaxe concise, simple sur JVM</p></li><li><p>Pas exhaustif dans notre présentation</p></li></ul></div></aside></section>
+
 <section><section id="les_bases_de_la_syntaxe"><h2>LES BASES DE LA SYNTAXE</h2></section><section id="val_vs_var"><h2>VAL VS VAR</h2><div class="listingblock"><div class="content"><pre class="highlight"><code data-noescape class="kotlin language-kotlin">val quote: String = "Allô ? Allô ?"
 
-
+<section><section id="les_bases_de_la_syntaxe"><h2>LES BASES DE LA SYNTAXE</h2></section><section id="val_vs_var" data-transition="fade"><h2>VAL VS VAR</h2><div class="listingblock"><div class="content"><pre class="highlight"><code data-noescape class="kotlin language-kotlin">val quote: String = "Allô ? Allô ?"
 
 
 
@@ -132,11 +133,21 @@ fun main(args: Array<String>) {
 
  // ...
 
-}</code></pre></div></div></section><section id="parametre_nomm_2"><h2>PARAMETRE NOMMÉ</h2><div class="listingblock"><div class="content"><pre class="highlight"><code data-noescape class="kotlin language-kotlin">val message = buildMessage("Christopher Lloyd", true, false)</code></pre></div></div></section><section id="parametre_nomm_3"><h2>PARAMETRE NOMMÉ</h2><div class="listingblock"><div class="content"><pre class="highlight"><code data-noescape class="kotlin language-kotlin">val messageWithNamedArguments = buildMessage("Christopher Lloyd", withEmoji = false, upper = true)</code></pre></div></div></section><section id="lambda_it"><h2>LAMBDA / IT</h2><div class="paragraph"><p>TODO revoir le slide</p></div>
-<div class="listingblock"><div class="content"><pre class="highlight"><code data-noescape class="kotlin language-kotlin">strings
-  .filter { it.length == 5 }
-  .sortedBy { it }
-  .map { it.toUpperCase() }</code></pre></div></div>
+
+}</code></pre></div></div></section><section id="parametre_nomm_2" data-transition="fade"><h2>PARAMETRE NOMMÉ</h2><div class="listingblock"><div class="content"><pre class="highlight"><code data-noescape class="kotlin language-kotlin">val message = buildMessage("Christopher Lloyd", true, false)</code></pre></div></div></section><section id="parametre_nomm_3" data-transition="fade"><h2>PARAMETRE NOMMÉ</h2><div class="listingblock"><div class="content"><pre class="highlight"><code data-noescape class="kotlin language-kotlin">val messageWithNamedArguments = buildMessage("Christopher Lloyd", withEmoji = false, upper = true)</code></pre></div></div></section><section id="lambda_it"><h2>LAMBDA / IT</h2><div class="paragraph"><p>TODO revoir le slide</p></div>
+<div class="listingblock"><div class="content"><pre class="highlight"><code data-noescape class="kotlin language-kotlin">val adrien = Speaker("Adrien")
+val doc = Speaker("Doc")
+val gautier = Speaker("Gautier")
+val marty = Speaker("Marty")
+
+val speakers = arrayOf(marty, adrien, gautier, doc)
+
+val speakersNames = speakers
+        .filter { it.name.length <= 5 }
+        .sortedBy { it.name }
+        .map { it.name.toUpperCase() }
+
+print(speakersNames) // [DOC, MARTY]</code></pre></div></div>
 <aside class="notes"><div class="paragraph"><p>it correspond à l&#8217;élement courant</p></div>
 <div class="paragraph"><p>lambda sans utilisation des <code>arrows</code></p></div></aside></section><section id="class"><h2>CLASS</h2><div class="listingblock"><div class="content"><pre class="highlight"><code data-noescape class="kotlin language-kotlin">class UserServices(val name: String, val age: Int) {
   var credentials: Credentials;
@@ -176,13 +187,17 @@ val userServices = UserServices('Marty', 33)</code></pre></div></div></section><
 
 
 // BZH</code></pre></div></div></section></section>
-<section><section id="flow_control"><h2>FLOW CONTROL</h2></section><section id="if"><h2>IF</h2><div class="paragraph"><p>TODO revoir le slide</p></div>
-<div class="listingblock"><div class="content"><pre class="highlight"><code data-noescape class="kotlin language-kotlin">val max = if (a > b) {
-  print("Choose a")
-  a
+<section><section id="flow_control"><h2>FLOW CONTROL</h2></section><section id="if"><h2>IF</h2><div class="listingblock"><div class="content"><pre class="highlight"><code data-noescape class="kotlin language-kotlin">val marty = Speaker("Marty")
+val adrien = Speaker("Adrien")
+
+// The program runs some mystic algorithms
+
+val speakerForBreizhCamp = if (marty.isNotInThePast()) {
+  print("Choose ${marty.name}")
+  marty
 } else {
-  print("Choose b")
-  b
+  print("Choose ${adrien.name}")
+  adrien
 }</code></pre></div></div>
 <aside class="notes"><div class="ulist"><ul><li><p>expression &#8658; renvoit une valeur</p></li><li><p>remplace l&#8217;opérateur ternaire</p></li><li><p>derniere expression = valeur renvoyée</p></li></ul></div></aside></section><section id="elvis_operator"><h2>ELVIS OPERATOR</h2><div class="listingblock"><div class="content"><pre class="highlight"><code data-noescape class="kotlin language-kotlin">val city = user?.adress?
   .city ?: throw IllegalArgumentException("Invalid User")</code></pre></div></div>
