@@ -410,16 +410,23 @@ val messageWithNamedArguments = buildMessage("Christopher Lloyd", withEmoji = fa
 
 === LAMBDA / IT
 
-TODO revoir le slide
-
 // Gautier
 
 [source,kotlin,subs="quotes"]
 ----
-strings
-  .filter { it.length == 5 }
-  .sortedBy { it }
-  .map { it.toUpperCase() }
+val adrien = Speaker("Adrien")
+val doc = Speaker("Doc")
+val gautier = Speaker("Gautier")
+val marty = Speaker("Marty")
+
+val speakers = arrayOf(marty, adrien, gautier, doc)
+
+val speakersNames = speakers
+        .filter { it.name.length <= 5 }
+        .sortedBy { it.name }
+        .map { it.name.toUpperCase() }
+
+print(speakersNames) // [DOC, MARTY]
 ----
 
 [NOTE.speaker]
@@ -533,18 +540,19 @@ class RegisterService(val speaker: String, val coSpeaker: String?, val isFromBzh
 
 === IF
 
-// Gautier
-
-TODO revoir le slide
-
 [source,kotlin,subs="quotes"]
 ----
-val max = if (a > b) {
-  print("Choose a")
-  a
+val marty = Speaker("Marty")
+val adrien = Speaker("Adrien")
+
+// The program runs some mystic algorithms
+
+val speakerForBreizhCamp = if (marty.isNotInThePast()) {
+  print("Choose ${marty.name}")
+  marty
 } else {
-  print("Choose b")
-  b
+  print("Choose ${adrien.name}")
+  adrien
 }
 ----
 
