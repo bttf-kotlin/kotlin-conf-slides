@@ -1,54 +1,52 @@
 /**
  * Back to the future theme for reveal.js.
  */
-
 // Default mixins and settings -----------------
 @import "../../../node_modules/reveal.js/css/theme/template/mixins";
 @import "../../../node_modules/reveal.js/css/theme/template/settings";
 // ---------------------------------------------
-
 // Include theme-specific fonts
 @import url('https://fonts.googleapis.com/css?family=Poppins');
 @import url('https://fonts.googleapis.com/css?family=Source+Sans+Pro');
 
 @font-face {
-    font-family: 'Back to the future 2002';
-    src: url('../font/Backtothefuture2002-Regular.woff2') format('woff2'),
-         url('../font/Backtothefuture2002-Regular.woff') format('woff');
-    font-weight: normal;
-    font-style: normal;
+  font-family: 'Back to the future 2002';
+  src: url('../font/Backtothefuture2002-Regular.woff2') format('woff2'),
+  url('../font/Backtothefuture2002-Regular.woff') format('woff');
+  font-weight: normal;
+  font-style: normal;
 }
 
 @font-face {
-    font-family: 'DS-Digital';
-    src: url('../font/DS-Digital-BoldItalic.woff2') format('woff2'),
-        url('../font/DS-Digital-BoldItalic.woff') format('woff');
-    font-weight: bold;
-    font-style: italic;
+  font-family: 'DS-Digital';
+  src: url('../font/DS-Digital-BoldItalic.woff2') format('woff2'),
+  url('../font/DS-Digital-BoldItalic.woff') format('woff');
+  font-weight: bold;
+  font-style: italic;
 }
 
 @font-face {
-    font-family: 'DS-Digital';
-    src: url('../font/DS-Digital.woff2') format('woff2'),
-        url('../font/DS-Digital.woff') format('woff');
-    font-weight: normal;
-    font-style: normal;
+  font-family: 'DS-Digital';
+  src: url('../font/DS-Digital.woff2') format('woff2'),
+  url('../font/DS-Digital.woff') format('woff');
+  font-weight: normal;
+  font-style: normal;
 }
 
 @font-face {
-    font-family: 'DS-Digital';
-    src: url('../font/DS-Digital-Italic.woff2') format('woff2'),
-        url('../font/DS-Digital-Italic.woff') format('woff');
-    font-weight: normal;
-    font-style: italic;
+  font-family: 'DS-Digital';
+  src: url('../font/DS-Digital-Italic.woff2') format('woff2'),
+  url('../font/DS-Digital-Italic.woff') format('woff');
+  font-weight: normal;
+  font-style: italic;
 }
 
 @font-face {
-    font-family: 'DS-Digital';
-    src: url('../font/DS-Digital-Bold.woff2') format('woff2'),
-        url('../font/DS-Digital-Bold.woff') format('woff');
-    font-weight: bold;
-    font-style: normal;
+  font-family: 'DS-Digital';
+  src: url('../font/DS-Digital-Bold.woff2') format('woff2'),
+  url('../font/DS-Digital-Bold.woff') format('woff');
+  font-weight: bold;
+  font-style: normal;
 }
 
 // Override theme settings (see ../../../node_modules/reveal.js/css/theme/template/settings.scss)
@@ -64,31 +62,30 @@ $headingLetterSpacing: normal;
 $headingTextTransform: none;
 $headingFontWeight: 600;
 $linkColor: chartreuse;
-$linkColorHover: lighten( $linkColor, 15% );
-$selectionBackgroundColor: lighten( $linkColor, 25% );
+$linkColorHover: lighten($linkColor, 15%);
+$selectionBackgroundColor: lighten($linkColor, 25%);
 
 $heading1Size: 4.0em;
-$heading2Size: 2.0em;
+$heading2Size: 1.8em;
 $heading3Size: 1.3em;
 $heading4Size: 1.0em;
 
 section.has-light-background {
-	&, h1, h2, h3, h4, h5, h6 {
-		color: #222;
-	}
+  &, h1, h2, h3, h4, h5, h6 {
+    color: #222;
+  }
 }
 
 // Theme template ------------------------------
 @import "../../../node_modules/reveal.js/css/theme/template/theme";
 // ---------------------------------------------
 
-
 html {
-	font-size: 5vmin;
+  font-size: 5vmin;
 }
 
 .reveal .slides {
-	text-align: center;
+  text-align: center;
 }
 
 .reveal h1,
@@ -97,70 +94,77 @@ html {
 .reveal h4,
 .reveal h5,
 .reveal h6 {
-	margin-bottom: 2.5vmin;
-	font-family: 'Back to the future 2002';
-	background: linear-gradient(#EE4221, #EA932E, yellow, yellow);
-    background-clip: text;
-    -webkit-background-clip: text;
-	-webkit-text-fill-color: transparent;
+  margin-bottom: 2.5vmin;
+  font-family: 'Back to the future 2002';
+  background: linear-gradient(#EE4221, #EA932E, yellow, yellow);
+  background-clip: text;
+  -webkit-background-clip: text;
+  -webkit-text-fill-color: transparent;
 }
 
 .reveal .slides section {
-	.actor-role {
-		background: linear-gradient(#EE4221, #EA932E, yellow, yellow);
-        background-clip: text;
-        -webkit-background-clip: text;
-		-webkit-text-fill-color: transparent;
-	}
+  .actor-role {
+    background: linear-gradient(#EE4221, #EA932E, yellow, yellow);
+    background-clip: text;
+    -webkit-background-clip: text;
+    -webkit-text-fill-color: transparent;
+  }
 
-	.actor img {
-		border-radius: 50%;
-	}
+  .actor img {
+    border-radius: 50%;
+  }
 }
 
 .reveal .slides section.title {
-    h1 {
-        margin: 0;
-    }
+  h1 {
+    margin: 0;
+  }
 
-    h2 {
-        background: linear-gradient(yellow, #EA932E, #EE4221);
-        background-clip: text;
-        -webkit-background-clip: text;
-        -webkit-text-fill-color: transparent;
-        font-size: 4.5em;       
-    }
+  h2 {
+    background: linear-gradient(yellow, #EA932E, #EE4221);
+    background-clip: text;
+    -webkit-background-clip: text;
+    -webkit-text-fill-color: transparent;
+    font-size: 4.5em;
+  }
 
-    .title-left-part {
-        font-size: .45em;
-        display: inline-block;
-        width: 3em;
-        text-align: left;
-    }
+  .title-left-part {
+    font-size: .45em;
+    display: inline-block;
+    width: 3em;
+    text-align: left;
+  }
 }
 
 .reveal .slides section {
-    .header {
-        display: block;
-        font-size: 4.5em;
-        font-weight: bold;
-        font-family: 'Back to the future 2002';
-        background: linear-gradient(#EE4221, #EA932E, yellow, yellow);
-        background-clip: text;
-        -webkit-background-clip: text;
-        -webkit-text-fill-color: transparent;
-    }
+  .header {
+    display: block;
+    font-size: 4.5em;
+    font-weight: bold;
+    font-family: 'Back to the future 2002';
+    background: linear-gradient(#EE4221, #EA932E, yellow, yellow);
+    background-clip: text;
+    -webkit-background-clip: text;
+    -webkit-text-fill-color: transparent;
+  }
 
-    .hearder-line {
-        display: block;
-        font-size: 2.0em; 
-        font-weight: bold;
-        font-family: 'Back to the future 2002';
-        background: linear-gradient(yellow, #EA932E, #EE4221);
-        background-clip: text;
-        -webkit-background-clip: text;
-        -webkit-text-fill-color: transparent;
-    }
+  .hearder-line {
+    display: block;
+    font-size: 2.0em;
+    font-weight: bold;
+    font-family: 'Back to the future 2002';
+    background: linear-gradient(yellow, #EA932E, #EE4221);
+    background-clip: text;
+    -webkit-background-clip: text;
+    -webkit-text-fill-color: transparent;
+  }
+
+  img {
+    border: none;
+    background: none;
+    margin: 0;
+    box-shadow: none;
+  }
 
 }
 
@@ -168,41 +172,47 @@ html {
  * PROGRESS BAR
  ********************/
 .reveal .progress {
-    height: 10px;
-	background-color: transparent;
+  height: 10px;
+  background-color: transparent;
 
-    span{
-		background-image: url("../../images/flame-sprite.png");
-		background-color: transparent;
-    }
+  span {
+    background-image: url("../../images/flame-sprite.png");
+    background-color: transparent;
+  }
 
-    span::after {
-        position:relative;
-        float:right;
-        top: -38px;
-        right: -90px;
-        content: url("../../images/delorean-little.png");
-    }
+  span::after {
+    position: relative;
+    float: right;
+    top: -38px;
+    right: -90px;
+    content: url("../../images/delorean-little.png");
+  }
 }
 
 /********************
  * SLIDE NUMBER
  ********************/
 .reveal .slide-number {
-    background-color: black;
-    right: 0px;
-    bottom: 10px;
-    font-family: 'DS-Digital';
-    font-weight: bold;
-    font-style: italic;
-    font-size: 20px;
-    color: chartreuse;
+  background-color: black;
+  right: 0px;
+  bottom: 10px;
+  font-family: 'DS-Digital';
+  font-weight: bold;
+  font-style: italic;
+  font-size: 20px;
+  color: chartreuse;
 }
 
 /********************
  * CONTROLS
  ********************/
 .reveal .controls {
-	right: 4vmin;
-	bottom: 4vmin;
+  right: 4vmin;
+  bottom: 4vmin;
+}
+
+@media screen and (max-width: 1280px) {
+  html {
+    font-size: 2.5vmin;
+  }
 }
