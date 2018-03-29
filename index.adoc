@@ -804,7 +804,11 @@ doSomething("Marty", {s -> "${s} va à la plage de Treac’h er Goured"})
 
 [NOTE.speaker]
 --
-* higher function : prend une fonction en parametre ou renvoi une fonction ou les deux
+En mathématiques et en informatique, les fonctions d'ordre supérieur ou fonctionnelles sont des fonctions qui ont au moins une des propriétés suivantes :
+
+* elles prennent une ou plusieurs fonctions en entrée ;
+* elles renvoient une fonction.
+
 --
 
 
@@ -837,12 +841,23 @@ goToPlage("Marty")
 === POUR ALLER PLUS LOIN
 
 [%step]
-* Lazy evaluation
+* Curryfication
 * Memoization
-* Pair, Triple
 * ...
 * ARROW : http://arrow-kt.io/
 
+[NOTE.speaker]
+--
+* la curryfication désigne la transformation d'une fonction à plusieurs arguments en une fonction à un argument qui retourne une fonction sur le reste des arguments.
+* Pas d'implémentation de Either
+* Pas de Tuple mais Pair et Triple
+* Surcharge d'opérateur
+* arrow-kt
+** Type class : Monoid, Functor...
+** Data Type : Either, Try, Option...
+** Très jeune (surtout actif depuis 2017)
+** Documentation très (trop) legère
+--
 
 == COROUTINE
 
