@@ -601,6 +601,11 @@ val currentAction = when (year) {
 }
 ----
 
+[NOTE.speaker]
+--
+* filtrage par motif
+--
+
 === WHEN
 
 // Adrien
@@ -616,6 +621,7 @@ when {
 
 
 // BZH
+----
 
 === TRY CATCH
 

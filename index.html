@@ -207,11 +207,16 @@ val speakerForBreizhCamp = if (marty.isNotInThePast()) {
   else -> {
     print("Qui t'appelles « banane », banane ?")
   }
-}</code></pre></div></div></section><section id="when_2"><h2>WHEN</h2><div class="listingblock"><div class="content"><pre class="highlight"><code data-noescape class="kotlin language-kotlin">when {
+}</code></pre></div></div>
+<aside class="notes"><div class="ulist"><ul><li><p>filtrage par motif</p></li></ul></div></aside></section><section id="when_2"><h2>WHEN</h2><div class="listingblock"><div class="content"><pre class="highlight"><code data-noescape class="kotlin language-kotlin">when {
   isGeorgeWantToDateLorraine() -> scareHimWithADarkVadorVoice()
   !isTheCityHallClockSettedUp() -> findDoc()
   isDeloreanFullyCharged(delorean) -> travel()
-}</code></pre></div></div></section><section id="try_catch"><h2>TRY CATCH</h2><div class="listingblock"><div class="content"><pre class="highlight"><code data-noescape class="kotlin language-kotlin">val answer: Int = try {
+}
+
+
+
+// BZH</code></pre></div></div></section><section id="try_catch"><h2>TRY CATCH</h2><div class="listingblock"><div class="content"><pre class="highlight"><code data-noescape class="kotlin language-kotlin">val answer: Int = try {
   parseInt(input)
 }
 catch (e: NumberFormatException) {
