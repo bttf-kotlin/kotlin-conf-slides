@@ -67,6 +67,7 @@ On peut faire la même chose que Java et bien plus encore.</p></div></aside></se
 
 
 
+
 //</code></pre></div></div></section><section id="val_vs_var_2"><h2>VAL VS VAR</h2><div class="listingblock"><div class="content"><pre class="highlight"><code data-noescape class="kotlin language-kotlin">val name = "McFly"
 
 var quote: String = ""
@@ -82,9 +83,9 @@ Doit être initialisée lors de la déclaration.</p></div>
 Peut être initialisé plus tard.</p></div></aside></section><section id="type_basique"><h2>TYPE BASIQUE</h2><div class="ulist"><ul><li class="fragment"><p>Pas de type primitif</p></li><li class="fragment"><p>Any</p></li><li class="fragment"><p>Double, Float, Int, Char, String, &#8230;&#8203;</p></li><li class="fragment"><p>API Collection</p></li></ul></div></section><section id="array"><h2>ARRAY</h2><div class="listingblock"><div class="content"><pre class="highlight"><code data-noescape class="kotlin language-kotlin">val versions: Array&lt;Int&gt; = arrayOf(1, 2, 4)
 versions[2] = 3
 
-val sentence = "Il y a ${versions.size} films. Le dernier est le ${versions[versions.size - 1]}."
+val sentence = "Il y a ${versions[versions.size - 1]} films."
 print(sentence)</code></pre></div></div>
-<aside class="notes"><div class="ulist"><ul><li><p>Génériques</p></li><li><p>get/set &#8658; []</p></li></ul></div></aside></section><section id="array_2"><h2>ARRAY</h2><div class="listingblock"><div class="content"><pre class="highlight"><code data-noescape class="kotlin language-kotlin">val versions: IntArray = intArrayOf(1, 2, 4)
+<aside class="notes"><div class="ulist"><ul><li><p>Génériques</p></li><li><p>get/set &#8658; []</p><div class="ulist"><ul><li><p>redefinition du get / set</p></li></ul></div></li></ul></div></aside></section><section id="array_2"><h2>ARRAY</h2><div class="listingblock"><div class="content"><pre class="highlight"><code data-noescape class="kotlin language-kotlin">val versions: IntArray = intArrayOf(1, 2, 4)
 versions[2] = 3
 
 val sentence = "Il y a ${versions.size} films. Le dernier est le ${versions[versions.size - 1]}."
@@ -132,7 +133,11 @@ fun main(args: Array<String>) {
 
  // ...
 
-}</code></pre></div></div></section><section id="parametre_nomm_2"><h2>PARAMETRE NOMMÉ</h2><div class="listingblock"><div class="content"><pre class="highlight"><code data-noescape class="kotlin language-kotlin">val message = buildMessage("Christopher Lloyd", true, false)</code></pre></div></div></section><section id="parametre_nomm_3"><h2>PARAMETRE NOMMÉ</h2><div class="listingblock"><div class="content"><pre class="highlight"><code data-noescape class="kotlin language-kotlin">val messageWithNamedArguments = buildMessage("Christopher Lloyd", withEmoji = false, upper = true)</code></pre></div></div></section><section id="lambda_it"><h2>LAMBDA / IT</h2><div class="listingblock"><div class="content"><pre class="highlight"><code data-noescape class="kotlin language-kotlin">val adrien = Speaker("Adrien")
+}</code></pre></div></div></section><section id="parametre_nomm_2"><h2>PARAMETRE NOMMÉ</h2><div class="listingblock"><div class="content"><pre class="highlight"><code data-noescape class="kotlin language-kotlin">val message = buildMessage("Christopher Lloyd", true, false)
+
+// On ne sait jamais, peut-être qu'on se rencontrera un jour futur.</code></pre></div></div></section><section id="parametre_nomm_3"><h2>PARAMETRE NOMMÉ</h2><div class="listingblock"><div class="content"><pre class="highlight"><code data-noescape class="kotlin language-kotlin">val messageWithNamedArguments = buildMessage("Christopher Lloyd",
+  withEmoji = false,
+  upper = true)</code></pre></div></div></section><section id="lambda_it"><h2>LAMBDA / IT</h2><div class="listingblock"><div class="content"><pre class="highlight"><code data-noescape class="kotlin language-kotlin">val adrien = Speaker("Adrien")
 val doc = Speaker("Doc")
 val gautier = Speaker("Gautier")
 val marty = Speaker("Marty")
@@ -235,7 +240,7 @@ print(years.average())
 
 //</code></pre></div></div>
 <aside class="notes"><div class="paragraph"><p>Shape of the code</p></div></aside></section></section>
-<section><section id="extensions"><h2>EXTENSIONS</h2><div class="paragraph"><p>Le polyfill du Java dans Kotlin</p></div><aside class="notes"><div class="ulist"><ul><li><p>provient de C#</p></li><li><p>permet d&#8217;étendre un type sans modifier la classe de départ</p></li></ul></div></aside></section><section id="extensions_2"><h2>EXTENSIONS</h2><div class="listingblock"><div class="content"><pre class="highlight"><code data-noescape class="kotlin language-kotlin">open class Humain {
+<section><section id="extensions"><h2>EXTENSIONS</h2><div class="paragraph"><p>Le polyfill du Java dans Kotlin</p></div><aside class="notes"><div class="ulist"><ul><li><p>provient de C#</p></li><li><p>permet d&#8217;étendre un type sans modifier la classe de départ</p></li><li><p>ne permet pas la surcharge des méthodes déclarés dans une classe ou une interface</p></li><li><p>on doit les importer comme les fonctions de premier niveau</p></li></ul></div></aside></section><section id="extensions_2"><h2>EXTENSIONS</h2><div class="listingblock"><div class="content"><pre class="highlight"><code data-noescape class="kotlin language-kotlin">open class Humain {
     fun voyager(destination: String) {
         print("Voyager ${destination}")
     }
@@ -292,17 +297,21 @@ val martyAuBreizhCamp = marty.copy(location = "BreizhCamp")</code></pre></div></
 }
 
 doSomething("Marty", {s -&gt; "${s} va à la plage de Treac’h er Goured"})</code></pre></div></div>
-<aside class="notes"><div class="ulist"><ul><li><p>higher function : prend une fonction en parametre ou renvoi une fonction ou les deux</p></li></ul></div></aside></section><section id="fonction_d_ordre_suprieur_2"><h2>FONCTION&nbsp;D&#8217;ORDRE SUPÉRIEUR</h2><div class="listingblock"><div class="content"><pre class="highlight"><code data-noescape class="kotlin language-kotlin">fun goTo(destination: String): (String) -&gt; Unit = { speaker -&gt; println("${speaker} va à la ${destination}") }
+<aside class="notes"><div class="paragraph"><p>En mathématiques et en informatique, les fonctions d&#8217;ordre supérieur ou fonctionnelles sont des fonctions qui ont au moins une des propriétés suivantes :</p></div>
+<div class="ulist"><ul><li><p>elles prennent une ou plusieurs fonctions en entrée ;</p></li><li><p>elles renvoient une fonction.</p></li></ul></div></aside></section><section id="fonction_d_ordre_suprieur_2"><h2>FONCTION&nbsp;D&#8217;ORDRE SUPÉRIEUR</h2><div class="listingblock"><div class="content"><pre class="highlight"><code data-noescape class="kotlin language-kotlin">fun goTo(destination: String): (String) -&gt; Unit
+  = { speaker -&gt; println("${speaker} va à la ${destination}") }
 
 
 
 
-// Marty doit aller à la plage</code></pre></div></div></section><section id="fonction_d_ordre_suprieur_3"><h2>FONCTION&nbsp;D&#8217;ORDRE SUPÉRIEUR</h2><div class="listingblock"><div class="content"><pre class="highlight"><code data-noescape class="kotlin language-kotlin">fun goTo(destination: String): (String) -&gt; Unit = { speaker -&gt; println("${speaker} va à la ${destination}") }
+// Marty doit aller à la plage</code></pre></div></div></section><section id="fonction_d_ordre_suprieur_3"><h2>FONCTION&nbsp;D&#8217;ORDRE SUPÉRIEUR</h2><div class="listingblock"><div class="content"><pre class="highlight"><code data-noescape class="kotlin language-kotlin">fun goTo(destination: String): (String) -&gt; Unit
+  = { speaker -&gt; println("${speaker} va à la ${destination}") }
 
 val goToPlage = goTo("plage de Treac’h er Goured")
 
 
-goToPlage("Marty")</code></pre></div></div></section><section id="pour_aller_plus_loin"><h2>POUR ALLER PLUS LOIN</h2><div class="ulist"><ul><li class="fragment"><p>Lazy evaluation</p></li><li class="fragment"><p>Memoization</p></li><li class="fragment"><p>Pair, Triple</p></li><li class="fragment"><p>&#8230;&#8203;</p></li><li class="fragment"><p>ARROW : <a href="http://arrow-kt.io/" class="bare">http://arrow-kt.io/</a></p></li></ul></div></section></section>
+goToPlage("Marty")</code></pre></div></div></section><section id="pour_aller_plus_loin"><h2>POUR ALLER PLUS LOIN</h2><div class="ulist"><ul><li class="fragment"><p>Curryfication</p></li><li class="fragment"><p>Memoization</p></li><li class="fragment"><p>&#8230;&#8203;</p></li><li class="fragment"><p>ARROW : <a href="http://arrow-kt.io/" class="bare">http://arrow-kt.io/</a></p></li></ul></div>
+<aside class="notes"><div class="ulist"><ul><li><p>la curryfication désigne la transformation d&#8217;une fonction à plusieurs arguments en une fonction à un argument qui retourne une fonction sur le reste des arguments.</p></li><li><p>Pas d&#8217;implémentation de Either</p></li><li><p>Pas de Tuple mais Pair et Triple</p></li><li><p>Surcharge d&#8217;opérateur</p></li><li><p>arrow-kt</p><div class="ulist"><ul><li><p>Type class : Monoid, Functor&#8230;&#8203;</p></li><li><p>Data Type : Either, Try, Option&#8230;&#8203;</p></li><li><p>Très jeune (surtout actif depuis 2017)</p></li><li><p>Documentation très (trop) legère</p></li></ul></div></li></ul></div></aside></section></section>
 <section><section id="coroutine"><h2>COROUTINE</h2><div class="paragraph"><p>&nbsp;</p></div><div class="paragraph"><p>&nbsp;</p></div><div class="paragraph"><p>&nbsp;</p></div><aside class="notes"><div class="ulist"><ul><li><p>coroutine &#8658; thread léger collaboratif. transition vers une autre coroutine à sa demande.</p></li><li><p>thread &#8658; scheduleur pré-emptif.horloges synchronisent les changements de contextes.</p></li></ul></div></aside></section><section id="coroutine_2"><h2>COROUTINE</h2><div class="imageblock" style=""><img src="images/frise.png" alt="frise"></div></section><section id="coroutine_3"><h2>COROUTINE</h2><div class="listingblock"><div class="content"><pre class="highlight"><code data-noescape class="kotlin language-kotlin">fun journeyInThePast() = async(1955Context) {
     messUpParentProm().await()
     findPower().await()

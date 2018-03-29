@@ -158,6 +158,7 @@ val quote: String = "Allô ? Allô ?"
 
 
 
+
 //
 ----
 
@@ -209,7 +210,7 @@ Peut être initialisé plus tard.
 val versions: Array<Int> = arrayOf(1, 2, 4)
 versions[2] = 3
 
-val sentence = "Il y a ${versions.size} films. Le dernier est le ${versions[versions.size - 1]}."
+val sentence = "Il y a ${versions[versions.size - 1]} films."
 print(sentence)
 ----
 
@@ -217,6 +218,7 @@ print(sentence)
 --
 * Génériques
 * get/set => []
+** redefinition du get / set
 --
 
 
@@ -398,6 +400,8 @@ fun buildMessage(
 [source,kotlin]
 ----
 val message = buildMessage("Christopher Lloyd", true, false)
+
+// On ne sait jamais, peut-être qu'on se rencontrera un jour futur.
 ----
 
 
@@ -405,7 +409,9 @@ val message = buildMessage("Christopher Lloyd", true, false)
 
 [source,kotlin]
 ----
-val messageWithNamedArguments = buildMessage("Christopher Lloyd", withEmoji = false, upper = true)
+val messageWithNamedArguments = buildMessage("Christopher Lloyd", 
+  withEmoji = false, 
+  upper = true)
 ----
 
 === LAMBDA / IT
@@ -687,6 +693,8 @@ Le polyfill du Java dans Kotlin
 --
 * provient de C#
 * permet d'étendre un type sans modifier la classe de départ
+* ne permet pas la surcharge des méthodes déclarés dans une classe ou une interface
+* on doit les importer comme les fonctions de premier niveau
 --
 
 
@@ -804,7 +812,11 @@ doSomething("Marty", {s -> "${s} va à la plage de Treac’h er Goured"})
 
 [NOTE.speaker]
 --
-* higher function : prend une fonction en parametre ou renvoi une fonction ou les deux
+En mathématiques et en informatique, les fonctions d'ordre supérieur ou fonctionnelles sont des fonctions qui ont au moins une des propriétés suivantes :
+
+* elles prennent une ou plusieurs fonctions en entrée ;
+* elles renvoient une fonction.
+
 --
 
 
@@ -813,7 +825,8 @@ doSomething("Marty", {s -> "${s} va à la plage de Treac’h er Goured"})
 
 [source,kotlin]
 ----
-fun goTo(destination: String): (String) -> Unit = { speaker -> println("${speaker} va à la ${destination}") }
+fun goTo(destination: String): (String) -> Unit 
+  = { speaker -> println("${speaker} va à la ${destination}") }
 
 
 
@@ -826,7 +839,8 @@ fun goTo(destination: String): (String) -> Unit = { speaker -> println("${speake
 
 [source,kotlin]
 ----
-fun goTo(destination: String): (String) -> Unit = { speaker -> println("${speaker} va à la ${destination}") }
+fun goTo(destination: String): (String) -> Unit 
+  = { speaker -> println("${speaker} va à la ${destination}") }
 
 val goToPlage = goTo("plage de Treac’h er Goured")
 
@@ -837,12 +851,23 @@ goToPlage("Marty")
 === POUR ALLER PLUS LOIN
 
 [%step]
-* Lazy evaluation
+* Curryfication
 * Memoization
-* Pair, Triple
 * ...
 * ARROW : http://arrow-kt.io/
 
+[NOTE.speaker]
+--
+* la curryfication désigne la transformation d'une fonction à plusieurs arguments en une fonction à un argument qui retourne une fonction sur le reste des arguments.
+* Pas d'implémentation de Either
+* Pas de Tuple mais Pair et Triple
+* Surcharge d'opérateur
+* arrow-kt
+** Type class : Monoid, Functor...
+** Data Type : Either, Try, Option...
+** Très jeune (surtout actif depuis 2017)
+** Documentation très (trop) legère
+--
 
 == COROUTINE
 
