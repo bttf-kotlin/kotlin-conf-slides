@@ -306,13 +306,15 @@ html {
 .reveal h6 {
   margin-bottom: 2.5vmin;
   font-family: 'Back to the future 2002';
-  background: linear-gradient(#EE4221, #EA932E, yellow, yellow);
+  -webkit-text-stroke: 0.025em #1EB8E7;
+  background: linear-gradient(#E62A00 24%, #F15A00 37%, #FF9A00 53%, #FFDC00 77%);
   background-clip: text;
   -webkit-background-clip: text;
   -webkit-text-fill-color: transparent; }
 
 .reveal .slides section .actor-role {
-  background: linear-gradient(#EE4221, #EA932E, yellow, yellow);
+  -webkit-text-stroke: 0.025em #1EB8E7;
+  background: linear-gradient(#E62A00 24%, #F15A00 37%, #FF9A00 53%, #FFDC00 77%);
   background-clip: text;
   -webkit-background-clip: text;
   -webkit-text-fill-color: transparent; }
@@ -324,8 +326,9 @@ html {
   margin: 0; }
 
 .reveal .slides section.title h2 {
-  background: linear-gradient(yellow, #EA932E, #EE4221);
   background-clip: text;
+  -webkit-text-stroke: 0.025em #1EB8E7;
+  background: linear-gradient(#FFDC00 24%, #FF9A00 37%, #F15A00 53%, #E62A00 77%);
   -webkit-background-clip: text;
   -webkit-text-fill-color: transparent;
   font-size: 4.5em; }
@@ -341,7 +344,8 @@ html {
   font-size: 4.5em;
   font-weight: bold;
   font-family: 'Back to the future 2002';
-  background: linear-gradient(#EE4221, #EA932E, yellow, yellow);
+  -webkit-text-stroke: 0.025em #1EB8E7;
+  background: linear-gradient(#E62A00 24%, #F15A00 37%, #FF9A00 53%, #FFDC00 77%);
   background-clip: text;
   -webkit-background-clip: text;
   -webkit-text-fill-color: transparent; }
@@ -351,7 +355,8 @@ html {
   font-size: 2.0em;
   font-weight: bold;
   font-family: 'Back to the future 2002';
-  background: linear-gradient(yellow, #EA932E, #EE4221);
+  -webkit-text-stroke: 0.025em #1EB8E7;
+  background: linear-gradient(#FFDC00 24%, #FF9A00 37%, #F15A00 53%, #E62A00 77%);
   background-clip: text;
   -webkit-background-clip: text;
   -webkit-text-fill-color: transparent; }
@@ -400,4 +405,6 @@ html {
 
 @media screen and (max-width: 1280px) {
   html {
-    font-size: 2.5vmin; } }
+    font-size: 4.5vmin; }
+  .reveal .slides section h2 {
+    font-size: 1.7em; } }

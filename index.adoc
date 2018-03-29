@@ -13,7 +13,7 @@
 :revealjs_transition: fade
 
 :source-highlighter: highlightjs
-:highlightjs-theme: ./css/highlight-styles/atelier-cave-dark.css
+:highlightjs-theme: ./css/highlight-styles/vs-bttf.css
 
 
 :imagesdir: images
@@ -36,7 +36,7 @@ _Marty recherche Doc et avance au slide suivant_ :D
 
 [NOTE.speaker]
 --
-D: Martyyy, tu tombes bien! Je reviens du passé et j'ai découvert quelquechose d'horrible.
+D: Martyyy, tu tombes bien! Je reviens du futur et j'ai découvert quelquechose d'horrible.
 Malgré les efforts de nombreuses personnes, la plateforme cfp.io est vouée à disparaître.
 
 M: Mais Doc c'est pas justement là que l'on a posté notre conférence pour le BreizhCamp.
@@ -195,9 +195,8 @@ Peut être initialisé plus tard.
 [%step]
 * Pas de type primitif
 * Any
-* Double, Float, Int...
-* Char, String
-* Boolean
+* Double, Float, Int, Char, String, ...
+* API Collection
 
 
 === ARRAY
@@ -570,7 +569,7 @@ val speakerForBreizhCamp = if (marty.isNotInThePast()) {
 
 [source,kotlin,subs="quotes"]
 ----
-val city = user?.adress?
+val city = user?.address?
   .city ?: throw IllegalArgumentException("Invalid User")
 ----
 
@@ -689,7 +688,7 @@ class Doc : Humain() {
 
 val humain: Humain = Humain()
 humain.voyager("en Bretagne")
-humain.voyagerDansLeTemps("en Bretagne", 1985) // does not compile
+humain.voyagerDansLeTemps("en Bretagne", 1985) // won't compile
 
 val doc: Doc = Doc()
 doc.voyagerDansLeTemps("en Bretagne", 1985)
@@ -753,7 +752,7 @@ data class Speaker (val name: String, val location: String)
 
 val marty = Speaker("Marty", "Hill Valley")
 
-marty.location = "BreizhCamp" // does not compile
+marty.location = "BreizhCamp" // won't compile
 ----
 
 

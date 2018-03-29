@@ -1,0 +1,72 @@
+.listingblock .content .highlight .hljs {
+  display: block;
+  overflow-x: auto;
+  padding: 0.5em;
+  background: white;
+  color: black;
+  font-size: 1.1em
+}
+
+.listingblock .content .highlight .hljs-comment,
+.listingblock .content .highlight .hljs-quote,
+.listingblock .content .highlight .hljs-variable {
+  color: #008000;
+}
+
+.listingblock .content .highlight .hljs-keyword,
+.listingblock .content .highlight .hljs-selector-tag,
+.listingblock .content .highlight .hljs-built_in,
+.listingblock .content .highlight .hljs-name,
+.listingblock .content .highlight .hljs-tag {
+  color: #00f;
+  font-weight: bold;
+}
+
+.listingblock .content .highlight .hljs-string,
+.listingblock .content .highlight .hljs-title,
+.listingblock .content .highlight .hljs-section,
+.listingblock .content .highlight .hljs-attribute,
+.listingblock .content .highlight .hljs-literal,
+.listingblock .content .highlight .hljs-template-tag,
+.listingblock .content .highlight .hljs-template-variable,
+.listingblock .content .highlight .hljs-type,
+.listingblock .content .highlight .hljs-addition {
+  color: #a31515;
+}
+
+.listingblock .content .highlight .hljs-literal,
+.listingblock .content .highlight .hljs-title,
+.listingblock .content .highlight .hljs-type,
+.listingblock .content .highlight .hljs-subst {
+  font-weight: bold;
+}
+
+.listingblock .content .highlight .hljs-deletion,
+.listingblock .content .highlight .hljs-selector-attr,
+.listingblock .content .highlight .hljs-selector-pseudo,
+.listingblock .content .highlight .hljs-meta {
+  color: #2b91af;
+}
+
+.listingblock .content .highlight .hljs-doctag {
+  color: #808080;
+}
+
+.listingblock .content .highlight .hljs-attr {
+  color: #f00;
+}
+
+.listingblock .content .highlight .hljs-symbol,
+.listingblock .content .highlight .hljs-bullet,
+.listingblock .content .highlight .hljs-link {
+  color: #00b0e8;
+}
+
+
+.listingblock .content .highlight .hljs-emphasis {
+  font-style: italic;
+}
+
+.listingblock .content .highlight .hljs-strong {
+  font-weight: bold;
+}
