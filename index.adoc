@@ -687,6 +687,8 @@ Le polyfill du Java dans Kotlin
 --
 * provient de C#
 * permet d'étendre un type sans modifier la classe de départ
+* ne permet pas la surcharge des méthodes déclarés dans une classe ou une interface
+* on doit les importer comme les fonctions de premier niveau
 --
 
 
