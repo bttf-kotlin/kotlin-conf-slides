@@ -590,18 +590,32 @@ findOrder()?.let { dun(it.customer) }
 
 [source,kotlin,subs="quotes"]
 ----
-when (year) {
-  1985 -> print("Go in the past")
-  1955 -> findDoc()
-  2015, 2016 -> wearCoolShoes()
-  in 2018..2030 -> useKotlin()
-  nomDeZeus() -> print("Personne ne me dit que j'ai les foies")
-  is String -> print(year)
+val currentAction = when (year) {
+  1985 -> "On the parking lot with Doc and Marty"
+  1955 -> "Marty in the past"
+  2015, 2030 -> "Marty in the futur"
+  in 2011..2018 -> "Marty in the BreizhCamp"
   else -> {
     print("Qui t'appelles « banane », banane ?")
   }
 }
 ----
+
+=== WHEN
+
+// Adrien
+
+[source,kotlin,subs="quotes"]
+----
+when {
+  isGeorgeWantToDateLorraine() -> scareHimWithADarkVadorVoice()
+  !isTheCityHallClockSettedUp() -> findDoc()
+  isDeloreanFullyCharged(delorean) -> travel()
+}
+
+
+
+// BZH
 
 === TRY CATCH
 

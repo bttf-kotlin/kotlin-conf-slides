@@ -199,16 +199,18 @@ val speakerForBreizhCamp = if (marty.isNotInThePast()) {
 <aside class="notes"><div class="ulist"><ul><li><p>expression &#8658; renvoit une valeur</p></li><li><p>remplace l&#8217;opérateur ternaire</p></li><li><p>derniere expression = valeur renvoyée</p></li></ul></div></aside></section><section id="elvis_operator"><h2>ELVIS OPERATOR</h2><div class="listingblock"><div class="content"><pre class="highlight"><code data-noescape class="kotlin language-kotlin">val city = user?.address?
   .city ?: throw IllegalArgumentException("Invalid User")</code></pre></div></div>
 <div class="listingblock"><div class="content"><pre class="highlight"><code data-noescape class="kotlin language-kotlin">findOrder()?.let { dun(it.customer) }</code></pre></div></div>
-<aside class="notes"><div class="ulist"><ul><li><p>simplification du null check</p></li><li><p>invocation du reste du code que si pas null</p></li></ul></div></aside></section><section id="when"><h2>WHEN</h2><div class="listingblock"><div class="content"><pre class="highlight"><code data-noescape class="kotlin language-kotlin">when (year) {
-  1985 -> print("Go in the past")
-  1955 -> findDoc()
-  2015, 2016 -> wearCoolShoes()
-  in 2018..2030 -> useKotlin()
-  nomDeZeus() -> print("Personne ne me dit que j'ai les foies")
-  is String -> print(year)
+<aside class="notes"><div class="ulist"><ul><li><p>simplification du null check</p></li><li><p>invocation du reste du code que si pas null</p></li></ul></div></aside></section><section id="when"><h2>WHEN</h2><div class="listingblock"><div class="content"><pre class="highlight"><code data-noescape class="kotlin language-kotlin">val currentAction = when (year) {
+  1985 -> "On the parking lot with Doc and Marty"
+  1955 -> "Marty in the past"
+  2015, 2030 -> "Marty in the futur"
+  in 2011..2018 -> "Marty in the BreizhCamp"
   else -> {
     print("Qui t'appelles « banane », banane ?")
   }
+}</code></pre></div></div></section><section id="when_2"><h2>WHEN</h2><div class="listingblock"><div class="content"><pre class="highlight"><code data-noescape class="kotlin language-kotlin">when {
+  isGeorgeWantToDateLorraine() -> scareHimWithADarkVadorVoice()
+  !isTheCityHallClockSettedUp() -> findDoc()
+  isDeloreanFullyCharged(delorean) -> travel()
 }</code></pre></div></div></section><section id="try_catch"><h2>TRY CATCH</h2><div class="listingblock"><div class="content"><pre class="highlight"><code data-noescape class="kotlin language-kotlin">val answer: Int = try {
   parseInt(input)
 }
