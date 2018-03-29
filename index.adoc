@@ -158,6 +158,7 @@ val quote: String = "Allô ? Allô ?"
 
 
 
+
 //
 ----
 
@@ -209,7 +210,7 @@ Peut être initialisé plus tard.
 val versions: Array<Int> = arrayOf(1, 2, 4)
 versions[2] = 3
 
-val sentence = "Il y a ${versions.size} films. Le dernier est le ${versions[versions.size - 1]}."
+val sentence = "Il y a ${versions[versions.size - 1]} films."
 print(sentence)
 ----
 
@@ -217,6 +218,7 @@ print(sentence)
 --
 * Génériques
 * get/set => []
+** redefinition du get / set
 --
 
 
@@ -398,6 +400,8 @@ fun buildMessage(
 [source,kotlin]
 ----
 val message = buildMessage("Christopher Lloyd", true, false)
+
+// On ne sait jamais, peut-être qu'on se rencontrera un jour futur.
 ----
 
 
@@ -405,7 +409,9 @@ val message = buildMessage("Christopher Lloyd", true, false)
 
 [source,kotlin]
 ----
-val messageWithNamedArguments = buildMessage("Christopher Lloyd", withEmoji = false, upper = true)
+val messageWithNamedArguments = buildMessage("Christopher Lloyd", 
+  withEmoji = false, 
+  upper = true)
 ----
 
 === LAMBDA / IT
@@ -819,7 +825,8 @@ En mathématiques et en informatique, les fonctions d'ordre supérieur ou foncti
 
 [source,kotlin]
 ----
-fun goTo(destination: String): (String) -> Unit = { speaker -> println("${speaker} va à la ${destination}") }
+fun goTo(destination: String): (String) -> Unit 
+  = { speaker -> println("${speaker} va à la ${destination}") }
 
 
 
@@ -832,7 +839,8 @@ fun goTo(destination: String): (String) -> Unit = { speaker -> println("${speake
 
 [source,kotlin]
 ----
-fun goTo(destination: String): (String) -> Unit = { speaker -> println("${speaker} va à la ${destination}") }
+fun goTo(destination: String): (String) -> Unit 
+  = { speaker -> println("${speaker} va à la ${destination}") }
 
 val goToPlage = goTo("plage de Treac’h er Goured")
 
