@@ -32,7 +32,7 @@ _Marty recherche Doc et avance au slide suivant_ :D
 
 == PREVIOUSLY&nbsp;ON&nbsp;BREIZHCAMP
 
-[actor-role]#Doc# est parti quelques années dans le passé pour comprendre comment on développait des applications `Java`.
+[actor-role]#Doc# est parti quelques années dans le futur pour comprendre comment on développait des applications `Java`.
 
 [NOTE.speaker]
 --
