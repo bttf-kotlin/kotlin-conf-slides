@@ -1,0 +1,536 @@
+// Theme
+:revealjs_customtheme: css/theme/bttf.css
+
+:revealjs_slideNumber: true
+//:revealjsdir: https://cdnjs.cloudflare.com/ajax/libs/reveal.js/3.6.0
+
+:revealjs_width: "100%"
+:revealjs_height: "100%"
+:revealjs_margin: 0
+:revealjs_minScale: 1
+:revealjs_maxScale: 1
+
+:revealjs_transition: fade
+
+:source-highlighter: highlightjs
+:highlightjs-theme: ./css/highlight-styles/vs-bttf.css
+
+
+:imagesdir: images
+:title-slide-transition: zoom
+:title-slide-transition-speed: fast
+
+
+= JUG < : [title-left-part]#summer# camp
+
+[transition=zoom]
+== !
+
+[header]#KOTLIN <# [hearder-line]#> LE BACK DU FUTUR#
+
+== STARRING
+
+image::adrien.png[size=contain, role="actor"]
+
+Adrien Pessu as [.actor-role]#Marty#
+
+Freelance
+
+🐦 @adrien_pe
+
+== AND
+
+image::gautier.png[size=contain, role="actor"]
+
+Gautier de Saint Martin Lacaze as [actor-role]#Doc#
+
+Freelance & Nantes JUG Leader
+
+🐦 @darkjabberwock
+
+== INTRODUCTION
+
+image::kotlin-text.svg[size=contain]
+
+[NOTE.speaker]
+--
+* JetBrain
+* Iles
+* 2011
+* Apache2
+* Google -> Mai 2017
+* syntaxe concise, simple sur JVM
+* Pas exhaustif dans notre présentation
+--
+
+== Pré-requis
+
+== Les bases
+
+=== VAL VS VAR
+
+// Adrien
+
+[source,kotlin,subs="quotes"]
+----
+val quote: String = "Allô ? Allô ?"
+
+
+
+
+
+
+//
+----
+
+
+=== VAL VS VAR
+
+// Adrien
+
+[source,kotlin,subs="quotes"]
+----
+val name = "McFly"
+
+var quote: String = ""
+
+quote = """ Allô ? Allô ?
+| Y'a personne au bout du fil ?
+| Faut réfléchir ${name} !
+| Faut réfléchir
+"""
+----
+
+[NOTE.speaker]
+--
+val correspond à une valeur non modifiable.
+Doit être initialisée lors de la déclaration.
+
+var peut varier.
+Peut être initialisé plus tard.
+--
+
+=== CLASS
+
+// Adrien
+
+[source,kotlin,subs="quotes"]
+----
+class UserServices(val name: String, val age: Int) {
+  var credentials: Credentials;
+  fun getUsers()...
+}
+
+val userServices = UserServices('Marty', 33)
+----
+
+=== DATA CLASS
+
+// Adrien
+
+[source,kotlin,subs="quotes"]
+----
+data class User(var name: String, var age: Int)
+----
+
+[NOTE.speaker]
+--
+pas besoin de lombock
+--
+
+=== DATA CLASS
+
+// adrien
+
+[source,kotlin,subs="quotes"]
+----
+people.copy(age = 32)
+----
+
+
+=== Exercice 0
+
+
+[source,kotlin,subs="quotes"]
+----
+git checkout step0
+----
+
+Est ce que votre projet compile? Pourquoi?
+
+
+=== DÉCLARATION FONCTIONS
+
+// Gautier
+
+[source,kotlin,subs="quotes"]
+----
+fun speakerName(name: String, firstname: String) : String {
+    return "${name} ${firstname}"
+}
+----
+
+[NOTE.speaker]
+--
+* fun
+* globale / locale
+* déclaration paramètre
+* type retour
+** Unit si pas de retour
+--
+
+
+=== DÉCLARATION FONCTIONS
+
+// Gautier
+
+[source,kotlin,subs="quotes"]
+----
+fun speakerNameInline(name: String, firstname: String) = "${name} ${firstname}"
+
+// - 2.21 Gigowatts !! 2.21 Gigowatts !! Mon dieu !
+----
+
+[NOTE.speaker]
+--
+* inline
+* type retour optionnel
+--
+
+
+=== Exercice 1
+
+
+----
+git checkout step1
+----
+
+Dans cet exercice, nous allons filter automatiquement les événements qui n’ont pas de date dans notre source de données.
+
+Pour cela, accéder à la classe EventUtil et ajouter un filtre sur le retour de la méthode prettier.
+
+Pensez à vous aider des tests unitaires présents dans ``EventUtilTest.kt``.
+
+== fun
+
+=== PARAMETRE NOMMÉ
+
+
+[source,kotlin]
+----
+fun buildMessage(
+        name: String,
+        upper: Boolean,
+        withEmoji: Boolean
+): String {
+
+ // ...
+
+}
+----
+
+
+=== PARAMETRE NOMMÉ
+
+[source,kotlin]
+----
+val message = buildMessage("Christopher Lloyd", true, false)
+----
+
+
+=== PARAMETRE NOMMÉ
+
+[source,kotlin]
+----
+val messageWithNamedArguments = buildMessage("Christopher Lloyd", withEmoji = false, upper = true)
+----
+
+=== PARAMETRE FACULTATIF
+
+// Gautier
+
+[source,kotlin,subs="quotes"]
+----
+fun printHello(name: String?): Unit {
+  if (name != null)
+    println("Hello ${name}")
+  else
+   println("Hi there!")
+}
+----
+
+=== VALEUR PAR DÉFAUT
+
+// Gautier
+
+[source,kotlin,subs="quotes"]
+----
+fun printMessage(name: String = "pineau"): Unit {
+    println("Au SummerCamp on aime le ${name} !")
+}
+
+fun main(args: Array<String>) {
+    printMessage()       // Au JUG SummerCamp on aime le pineau !
+    printMessage("sel")  // Au JUG SummerCamp on aime le sel !
+}
+----
+
+=== IMMUTABILITÉ
+
+// Gautier
+
+[source,kotlin]
+----
+data class Speaker (val name: String, val location: String)
+
+val marty = Speaker("Marty", "Hill Valley")
+
+val martyAuSummerCamp = marty.copy(location = "SummerCamp")
+----
+
+=== Exercice 2 
+----
+git checkout step2
+----
+
+Modifier la méthode prettier pour remplacer chaque chiffre par son équivalent en chaîne de charactères en utilisant le tableau ``unitsString`` déjà disponible.
+
+Il n’y a pas qu’une seule solution.
+
+Pensez à vous aider des tests unitaires présents dans ``EventUtilText.kt``.
+
+== kTor
+
+=== Qu'est ce que kTor ?
+
+[NOTE.speaker]
+--
+framework web (servlet + API) en Kotlin, Asynchrone avec les koroutines, extension avec DSL kotlin
+--
+
+=== Exercice 3
+----
+git checkout step3
+----
+Nous avons ajouté kTor (Voir build.gradle et Main.kt)
+
+Ajouter un point d’entré REST pour afficher notre liste.
+
+== Flow control
+
+=== RANGE
+
+// Adrien
+
+[source,kotlin]
+----
+if (i in 1..3) {
+  println("""Retour vers le futur ${i}""")
+}
+
+for (i in IntRange(1, 3)) {
+  println("""Retour vers le futur ${i}""")
+}
+----
+
+
+=== RANGE
+
+// Adrien
+
+[source,kotlin]
+----
+for (i in 1..4 step 2) {
+  println("""Retour vers le futur ${i}""")
+}
+
+for (i in 4 downTo 1 step 2) {
+  println("""Retour vers le futur ${i}""")
+}
+----
+
+=== WHEN
+
+// Adrien
+
+[source,kotlin,subs="quotes"]
+----
+val currentAction = when (year) {
+  1985 -> "On the parking lot with Doc and Marty"
+  1955 -> "Marty in the past"
+  2015, 2030 -> "Marty in the futur"
+  in 2011..2018 -> "Marty in the SummerCamp"
+  else -> {
+    print("Qui t'appelles « banane », banane ?")
+  }
+}
+----
+
+[NOTE.speaker]
+--
+* filtrage par motif
+--
+
+=== WHEN
+
+// Adrien
+
+[source,kotlin,subs="quotes"]
+----
+when {
+  isGeorgeWantToDateLorraine() -> scareHimWithADarkVadorVoice()
+  !isTheCityHallClockSettedUp() -> findDoc()
+  isDeloreanFullyCharged(delorean) -> travel()
+}
+
+
+
+// 17
+----
+
+
+=== Exercice 4
+----
+git checkout step4
+----
+Dans l’exercice 4, nous avons remplacé chaque chiffre de la date par son équivalent en chaîne de charactères. Comme vous pouvez le remarquer ce n’est pas comme cela que l’on doit lire une date.
+
+Nous allons donc modifier notre ``fun prettier`` pour gérer les cas des milliers, des centaines et des dizaines.
+
+Pour vous aider, il y a des tests unitaires dans la classe ``EventUtilTest.kt``.
+
+
+== Gestion de la nullité 
+
+=== IF
+
+[source,kotlin,subs="quotes"]
+----
+val marty = Speaker("Marty")
+val adrien = Speaker("Adrien")
+
+// The program runs some mystic algorithms
+
+val speakerForSummerCamp = if (marty.isNotInThePast()) {
+  print("Choose ${marty.name}")
+  marty
+} else {
+  print("Choose ${adrien.name}")
+  adrien
+}
+----
+
+[NOTE.speaker]
+--
+* expression => renvoit une valeur
+* remplace l'opérateur ternaire
+* derniere expression = valeur renvoyée
+--
+
+=== ELVIS OPERATOR
+
+// Gautier
+
+[source,kotlin,subs="quotes"]
+----
+val city = user?.address?
+  .city ?: throw IllegalArgumentException("Invalid User")
+----
+
+[source,kotlin,subs="quotes"]
+----
+findOrder()?.let { dun(it.customer) }
+----
+
+[NOTE.speaker]
+--
+* simplification du null check
+* invocation du reste du code que si pas null
+--
+
+
+=== EXTENSIONS
+
+// Gautier
+
+Le polyfill du Java dans Kotlin
+
+[NOTE.speaker]
+--
+* provient de C#
+* permet d'étendre un type sans modifier la classe de départ
+--
+
+
+=== EXTENSIONS
+
+[source,kotlin,subs="quotes"]
+----
+open class Humain {
+    fun voyager(destination: String) {
+        print("Voyager ${destination}")
+    }
+}
+
+class Doc : Humain() {
+    fun voyagerDansLeTemps(destination: String, annee: Int) {
+        // ...
+    }
+}
+
+val humain: Humain = Humain()
+humain.voyager("en Charente-Maritime")
+humain.voyagerDansLeTemps("en Charente-Maritime", 1985) // won't compile
+
+val doc: Doc = Doc()
+doc.voyagerDansLeTemps("en Charente-Maritime", 1985)
+
+//Back to the Summer camp
+----
+
+
+=== EXTENSIONS
+
+[source,kotlin,subs="quotes"]
+----
+open class Humain {
+    fun voyager(destination: String) {
+        print("Voyager ${destination}")
+    }
+}
+
+fun Humain.voyagerDansLeTemps(destination: String, annee: Int) {
+
+
+
+}
+
+val humain: Humain = Humain()
+humain.voyager("en Charente-Maritime")
+humain.voyagerDansLeTemps("en Charente-Maritime", 1985)
+
+
+
+
+//Back to la Rochelle
+----
+
+=== Exercice 5
+
+----
+git checkout step5
+----
+
+Modifier la fonction ``prettier`` en extension de la classe java.util.Date.
+
+N’oubliez pas d’exécuter les TU!
+
+
+=== Exercice 6
+
+
+
+Aller dans Menu > Tools > Kotlin > Show Kotlin Bytecode
+
+Ouvrer un de vos fichiers Kotlin et cliquer sur `Decompile' et vous verrez le code convertie de Kotlin vers ByteCode puis vers Java Cet outil est interessant pour les developpeurs connaisant bien Java.
+
