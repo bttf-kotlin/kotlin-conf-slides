@@ -6,3 +6,4 @@ require('asciidoctor-reveal.js');
 var attributes = {'revealjsdir': 'node_modules/reveal.js@'};
 var options = {safe: 'safe', backend: 'revealjs', attributes: attributes};
 asciidoctor.convertFile('index.adoc', options); 
+asciidoctor.convertFile('codelab.adoc', options); 
