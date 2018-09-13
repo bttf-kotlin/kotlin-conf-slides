@@ -63,9 +63,9 @@ image::kotlin-text.svg[size=contain]
 * Pas exhaustif dans notre présentation
 --
 
-== Pré-requis
+== PRÉ-REQUIS
 
-== Les bases
+== LES BASES
 
 === VAL VS VAR
 
@@ -148,7 +148,7 @@ people.copy(age = 32)
 ----
 
 
-=== Exercice 0
+=== EXERCICE 0
 
 
 [source,kotlin,subs="quotes"]
@@ -198,7 +198,7 @@ fun speakerNameInline(name: String, firstname: String) = "${name} ${firstname}"
 --
 
 
-=== Exercice 1
+=== EXERCICE 1
 
 
 ----
@@ -211,7 +211,7 @@ Pour cela, accéder à la classe EventUtil et ajouter un filtre sur le retour de
 
 Pensez à vous aider des tests unitaires présents dans ``EventUtilTest.kt``.
 
-== fun
+== FUN
 
 === PARAMETRE NOMMÉ
 
@@ -288,7 +288,7 @@ val marty = Speaker("Marty", "Hill Valley")
 val martyAuSummerCamp = marty.copy(location = "SummerCamp")
 ----
 
-=== Exercice 2 
+=== EXERCICE 2 
 ----
 git checkout step2
 ----
@@ -299,7 +299,7 @@ Il n’y a pas qu’une seule solution.
 
 Pensez à vous aider des tests unitaires présents dans ``EventUtilText.kt``.
 
-== kTor
+== KTOR
 
 === Qu'est ce que kTor ?
 
@@ -308,7 +308,7 @@ Pensez à vous aider des tests unitaires présents dans ``EventUtilText.kt``.
 framework web (servlet + API) en Kotlin, Asynchrone avec les koroutines, extension avec DSL kotlin
 --
 
-=== Exercice 3
+=== EXERCICE 3
 ----
 git checkout step3
 ----
@@ -316,7 +316,7 @@ Nous avons ajouté kTor (Voir build.gradle et Main.kt)
 
 Ajouter un point d’entré REST pour afficher notre liste.
 
-== Flow control
+== FLOW CONTROL
 
 === RANGE
 
