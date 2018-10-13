@@ -21,7 +21,7 @@
 :title-slide-transition-speed: fast
 
 
-= DEVFEST < : [title-left-part]#&nbsp; &nbsp;# NANTES
+= JUG < : [title-left-part]#summer# camp
 
 [transition=zoom]
 == !
@@ -63,7 +63,7 @@ image::kotlin-text.svg[size=contain]
 * Pas exhaustif dans notre présentation
 --
 
-== PRE-REQUIS
+== PRÉ-REQUIS
 
 == LES BASES
 
@@ -144,22 +144,8 @@ pas besoin de lombock
 
 [source,kotlin,subs="quotes"]
 ----
-user.copy(age = 32)
+people.copy(age = 32)
 ----
-
-=== OBJECT CLASS
-
-// Adrien
-
-[source,kotlin,subs="quotes"]
-----
-object class MySingleton
-----
-
-[NOTE.speaker]
---
-Pas de constructeur
---
 
 
 === EXERCICE 0
@@ -173,13 +159,13 @@ git checkout step0
 Est ce que votre projet compile? Pourquoi?
 
 
-=== DECLARATION FONCTIONS
+=== DÉCLARATION FONCTIONS
 
 // Gautier
 
 [source,kotlin,subs="quotes"]
 ----
-fun travelerName(name: String, firstname: String) : String {
+fun speakerName(name: String, firstname: String) : String {
     return "${name} ${firstname}"
 }
 ----
@@ -200,7 +186,7 @@ fun travelerName(name: String, firstname: String) : String {
 
 [source,kotlin,subs="quotes"]
 ----
-fun travelerNameInline(name: String, firstname: String) = "${name} ${firstname}"
+fun speakerNameInline(name: String, firstname: String) = "${name} ${firstname}"
 
 // - 2.21 Gigowatts !! 2.21 Gigowatts !! Mon dieu !
 ----
@@ -227,7 +213,7 @@ Pensez à vous aider des tests unitaires présents dans ``EventUtilTest.kt``.
 
 == FUN
 
-=== PARAMETRE NOMME
+=== PARAMETRE NOMMÉ
 
 
 [source,kotlin]
@@ -244,7 +230,7 @@ fun buildMessage(
 ----
 
 
-=== PARAMETRE NOMME
+=== PARAMETRE NOMMÉ
 
 [source,kotlin]
 ----
@@ -252,7 +238,7 @@ val message = buildMessage("Christopher Lloyd", true, false)
 ----
 
 
-=== PARAMETRE NOMME
+=== PARAMETRE NOMMÉ
 
 [source,kotlin]
 ----
@@ -279,28 +265,56 @@ fun printHello(name: String?): Unit {
 
 [source,kotlin,subs="quotes"]
 ----
-fun printMessage(name: String = "les berlingots"): Unit {
-    println("Au DevFest Nantes, on aime ${name} !")
+fun printMessage(name: String = "pineau"): Unit {
+    println("Au SummerCamp on aime le ${name} !")
 }
 
 fun main(args: Array<String>) {
-    printMessage()       // Au DevFest Nantes, on aime les berlingots !
-    printMessage("le curé nantais")  // Au DevFest Nantes, on aime le curé nantais !
+    printMessage()       // Au JUG SummerCamp on aime le pineau !
+    printMessage("sel")  // Au JUG SummerCamp on aime le sel !
 }
 ----
 
-=== IMMUTABILITE
+=== IMMUTABILITÉ
 
 // Gautier
 
 [source,kotlin]
 ----
-data class Traveler (val name: String, val location: String)
+data class Speaker (val name: String, val location: String)
 
-val marty = Traveler("Marty", "Hill Valley")
+val marty = Speaker("Marty", "Hill Valley")
 
-val martyAuDevFest = marty.copy(location = "Nantes")
+val martyAuSummerCamp = marty.copy(location = "SummerCamp")
 ----
+
+=== EXERCICE 2 
+----
+git checkout step2
+----
+
+Modifier la méthode prettier pour remplacer chaque chiffre par son équivalent en chaîne de charactères en utilisant le tableau ``unitsString`` déjà disponible.
+
+Il n’y a pas qu’une seule solution.
+
+Pensez à vous aider des tests unitaires présents dans ``EventUtilText.kt``.
+
+== KTOR
+
+=== Qu'est ce que kTor ?
+
+[NOTE.speaker]
+--
+framework web (servlet + API) en Kotlin, Asynchrone avec les koroutines, extension avec DSL kotlin
+--
+
+=== EXERCICE 3
+----
+git checkout step3
+----
+Nous avons ajouté kTor (Voir build.gradle et Main.kt)
+
+Ajouter un point d’entré REST pour afficher notre liste.
 
 == FLOW CONTROL
 
@@ -345,7 +359,7 @@ val currentAction = when (year) {
   1985 -> "On the parking lot with Doc and Marty"
   1955 -> "Marty in the past"
   2015, 2030 -> "Marty in the futur"
-  in 2011..2018 -> "Marty speaking at DevFest Nantes"
+  in 2011..2018 -> "Marty in the SummerCamp"
   else -> {
     print("Qui t'appelles « banane », banane ?")
   }
@@ -371,11 +385,22 @@ when {
 
 
 
-// 44
+// 17
 ----
 
 
-== GESTION DE LA NULLITE
+=== Exercice 4
+----
+git checkout step4
+----
+Dans l’exercice 4, nous avons remplacé chaque chiffre de la date par son équivalent en chaîne de charactères. Comme vous pouvez le remarquer ce n’est pas comme cela que l’on doit lire une date.
+
+Nous allons donc modifier notre ``fun prettier`` pour gérer les cas des milliers, des centaines et des dizaines.
+
+Pour vous aider, il y a des tests unitaires dans la classe ``EventUtilTest.kt``.
+
+
+== Gestion de la nullité 
 
 === IF
 
@@ -386,7 +411,7 @@ val adrien = Speaker("Adrien")
 
 // The program runs some mystic algorithms
 
-val speakerForDevFest = if (marty.isNotInThePast()) {
+val speakerForSummerCamp = if (marty.isNotInThePast()) {
   print("Choose ${marty.name}")
   marty
 } else {
@@ -422,97 +447,6 @@ findOrder()?.let { dun(it.customer) }
 * simplification du null check
 * invocation du reste du code que si pas null
 --
-
-=== EXERCICE 2 
-----
-git checkout step2
-----
-
-Modifier la méthode prettier pour remplacer chaque chiffre par son équivalent en chaîne de charactères en utilisant le tableau ``unitsString`` déjà disponible.
-
-Il n’y a pas qu’une seule solution.
-
-Pensez à vous aider des tests unitaires présents dans ``EventUtilText.kt``.
-
-== KTOR
-
-=== QU'EST CE QUE kTor ?
-
-[NOTE.speaker]
---
-framework web (servlet + API) en Kotlin, Asynchrone avec les koroutines, extension avec DSL kotlin
---
-
-=== EXERCICE 3
-----
-git checkout step3
-----
-Nous avons ajouté kTor (Voir build.gradle et Main.kt)
-
-Ajouter un point d’entré REST pour afficher notre liste.
-
-
-
-
-=== OVERLOADING JAVA
-
-//adrien
-
-[source,java,subs="quotes"]
-----
-class TimeTravelService{
-  public RegisterService(final String traveler){
-    this.traveler = traveler;
-    this.isFromBzh = true;
-  }
-  public RegisterService(final String traveler, final String vehicle){
-    this.traveler = traveler;
-    this.vehicle = vehicle;
-    this.isFromBzh = true;
-  }
-  public RegisterService(final String traveler, final String vehicle, final Boolean isFromNantes){
-    this.traveler = traveler;
-    this.vehicle = vehicle;
-    this.isFromNantes = isFromNantes;
-  }
-}
-----
-
-
-=== OVERLOADING KOTLIN
-
-//adrien
-
-[source,kotlin,subs="quotes"]
-----
-class RegisterService(val traveler: String, val vehicle: String?, val isFromNantes = true)
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-// BZH
-----
-
-
-=== Exercice 4
-----
-git checkout step4
-----
-Dans l’exercice 4, nous avons remplacé chaque chiffre de la date par son équivalent en chaîne de charactères. Comme vous pouvez le remarquer ce n’est pas comme cela que l’on doit lire une date.
-
-Nous allons donc modifier notre ``fun prettier`` pour gérer les cas des milliers, des centaines et des dizaines.
-
-Pour vous aider, il y a des tests unitaires dans la classe ``EventUtilTest.kt``.
 
 
 === EXTENSIONS
@@ -578,10 +512,10 @@ humain.voyagerDansLeTemps("en Charente-Maritime", 1985)
 
 
 
-//Back to Nantes
+//Back to la Rochelle
 ----
 
-=== EXERCICE 5
+=== Exercice 5
 
 ----
 git checkout step5
@@ -592,7 +526,7 @@ Modifier la fonction ``prettier`` en extension de la classe java.util.Date.
 N’oubliez pas d’exécuter les TU!
 
 
-=== EXERCICE 6
+=== Exercice 6
 
 
 
