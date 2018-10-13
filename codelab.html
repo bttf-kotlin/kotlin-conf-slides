@@ -130,12 +130,12 @@ val speakerForDevFest = if (marty.isNotInThePast()) {
 <div class="paragraph"><p>Ajouter un point d’entré REST pour afficher notre liste.</p></div></section><section id="overloading_java"><h2>OVERLOADING JAVA</h2><div class="listingblock"><div class="content"><pre class="highlight"><code data-noescape class="java language-java">class TimeTravelService{
   public RegisterService(final String traveler){
     this.traveler = traveler;
-    this.isFromBzh = true;
+    this.isFromNantes = true;
   }
   public RegisterService(final String traveler, final String vehicle){
     this.traveler = traveler;
     this.vehicle = vehicle;
-    this.isFromBzh = true;
+    this.isFromNantes = true;
   }
   public RegisterService(final String traveler, final String vehicle, final Boolean isFromNantes){
     this.traveler = traveler;
@@ -157,7 +157,7 @@ val speakerForDevFest = if (marty.isNotInThePast()) {
 
 
 
-// BZH</code></pre></div></div></section><section id="exercice_4"><h2>Exercice 4</h2><div class="listingblock"><div class="content"><pre class="highlight"><code data-noescape>git checkout step4</code></pre></div></div>
+// NAONED</code></pre></div></div></section><section id="exercice_4"><h2>Exercice 4</h2><div class="listingblock"><div class="content"><pre class="highlight"><code data-noescape>git checkout step4</code></pre></div></div>
 <div class="paragraph"><p>Dans l’exercice 4, nous avons remplacé chaque chiffre de la date par son équivalent en chaîne de charactères. Comme vous pouvez le remarquer ce n’est pas comme cela que l’on doit lire une date.</p></div>
 <div class="paragraph"><p>Nous allons donc modifier notre <code>fun prettier</code> pour gérer les cas des milliers, des centaines et des dizaines.</p></div>
 <div class="paragraph"><p>Pour vous aider, il y a des tests unitaires dans la classe <code>EventUtilTest.kt</code>.</p></div></section><section id="extensions"><h2>EXTENSIONS</h2><div class="paragraph"><p>Le polyfill du Java dans Kotlin</p></div>

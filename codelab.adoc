@@ -463,12 +463,12 @@ Ajouter un point d’entré REST pour afficher notre liste.
 class TimeTravelService{
   public RegisterService(final String traveler){
     this.traveler = traveler;
-    this.isFromBzh = true;
+    this.isFromNantes = true;
   }
   public RegisterService(final String traveler, final String vehicle){
     this.traveler = traveler;
     this.vehicle = vehicle;
-    this.isFromBzh = true;
+    this.isFromNantes = true;
   }
   public RegisterService(final String traveler, final String vehicle, final Boolean isFromNantes){
     this.traveler = traveler;
@@ -500,7 +500,7 @@ class RegisterService(val traveler: String, val vehicle: String?, val isFromNant
 
 
 
-// BZH
+// NAONED
 ----
 
 
