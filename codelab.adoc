@@ -545,11 +545,11 @@ class Doc : Humain() {
 }
 
 val humain: Humain = Humain()
-humain.voyager("en Charente-Maritime")
-humain.voyagerDansLeTemps("en Charente-Maritime", 1985) // won't compile
+humain.voyager("en Loire-atlantique")
+humain.voyagerDansLeTemps("en Loire-Atlantique", 1985) // won't compile
 
 val doc: Doc = Doc()
-doc.voyagerDansLeTemps("en Charente-Maritime", 1985)
+doc.voyagerDansLeTemps("en Loire-Atlantique", 1985)
 
 //Back to the Summer camp
 ----
@@ -572,8 +572,8 @@ fun Humain.voyagerDansLeTemps(destination: String, annee: Int) {
 }
 
 val humain: Humain = Humain()
-humain.voyager("en Charente-Maritime")
-humain.voyagerDansLeTemps("en Charente-Maritime", 1985)
+humain.voyager("en Loire-Atlantique")
+humain.voyagerDansLeTemps("en Loire-Atlantique", 1985)
 
 
 
