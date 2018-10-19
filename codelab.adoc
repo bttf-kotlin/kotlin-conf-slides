@@ -59,8 +59,11 @@ image::kotlin-text.svg[size=contain]
 * 2011
 * Apache2
 * Google -> Mai 2017
-* syntaxe concise, simple sur JVM
 * Pas exhaustif dans notre présentation
+* github 2.6 x plus de dev en 1 an
+* 40% des 1000 apps les plus dl sur le playstore
+* kotlinConf 2 fois + d'utilisateur tous les mois
+* syntaxe concise, simple sur JVM
 --
 
 == PRE-REQUIS
@@ -135,7 +138,8 @@ data class User(var name: String, var age: Int)
 
 [NOTE.speaker]
 --
-pas besoin de lombock
+* pas besoin de lombock
+* getter setter toString equals
 --
 
 === DATA CLASS
