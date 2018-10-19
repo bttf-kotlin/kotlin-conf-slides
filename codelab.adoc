@@ -440,7 +440,7 @@ Pensez à vous aider des tests unitaires présents dans ``EventUtilText.kt``.
 
 == KTOR
 
-=== QU'EST CE QUE kTor ?
+=== QU'EST CE QUE KTOR ?
 
 [NOTE.speaker]
 --
@@ -508,7 +508,7 @@ class RegisterService(val traveler: String, val vehicle: String?, val isFromNant
 ----
 
 
-=== Exercice 4
+=== EXERCICE 4
 ----
 git checkout step4
 ----
