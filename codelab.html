@@ -12,7 +12,7 @@ document.getElementsByTagName( 'head' )[0].appendChild( link );</script><!--[if 
 <div class="paragraph"><p>Freelance &amp; Nantes JUG Leader</p></div>
 <div class="paragraph"><p>🐦 @darkjabberwock</p></div></section>
 <section id="introduction"><h2>INTRODUCTION</h2><div class="imageblock" style=""><img src="images/kotlin-text.svg" alt="kotlin text"></div>
-<aside class="notes"><div class="ulist"><ul><li><p>JetBrain</p></li><li><p>Iles</p></li><li><p>2011</p></li><li><p>Apache2</p></li><li><p>Google &#8594; Mai 2017</p></li><li><p>syntaxe concise, simple sur JVM</p></li><li><p>Pas exhaustif dans notre présentation</p></li></ul></div></aside></section>
+<aside class="notes"><div class="ulist"><ul><li><p>JetBrain</p></li><li><p>Iles</p></li><li><p>2011</p></li><li><p>Apache2</p></li><li><p>Google &#8594; Mai 2017</p></li><li><p>Pas exhaustif dans notre présentation</p></li><li><p>github 2.6 x plus de dev en 1 an</p></li><li><p>40% des 1000 apps les plus dl sur le playstore</p></li><li><p>kotlinConf 2 fois + d&#8217;utilisateur tous les mois</p></li><li><p>syntaxe concise, simple sur JVM</p></li></ul></div></aside></section>
 <section id="pre_requis"><h2>PRE-REQUIS</h2></section>
 <section><section id="les_bases"><h2>LES BASES</h2></section><section id="val_vs_var"><h2>VAL VS VAR</h2><div class="listingblock"><div class="content"><pre class="highlight"><code data-noescape class="kotlin language-kotlin">val quote: String = "Allô ? Allô ?"
 
@@ -39,7 +39,7 @@ Peut être initialisé plus tard.</p></div></aside></section><section id="class"
 }
 
 val userServices = UserServices('Marty', 33)</code></pre></div></div></section><section id="data_class"><h2>DATA CLASS</h2><div class="listingblock"><div class="content"><pre class="highlight"><code data-noescape class="kotlin language-kotlin">data class User(var name: String, var age: Int)</code></pre></div></div>
-<aside class="notes"><div class="paragraph"><p>pas besoin de lombock</p></div></aside></section><section id="data_class_2"><h2>DATA CLASS</h2><div class="listingblock"><div class="content"><pre class="highlight"><code data-noescape class="kotlin language-kotlin">user.copy(age = 32)</code></pre></div></div></section><section id="object_class"><h2>OBJECT CLASS</h2><div class="listingblock"><div class="content"><pre class="highlight"><code data-noescape class="kotlin language-kotlin">object class MySingleton</code></pre></div></div>
+<aside class="notes"><div class="ulist"><ul><li><p>pas besoin de lombock</p></li><li><p>getter setter toString equals</p></li></ul></div></aside></section><section id="data_class_2"><h2>DATA CLASS</h2><div class="listingblock"><div class="content"><pre class="highlight"><code data-noescape class="kotlin language-kotlin">user.copy(age = 32)</code></pre></div></div></section><section id="object_class"><h2>OBJECT CLASS</h2><div class="listingblock"><div class="content"><pre class="highlight"><code data-noescape class="kotlin language-kotlin">object class MySingleton</code></pre></div></div>
 <aside class="notes"><div class="paragraph"><p>Pas de constructeur</p></div></aside></section><section id="exercice_0"><h2>EXERCICE 0</h2><div class="listingblock"><div class="content"><pre class="highlight"><code data-noescape class="kotlin language-kotlin">git checkout step0</code></pre></div></div>
 <div class="paragraph"><p>Est ce que votre projet compile? Pourquoi?</p></div></section><section id="declaration_fonctions"><h2>DECLARATION FONCTIONS</h2><div class="listingblock"><div class="content"><pre class="highlight"><code data-noescape class="kotlin language-kotlin">fun travelerName(name: String, firstname: String) : String {
     return "${name} ${firstname}"
@@ -174,11 +174,11 @@ class Doc : Humain() {
 }
 
 val humain: Humain = Humain()
-humain.voyager("en Charente-Maritime")
-humain.voyagerDansLeTemps("en Charente-Maritime", 1985) // won't compile
+humain.voyager("en Loire-atlantique")
+humain.voyagerDansLeTemps("en Loire-Atlantique", 1985) // won't compile
 
 val doc: Doc = Doc()
-doc.voyagerDansLeTemps("en Charente-Maritime", 1985)
+doc.voyagerDansLeTemps("en Loire-Atlantique", 1985)
 
 //Back to the Summer camp</code></pre></div></div></section><section id="extensions_3"><h2>EXTENSIONS</h2><div class="listingblock"><div class="content"><pre class="highlight"><code data-noescape class="kotlin language-kotlin">open class Humain {
     fun voyager(destination: String) {
@@ -193,8 +193,8 @@ fun Humain.voyagerDansLeTemps(destination: String, annee: Int) {
 }
 
 val humain: Humain = Humain()
-humain.voyager("en Charente-Maritime")
-humain.voyagerDansLeTemps("en Charente-Maritime", 1985)
+humain.voyager("en Loire-Atlantique")
+humain.voyagerDansLeTemps("en Loire-Atlantique", 1985)
 
 
 
